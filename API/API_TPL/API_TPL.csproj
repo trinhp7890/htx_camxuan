@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -239,12 +240,14 @@
     <Compile Include="Controllers\Congviec\CongviecController.cs" />
     <Compile Include="Controllers\Congviec\ThongbaoController.cs" />
     <Compile Include="Controllers\Congviec\ThaoluanController.cs" />
+    <Compile Include="Controllers\Danhmuc\PhanxuongController.cs" />
     <Compile Include="Controllers\Danhmuc\DonviController.cs" />
     <Compile Include="Controllers\Danhmuc\DuanController.cs" />
     <Compile Include="Controllers\UPLOAD\AmthanhController.cs" />
     <Compile Include="Controllers\UPLOAD\AnhController.cs" />
     <Compile Include="Controllers\UPLOAD\UploadController.cs" />
     <Compile Include="DAL\ApiHelpers.cs" />
+    <Compile Include="DAL\SQL_DBHelper.cs" />
     <Compile Include="DAL\DBHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -293,6 +296,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Images\" />
+    <Folder Include="Views\DM_Phanxuong\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
