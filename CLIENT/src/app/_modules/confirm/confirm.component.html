@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+      <img src="../../../../assets/images/modal-icon.png" alt="ico"> {{title}}
+    </h4>
+</div>
+<div class="modal-body text-center">
+  <p>{{prompt}}</p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-sm btn-primary" (click)="confirm()"><i class="fa fa-check"></i> {{okText}}</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="decline()">{{cancelText}}</button>
+</div>

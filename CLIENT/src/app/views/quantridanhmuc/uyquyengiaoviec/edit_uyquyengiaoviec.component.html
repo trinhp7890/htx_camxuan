@@ -1,0 +1,79 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">      
+        <div class="col-sm-12">
+
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Đơn vị người ủy quyền:">
+                <label class="disabled">Đơn vị người ủy quyền: <span class="required"></span></label>                
+                <ng-select bindLabel="name" formControlName="donviuyquyen" placeholder="Đơn vị người ủy quyền" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="donviuyquyen_select"         (change)="change_donvisuyquyen()"         >
+                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.ten_dv
+                    }}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>            
+            <div class="col-sm-6">
+              <div class="float-input" title="Người ủy quyền">
+                <label class="disabled">Người ủy quyền <span class="required"></span></label>                
+                <ng-select bindLabel="name" formControlName="nguoiuyquyen" placeholder="Người ủy quyền" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="nguoiuyquyen_select">
+                  <ng-option [value]="item.ma_nv" [disabled]="item.disabled" *ngFor="let item of datanguoiuyquyen">
+                    <img src="{{serviceBase}}/{{item.duongdan_file}}/{{item.ten_file}}"
+                      onerror="this.src='../../../../assets/images/icon_account.png';" class="img-icon-nhanvien" />
+                    {{item.ten_nd}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div> 
+          </div>          
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Đơn vị người được ủy quyền:">
+                <label class="disabled">Đơn vị người được ủy quyền: <span class="required"></span></label>                
+                <ng-select bindLabel="name" formControlName="donviduocuyquyen" placeholder="Đơn vị người được ủy quyền" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="donviduocuyquyen_select"       (change)="change_donvisduocuyquyen()"           >
+                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.ten_dv
+                    }}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>            
+            <div class="col-sm-6">
+              <div class="float-input" title="Người được ủy quyền">
+                <label class="disabled">Người được ủy quyền <span class="required"></span></label>                
+                <ng-select bindLabel="name" formControlName="nguoiduocuyquyen" placeholder="Người được ủy quyền" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="nguoiduocuyquyen_select">
+                  <ng-option [value]="item.ma_nv" [disabled]="item.disabled" *ngFor="let item of datanguoiduocuyquyen">
+                    <img src="{{serviceBase}}/{{item.duongdan_file}}/{{item.ten_file}}"
+                      onerror="this.src='../../../../assets/images/icon_account.png';" class="img-icon-nhanvien" />
+                    {{item.ten_nd}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>

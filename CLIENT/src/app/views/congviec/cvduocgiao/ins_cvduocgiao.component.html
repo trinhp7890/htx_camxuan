@@ -1,0 +1,165 @@
+<!-- <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;"  class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div id="grid-result" class="body">
+
+    </div>
+  </div> -->
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Tên công việc">
+                <label class="disabled">Tên công việc: <span class="required"></span></label>
+                <input type="text" formControlName="tencongviec" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Nội dung thực hiện">
+                <label class="disabled">Nội dung thực hiện<span class="required"></span></label>
+                <textarea type="text" formControlName="ten_goikhac" class="form-control noidungcongviec"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Văn bản liên quan">
+                <label class="disabled">Văn bản liên quan<span class="required"></span></label>
+                <input type="text" formControlName="tencongviec" class="form-control" />
+                <a (click)="attachfile()" style="position: absolute; z-index: 9; top: 4px; right: 5px;"><i
+                    class="fa fa-file-text-o" style="color: #17b799; font-size: 25px;"></i> </a>
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Trích yếu văn bản">
+                <label class="disabled">Trích yếu văn bản<span class="required"></span></label>
+                <textarea type="text" formControlName="ten_goikhac" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+          <!-- Giao thay -->
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Giao việc thay cho người đã ủy quyền">
+                <label class="disabled">Giao việc thay</label>
+                <input type="checkbox" value="{{giaothay}}" [(ngModel)]="giaothay"
+                [ngModelOptions]="{standalone: true}" (change)="onCheckboxChange($event)" >                
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Người giao việc">
+                <label class="disabled">Người giao việc</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguoigiaoviec" placeholder="Người giao việc" appendTo="body"
+                   [searchable]="true" [clearable]="true" [(ngModel)]="nguoigiaoviec_select">
+                  <ng-option [value]="item.id" [disabled]="item.disabled" *ngFor="let item of dsuyquyens">
+                    <img src="../../../../assets/images/icon_account.png" width="20px" height="20px" />
+                    {{item.name}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <!-- Chủ trì -->
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Đơn vị chủ trì">
+                <label class="disabled">Đơn vị chủ trì</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="donvichutri" placeholder="Người thực hiện" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="donvichutri_select">
+                  <ng-option [value]="item.id" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.name}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Người chủ trì">
+                <label class="disabled">Người chủ trì</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguoichutri" placeholder="Người chủ trì" appendTo="body"
+                   [searchable]="true" [clearable]="true" [(ngModel)]="nguoichutri_select">
+                  <ng-option [value]="item.id" [disabled]="item.disabled" *ngFor="let item of dataitems">
+                    <img src="../../../../assets/images/icon_account.png" width="20px" height="20px" />
+                    {{item.name}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <!-- Phối hợp -->
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Đơn vị phối hợp">
+                <label class="disabled">Đơn vị phối hợp</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="donviphoihop" placeholder="Người thực hiện" appendTo="body"
+                multiple="true"  [searchable]="true" [clearable]="true" [(ngModel)]="donviphoihop_select">
+                  <ng-option [value]="item.id" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.svg" width="20px" height="20px" />
+                    {{item.name}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="float-input" title="Người phối hợp">
+                <label class="disabled">Người phối hợp</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguoiphoihop" placeholder="Người thực hiện" appendTo="body"
+                  multiple="true" [searchable]="true" [clearable]="true" [(ngModel)]="nguoiphoihops_select">
+                  <ng-option [value]="item.id" [disabled]="item.disabled" *ngFor="let item of dataitems">
+                    <img src="../../../../assets/images/icon_account.png" width="20px" height="20px" />
+                    {{item.name}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Ngày bắt đầu">
+                <label class="disabled">Ngày bắt đầu</label>
+                <input type="date" formControlName="tencongviec" class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Ngày kết thúc">
+                <label class="disabled">Ngày kết thúc</label>
+                <input type="date" formControlName="tencongviec" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>

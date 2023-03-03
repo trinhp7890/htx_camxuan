@@ -1,0 +1,64 @@
+#cssTable 
+{
+  text-align: center; 
+  vertical-align: middle;
+}
+.table-bordered {
+  border-color: #000;
+}    
+.table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+  border: 1px solid #000;
+}
+table {
+    border-collapse: collapse;
+}
+.table-bordered > thead > tr > th {
+    padding-top: 2px;
+    vertical-align: bottom;
+    transition: all ease-in-out 0.3s;
+}
+.table td, .table th {    
+    border: 1px solid #000;
+}
+.table-bordered>tbody>tr>td, 
+.table-bordered>tbody>tr>th, 
+.table-bordered>tfoot>tr>td, 
+.table-bordered>tfoot>tr>th, 
+.table-bordered>thead>tr>td, 
+.table-bordered>thead>tr>th { border-left-color:#000 !important; border-right-color:#000  !important;}
+
+.table-bordered > tbody > tr > td.empty {
+  min-height: 30px;
+  line-height: 30px;
+}
+
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+  border-color: #000;
+  padding: 8px;
+}
+.rotate {
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+.align-bottom {
+  vertical-align: bottom;
+}
+.be-fixed-sidebar .be-left-sidebar {
+  display:none;
+}
+[fixed=true] {
+  display:none;
+}
+.fixed-bottom, .fixed-top {
+  display:none;
+}
+.be-content {
+  margin-left:0;
+}
+.panel.panel-default .panel-body {
+  min-height: 500px;
+}
+.table-bordered { border: 1px solid #000 !important; }

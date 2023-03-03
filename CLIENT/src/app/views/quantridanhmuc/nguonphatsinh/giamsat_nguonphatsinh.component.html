@@ -1,0 +1,400 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body" id="dashboard">
+    <div class="clearfix">
+      <div class="row">
+        <div class="col-sm-12 nhansu-detail">
+          <div class="row">            
+          </div>
+          <div class="row">           
+            <div class="col-sm-6">
+              <h4 class="ng-binding color-green"><strong>Thông tin nhân sự</strong>
+              </h4>           
+            <div class="col-sm-6" style="text-align: center;">
+              <img class="img-nhansu" src="{{serviceBase}}/{{data.duongdan_file}}/{{data.ten_file}}"
+                onerror="this.src='../../../../assets/images/icon_account.png';" />
+            </div>
+            <div class="col-sm-6">
+              <div class="nhansu-detail-giamsat">
+                <p class="nhansu-name">{{data.ten_nd}}</p>
+                <p> <i *ngIf="data.active == 1" style="margin-right: 5px; color: chartreuse;" class="fa fa-circle"></i>
+                  <i *ngIf="data.active != 1" style="margin-right: 5px; color: red;" class="fa fa-circle"></i>
+                  {{data.ma_nv}}
+                </p>
+                <p> <i style="margin-right: 5px;" class="fa fa-address-card"></i> {{data.chucdanh}}</p>
+                <p> <i style="margin-right: 5px;" class="fa fa-phone-square"></i> {{data.so_dt}}</p>
+                <p> <i style="margin-right: 5px; " class="fa fa-university"></i> {{data.ten_dv}}</p>
+                <p> <i style="margin-right: 5px; color: coral;" class="fa fa-envelope"></i>{{data.email}}</p>
+              </div>
+            </div>
+          </div>
+            <div class="col-sm-6">
+              <h4 class="ng-binding color-blue"><strong>Tổng quan công việc</strong>
+              </h4>
+              <div class='col-sm-6'>
+                <div class="sum-box info">
+                  <h2>130</h2>
+                  <h4>Tổng số</h4>
+                  <h5>NỘI DUNG 1</h5>
+                </div>
+              </div>
+              <div class='col-sm-6'>
+                <div class="sum-box orange">
+                  <h2>65</h2>
+                  <h4>Quá hạn </h4>
+                  <h5>NỘI DUNG 4</h5>
+                </div>
+              </div>
+              <div class='col-sm-6'>
+                <div class="sum-box yellow">
+                  <h2>5</h2>
+                  <h4>Chưa thực hiện</h4>
+                  <h5>NỘI DUNG 6</h5>
+                </div>
+              </div>
+              <div class='col-sm-6'>
+                <div class="sum-box green">
+                  <h2>70</h2>
+                  <h4>Hoàn thành</h4>
+                  <h5>NỘI DUNG 7</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class='row sum-boxes not-min'>            
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default sbox">
+                <div class="panel-body card-body text-left pd-0">
+                  <h4 class="ng-binding color-orange"><strong>Cảnh báo công việc quá hạn</strong>
+                  </h4>
+                  <div class="clearfix">
+                    <div id="grid-result" class="body">
+                      <div class="hr-grid table-responsive">
+                        <table class="table table-sm">
+                          <thead>
+                            <tr>
+                              <th class="w35 center">Tên công việc</th>
+                              <th class="w99 center">Đơn vị chủ trì</th>
+                              <th class="w99 center">Người chủ trì</th>
+                              <th class="w35 center">Bắt đầu dự kiến</th>
+                              <th class="w35 center">Kết thúc dự kiến</th>
+                              <th class="w35 center">Số ngày quá hạn</th>
+                              <th class="w35 center">Tiến độ</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="bold">Quản lí công việc</td>
+                              <td class="bold">Trung tâm CNTT</td>
+                              <td class="bold">Bùi Hương Đông</td>
+                              <td class="center">01/11/2021</td>
+                              <td class="center">31/11/2021</td>
+                              <td class="center">2</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                    <span class="sr-only">70% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Chuyển đổi CSS</td>
+                              <td class="bold">Tổ giải pháp</td>
+                              <td class="bold">Lê Việt Tuấn</td>
+                              <td class="center">01/12/2021</td>
+                              <td class="center">31/12/2021</td>
+                              <td class="center">5</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    <span class="sr-only">100% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Xử phạt hành chính</td>
+                              <td class="bold">Tổ giải pháp</td>
+                              <td class="bold">Trần Sỹ Chung</td>
+                              <td class="center">01/11/2021</td>
+                              <td class="center">31/12/2021</td>
+                              <td class="center">7</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                    <span class="sr-only">60% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="panel panel-default sbox">
+                <div class="panel-body card-body text-left pd-0">
+                  <h4 class="ng-binding color-warning"><strong>Biểu đồ trạng thái công việc chủ trì</strong>
+                  </h4>
+                  <div class="clearfix">
+                    <canvas id="congviec_dagiao" width="1200px" height="500"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel panel-default sbox">
+                <div class="panel-body card-body text-left pd-0">
+                  <h4 class="ng-binding color-blue"><strong>Biểu đồ trạng thái công việc phối hợp</strong>
+                  </h4>
+                  <div class="clearfix">
+                    <canvas id="congviec_duocgiao" width="1200px" height="500"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default sbox">
+                <div class="panel-body card-body text-left pd-0">
+                  <h4 class="ng-binding color-warning"><strong>Danh sách công việc chủ trì</strong>
+                  </h4>
+                  <div class="clearfix">
+                    <div id="grid-result" class="body">
+                      <div class="hr-grid table-responsive">
+                        <table class="table table-sm">
+                          <thead>
+                            <tr>
+                              <th class="w35 center">Tên công việc</th>
+                              <th class="w99 center">Đơn vị chủ trì</th>
+                              <th class="w99 center">Người phối hợp</th>
+                              <th class="w35 center">Bắt đầu dự kiến</th>
+                              <th class="w35 center">Kết thúc dự kiến</th>
+                              <th class="w35 center">Trạng thái</th>
+                              <th class="w35 center">Tiến độ</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="bold">Quản lí công việc</td>
+                              <td class="bold">Trung tâm CNTT</td>
+                              <td class="bold">Bùi Hương Đông</td>
+                              <td class="center">01/11/2021</td>
+                              <td class="center">31/11/2021</td>
+                              <td class="bold center bg_red">Quá hạn</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                    <span class="sr-only">70% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Chuyển đổi CSS</td>
+                              <td class="bold">Tổ giải pháp</td>
+                              <td class="bold">Lê Việt Tuấn</td>
+                              <td class="center">01/12/2021</td>
+                              <td class="center">31/12/2021</td>
+                              <td class="bold center bg_green">Đã hoành thành</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    <span class="sr-only">100% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Xử phạt hành chính</td>
+                              <td class="bold">Tổ giải pháp</td>
+                              <td class="bold">Trần Sỹ Chung</td>
+                              <td class="center">01/11/2021</td>
+                              <td class="center">31/12/2021</td>
+                              <td class="bold">Đang thực hiện</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                    <span class="sr-only">60% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Lập báo cáo, hỗ trợ CSS</td>
+                              <td class="bold">Tổ giải pháp</td>
+                              <td class="bold">Nguyễn Minh Nhật</td>
+                              <td class="center">01/10/2021</td>
+                              <td class="center">31/12/2021</td>
+                              <td class="bold">Đang thực hiện</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+                                    <span class="sr-only">80% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Xây dựng Dashboard VTT</td>
+                              <td class="bold">Tổ giải pháp</td>
+                              <td class="bold">Trần Văn Thi</td>
+                              <td class="center">01/11/2021</td>
+                              <td class="center">31/12/2021</td>
+                              <td class="bold center bg_green">Đã hoàn thành</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    <span class="sr-only">100% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default sbox">
+                <div class="panel-body card-body text-left pd-0">
+                  <h4 class="ng-binding color-blue"><strong>Danh sách công việc phối hợp</strong>
+                  </h4>
+                  <div class="clearfix">
+                    <div id="grid-result" class="body">
+                      <div class="hr-grid table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th class="w100 center">Tên công việc</th>
+                              <th class="w35 center">Người hối hợp</th>
+                              <th class="w35 center">Người giao</th>
+                              <th class="w35 center">Ngày bắt đầu</th>
+                              <th class="w99 center">Ngày kết thúc</th>
+                              <th class="w35 center">Trạng thái</th>
+                              <th class="w35 center">Tỉ lệ hoàn thành</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="bold">Xây dựng công cụ thu tập thông tin hộ gia đình</td>
+                              <td class="bold">Trần Văn Thi</td>
+                              <td class="bold">Lê Ngọc Anh</td>
+                              <td class="center">01/08/2022</td>
+                              <td class="center">15/08/2022</td>
+                              <td class="center bold">Đang thực hiện</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                    <span class="sr-only">60% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Lấy dữ liệu báo cáo thuê bao phát triển mới</td>
+                              <td class="bold">Phan Trình</td>
+                              <td class="bold">Bùi Hương Đông</td>
+                              <td class="center">20/08/2022</td>
+                              <td class="center">25/08/2022</td>
+                              <td class="center bold bg_red">Quá hạn</td>
+                              <td class="center">
+                                 <div class="progress">
+                                  <div class="progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                                    <span class="sr-only">60% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Xây dựng chức năng Up ảnh SAMPA</td>
+                              <td class="bold">Lê Việt Tuấn</td>
+                              <td class="bold">Bùi Hương Đông</td>
+                              <td class="center">20/08/2022</td>
+                              <td class="center">29/08/2022</td>
+                              <td class="center bold bg_green">Đã hoàn thành</td>
+                              <td class="center">
+                                 <div class="progress">
+                                    <div class="progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                      <span class="sr-only">100% Complete</span>
+                                    </div>
+                                  </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Lấy danh sách thuê bao tạm ngưng</td>
+                              <td class="bold">Trần Sỹ Chung</td>
+                              <td class="bold">Bùi Hương Đông</td>
+                              <td class="center">15/08/2022</td>
+                              <td class="center">29/08/2022</td>
+                              <td class="center bold bg_red">Quá hạn</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                    <span class="sr-only">40% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="bold">Tham gia xây dựng chức năng HDĐT</td>
+                              <td class="bold">Trần Khôi Nguyên</td>
+                              <td class="bold">Bùi Hương Đông</td>
+                              <td class="center">01/08/2022</td>
+                              <td class="center">17/08/2022</td>
+                              <td class="center bold bg_green">Đã hoàn thành</td>
+                              <td class="center">
+                                <div class="progress">
+                                  <div class="progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    <span class="sr-only">100% Complete</span>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    
+  </div>
+</form>

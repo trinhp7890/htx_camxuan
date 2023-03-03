@@ -1,0 +1,215 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Tên công việc">
+                <label class="disabled">Tên công việc: <span class="required"></span></label>
+                <input type="text" formControlName="tencongviec" class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="float-input" title="Nguồn phát sinh">
+                <label class="disabled">Nguồn phát sinh <span class="required"></span></label>
+                <!-- <input type="text" formControlName="nguonphatsinh" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguonphatsinh" placeholder="Nguồn phát sinh"
+                  appendTo="body" [searchable]="true" [clearable]="true" [(ngModel)]="nguonphatsinh_select"
+                  (change)="get_nguonphatsinh_file()">
+                  <ng-option [value]="item.ma_nguonphatsinh" *ngFor="let item of danhsachnguonphatsinh">                    
+                    {{item.ten}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="float-input" title="Độ ưu tiên">
+                <label class="disabled">Độ ưu tiên <span class="required"></span></label>
+                <select formControlName="tinhchat" class="form-control" style="height: 31px;">
+                  <option value="0" selected>Thường</option>
+                  <option value="1" selected>Khẩn</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Nội dung thực hiện">
+                <label class="disabled">Nội dung thực hiện<span class="required"></span></label>
+                <textarea type="text" formControlName="noidungcongviec" class="form-control trichyeuvanban"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Văn bản đính kèm">
+                <input id="attachfiles" class="hidden" type="file" (change)="attachfile($event)"
+                  accept=".pdf,.doc*,.xls*" multiple />
+                <label for="attachfiles"
+                  style="position: absolute; z-index: 9; top: 16px; right: 0px;background: none;"><i
+                    class="fa fa-file-text-o" style="color: #17b799; font-size: 25px;"></i> </label>
+
+                <table class="table table-condensed table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-sm-1 title-table-attachfile">STT</th>
+                      <th class="col-sm-7 title-table-attachfile">Văn bản liên quan </th>
+                      <th class="col-sm-1 title-table-attachfile"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let fileat of fileattachs; let i = index">
+                      <td>{{i + 1 }}</td>
+                      <td>{{ fileat.name }}</td>
+                      <td>
+                        <a *ngIf="fileat.size >0 || fileat.loai == 5" href="javascript:void(0);">
+                          <img src="../../../../assets/images/trash_16.png" alt="" (click)="deletefile(fileat,i)" />
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row row-frm">            
+            <div class="col-sm-6">
+              <div class="float-input" title="Trích yếu văn bản">
+                <label class="disabled">Trích yếu văn bản</label>
+                <textarea type="text" formControlName="trichyeu" class="form-control trichyeuvanban"></textarea>
+              </div>
+            </div>
+          </div> -->
+          <!-- Giao thay -->
+          <div class="row row-frm">
+            <div class="col-sm-3">
+              <div class="float-input" title="Ngày bắt đầu">
+                <label class="disabled">Ngày bắt đầu <span class="required"></span></label>
+                <input type="date" formControlName="ngaybatdau"  class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="float-input" title="Ngày kết thúc">
+                <label class="disabled">Ngày kết thúc <span class="required"></span></label>
+                <input type="date" formControlName="ngayketthuc" class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-2" *ngIf="dsuyquyens.length > 0">
+              <div class="" title="Giao việc thay cho người đã ủy quyền">
+                <input type="checkbox" value="{{giaothay}}" [(ngModel)]="giaothay" [ngModelOptions]="{standalone: true}"
+                  (change)="onCheckboxChange(giaothay)">
+                <label class="control-label label-checkbox" style="color: #5b6e82; padding-left: 5px;"> Giao việc
+                  thay</label>
+              </div>
+            </div>
+            <div class="col-sm-4" *ngIf="giaothay==true">
+              <div class="float-input" title="Người giao việc">
+                <label class="disabled">Người giao việc <span class="required"></span></label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguoigiaoviec" placeholder="Người giao việc"
+                  appendTo="body" [searchable]="true" [clearable]="true" [(ngModel)]="nguoigiaoviec_select">
+                  <ng-option [value]="item.ma_nv_uyquyen" [disabled]="item.disabled" *ngFor="let item of dsuyquyens">
+                    <img src="{{serviceBase}}/{{item.hinhanh_nv_uyquyen}}"
+                      onerror="this.src='../../../../assets/images/icon_account.png';" class="img-icon-nhanvien" />
+                    {{item.ten_nv_uyquyen}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <!-- Chủ trì -->
+          <div class="row row-frm">
+            <div class="col-sm-4">
+              <div class="float-input" title="Đơn vị chủ trì">
+                <label class="disabled">Đơn vị chủ trì <span class="required"></span></label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="donvichutri" placeholder="Đơn vị chủ trì" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="donvichutri_select"
+                  (change)="change_donvischutri()">
+                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.ten_dv
+                    }}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="float-input" title="Người chủ trì">
+                <label class="disabled">Người chủ trì <span class="required"></span></label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguoichutri" placeholder="Người chủ trì" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="nguoichutri_select">
+                  <ng-option [value]="item.ma_nv" [disabled]="item.disabled" *ngFor="let item of dataitems">
+                    <img src="{{serviceBase}}/{{item.duongdan_file}}/{{item.ten_file}}"
+                      onerror="this.src='../../../../assets/images/icon_account.png';" class="img-icon-nhanvien" />
+                    {{item.ten_nd}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="float-input" title="Người giám sát">
+                <label class="disabled">Người giám sát </label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguoigiamsat" placeholder="Người giám sát" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="nguoigiamsat_select">
+                  <ng-option [value]="item.ma_nv" [disabled]="item.disabled" *ngFor="let item of nguoigiamsats">
+                    <img src="{{serviceBase}}/{{item.duongdan_file}}/{{item.ten_file}}"
+                      onerror="this.src='../../../../assets/images/icon_account.png';" class="img-icon-nhanvien" />
+                    {{item.ten_nd}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <!-- Phối hợp -->
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Đơn vị phối hợp">
+                <label class="disabled">Đơn vị phối hợp</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="donviphoihop" placeholder="Đơn vị phối hợp" appendTo="body"
+                  multiple="true" [searchable]="true" [clearable]="true" [(ngModel)]="donviphoihop_select"
+                  (change)="change_donviphoihop()">
+                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.svg" width="20px" height="20px" />
+                    {{item.ten_dv}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="float-input" title="Người phối hợp">
+                <label class="disabled">Người phối hợp</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select bindLabel="name" formControlName="nguoiphoihop" placeholder="Người phối hợp" appendTo="body"
+                  multiple="true" [searchable]="true" [clearable]="true" [(ngModel)]="nguoiphoihops_select">
+                  <ng-option [value]="item.ma_nv" [disabled]="item.disabled" *ngFor="let item of danhsachphoihop">
+                    <img src="{{serviceBase}}/{{item.duongdan_file}}/{{item.ten_file}}"
+                      onerror="this.src='../../../../assets/images/icon_account.png';" class="img-icon-nhanvien" />
+                    {{item.ten_nd}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>

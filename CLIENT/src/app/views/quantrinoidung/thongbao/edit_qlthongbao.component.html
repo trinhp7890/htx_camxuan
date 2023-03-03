@@ -1,0 +1,109 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">
+        <div class="col-sm-4 text-center">
+          <div class="img-thumbnail" style="position:relative;">
+            <img  *ngIf="isImageSelected==false" alt="No Photo" title="Ảnh đại diện" class="img-responsive"
+              src='../../../../assets/images/no-thong-bao.png' id="anh_test"
+              style="visibility:visible; height:auto; max-height: 300px;" />
+            <img alt="No Photo" id="file"[src]="imagePreviewSrc" alt="{{data.tieude}}" class="img-responsive" *ngIf="isImageSelected"   style="visibility:visible; height:auto; max-height: 300px;" />
+            <div class="img-btn" style="position:absolute;top:-1px;left:-1px;z-index:10;">
+              <button type="button" title="Xóa ảnh" (click)="del_img()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="img-btn"
+              style="position:absolute;top:4px;right:2px;z-index:10;width:25px;height:20px;line-height:20px;background-color:rgba(255,255,255,1);">
+              <label for="files" class="label-input">
+                <span class="glyphicon glyphicon-picture" aria-hidden="true" title="Ảnh đại diện"
+                  style="color:#888;"></span>
+              </label>
+            </div>
+          </div>
+          <div class="clearfix hidden">
+            <input id="files" class="hidden" type="file" (change)="onChange($event)" accept=".jpeg,.jpg" />
+            <label class="gray-color font-400">Ảnh đại diện</label>
+          </div>
+
+        </div>
+
+        <div class="col-sm-8">
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Tiêu đề">
+                <label class="disabled">Tiêu đề: <span class="required"></span></label>
+                <input type="text" formControlName="tieude" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Mô tả">
+                <label class="disabled">Mô tả: <span class="required"></span></label>
+                <textarea type="text" formControlName="mota" class="form-control"
+                  style="height:150px !important;"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-12">
+              <div class="float-input" title="Văn bản đính kèm">
+                <input id="attachfiles" class="hidden" type="file" (change)="attachfile($event)"
+                  accept=".pdf,.doc*,.xls*" multiple />
+                <label for="attachfiles"
+                  style="position: absolute; z-index: 9; top: 16px; right: 0px;background: none;"><i
+                    class="fa fa-file-text-o" style="color: #17b799; font-size: 25px;"></i> </label>
+
+                <table class="table table-condensed table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-sm-1">STT</th>
+                      <th class="col-sm-7">Tên File</th>
+                      <th class="col-sm-1"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let fileat of danhsachfile; let i = index">
+                      <td>{{i + 1 }}</td>
+                      <td>
+                        <a *ngIf="fileat.id_file != null" href="{{serviceBase}}/{{fileat.duongdan_file_view}}" target="_blank">{{ fileat.name }}</a>
+                        <span *ngIf="fileat.id_file == null">{{ fileat.name }}</span>
+                      </td>
+                      <td>
+                        <a href="javascript:void(0);">
+                          <img src="../../../../assets/images/trash_16.png" alt="" (click)="deletefile(fileat, i)" />
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">   
+        <div class="col-sm-12">
+          <div class="" title="Nội dung">
+            <label class="disabled">Nội dung: <span class="required"></span></label>
+            <angular-editor class="editor-cl" formControlName="htmlContent" [config]="editorConfigs"></angular-editor>
+          </div>
+        </div>    
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>

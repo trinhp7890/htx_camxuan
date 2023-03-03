@@ -1,0 +1,116 @@
+<section id="main" class="extend clearfix" style="min-height: 700px;">
+  <div class="header-div">
+    <div class="header-text">
+      <h3 style="float: left">        
+        <a href="/">
+          <span class="header-img">
+            <img src="../../../../assets/images/logo_ktm.png">
+            Quản lý người dùng
+          </span>
+        </a>
+      </h3>
+    </div>
+  </div>
+  <div style="float: left; width: 97%; padding-top: 20px;">
+    <div class="row row-frm">
+      <div class="col-sm-4">
+        <div class="panel-body gray-bg" style="min-height: auto !important; padding-top: 0px">
+          <label class="title-form"> <i style="margin-right: 13px;" class="fa fa-university"></i>Cây cấu trúc đơn
+            vị</label>
+          <div class="panel-body" style="border:solid 1px #ccc; height: auto; max-height: 1000px; overflow: scroll;"
+            *ngIf="isDataAvailable">
+            <div class="form-group">
+              <div style="position: relative;">
+                <input id="filter" #filter (keyup)="tree.treeModel.filterNodes(filter.value)"
+                  placeholder="Nhập thông tin cần tìm" /> <i class="fa  icon-search"></i>
+              </div>
+              <tree-root #tree [focused]="true" [nodes]="node" [options]="options" (activate)="onEvent($event.node)"
+                (initialized)="onInitialized(tree)">
+              </tree-root>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="modal-body">
+          <div class="clearfix">
+            <label class="save-task btn-add-nv">
+              <a (click)="add()">
+                <i class="fa fa-plus"> Thêm mới</i>
+              </a>
+            </label>
+            <tabset>
+              <tab heading="Nhân sự" class="mt-2" (selectTab)="onSelect(1)">
+                <div id="grid-result" class="body">
+                  <div
+                    *ngFor="let nhansu of nhansus  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
+                    class="col-sm-12 nhansu-detail">
+                    <div class="edit-card-custom">
+                      <a class="text-center tooltips c-pointer" (click)="edit(nhansu)"
+                        style="position: absolute; right: 30px; cursor:pointer;">
+                        <!-- <img class="icon-assignee" src="../../../../assets/images/page_edit.png" alt="Chỉnh sửa công việc" />  -->
+                        <i class="fa fa-edit" style="color: blue; font-size: 20px;"></i>
+                      </a>
+                      <a class="text-center tooltips c-pointer" (click)="giamsat(nhansu)"
+                        style="position: absolute; right: 8px; cursor:pointer;">
+                        <!-- <img class="icon-assignee" src="../../../../assets/images/trash_16.png" alt="Xóa công việc" />  -->
+                        <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
+
+                      </a>
+                    </div>
+                      <div class="col-sm-2" style="text-align: center;">
+                        <img class="img-nhansu" src="{{serviceBase}}/{{nhansu.duongdan_file}}/{{nhansu.ten_file}}"
+                          onerror="this.src='../../../../assets/images/icon_account.png';" />
+                      </div>
+                      <div class="col-sm-4">
+                        <p class="nhansu-name">{{nhansu.ten_nd}}</p>
+                        <p> <i style="margin-right: 5px;" class="fa fa-address-card"></i> {{nhansu.chucdanh}}</p>
+                        <p> <i style="margin-right: 5px;" class="fa fa-phone-square"></i> {{nhansu.so_dt}}</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <p> <i *ngIf="nhansu.active == 1" style="margin-right: 5px; color: chartreuse;"
+                            class="fa fa-circle"></i>
+                          <i *ngIf="nhansu.active != 1" style="margin-right: 5px; color: red;" class="fa fa-circle"></i>
+                          {{nhansu.ma_nv}}
+                        </p>
+                        <p> <i style="margin-right: 5px; " class="fa fa-university"></i> {{nhansu.ten_dv}}</p>
+                        <p> <i style="margin-right: 5px; color: coral;" class="fa fa-envelope"></i>{{nhansu.email}}</p>
+                      </div>
+                  </div>
+                  <div class="gray-bg btn-block">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="row row-frm">
+                          <div class="col-md-6">
+                            <span class="grid-counter gray-color fc-666 pull-left">Có <strong>{{totalItems}}</strong>
+                              nhân sự</span>
+                          </div>
+                          <div class="col-md-6">
+                            <pagination-controls (pageChange)="p = $event" class="pull-right" previousLabel=""
+                              nextLabel="">
+                            </pagination-controls>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <ul class="list-inline icon-note gray-color">
+                        <li>Ghi chú: </li>
+                        <li>
+                          <i style="margin-right: 5px; color: chartreuse;" class="fa fa-circle"></i>Đang làm việc
+                        </li>
+                        <li>
+                          <i style="margin-right: 5px; color: red;" class="fa fa-circle"></i> Nghỉ việc
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </tab>              
+            </tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

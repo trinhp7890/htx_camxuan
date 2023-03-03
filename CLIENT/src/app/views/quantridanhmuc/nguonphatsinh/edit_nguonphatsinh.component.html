@@ -1,0 +1,107 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">      
+        <div class="col-sm-12">
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Tên nguồn phát sinh">
+                <label class="disabled">Tên nguồn phát sinh <span class="required"></span></label>
+                <input type="text" formControlName="ten_nguonphatsinh" class="form-control" />
+              </div>
+            </div>
+            <div *ngIf="viewtrangthai==false" class="col-sm-6">
+              <div class="float-input" title="Đơn vị:">
+                <label class="disabled">Đơn vị: <span class="required"></span></label>                
+                <ng-select bindLabel="name" formControlName="donvi" placeholder="Đơn vị chủ trì" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="donvichutri_select"                  >
+                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.ten_dv
+                    }}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div *ngIf="viewtrangthai" class="col-sm-4">
+              <div class="float-input" title="Đơn vị:">
+                <label class="disabled">Đơn vị: <span class="required"></span></label>                
+                <ng-select bindLabel="name" formControlName="donvi" placeholder="Đơn vị chủ trì" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="donvichutri_select"                  >
+                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.ten_dv
+                    }}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div *ngIf="viewtrangthai" class="col-sm-2">
+              <div class="float-input" title="Trạng thái">
+                <label class="disabled">Trạng thái<span class="required"></span></label>
+                <select formControlName="trangthai" class="form-control" style="height: 31px;">
+                  <option value="0" selected>Đang dùng</option>
+                  <option value="1" selected>Khóa</option>
+                </select>
+              </div>
+            </div>    
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Nội dung">
+                <label class="disabled">Nội dung <span class="required"></span></label>
+                <textarea type="text" formControlName="noidung" class="form-control trichyeuvanban"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Văn bản đính kèm">
+                <input id="attachfiles" class="hidden" type="file" (change)="attachfile($event)"
+                  accept=".pdf,.doc*,.xls*" multiple />
+                <label for="attachfiles"
+                  style="position: absolute; z-index: 9; top: 16px; right: 0px;background: none;"><i
+                    class="fa fa-file-text-o" style="color: #17b799; font-size: 25px;"></i> </label>
+
+                <table class="table table-condensed table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-sm-1 title-table-attachfile">STT</th>
+                      <th class="col-sm-7 title-table-attachfile">Văn bản liên quan </th>
+                      <th class="col-sm-1 title-table-attachfile"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let fileat of danhsachfile; let i = index">
+                      <td>{{i + 1 }}</td>
+                      <td>{{ fileat.name }}
+                        <a *ngIf="fileat.id_file != null" href="{{serviceBase}}/{{fileat.duongdan_file_view}}" target="_blank">{{ fileat.name }}</a>
+                        <span *ngIf="fileat.id_file == null">{{ fileat.name }}</span>
+                      </td>
+                      <td>
+                        <a href="javascript:void(0);">
+                          <img src="../../../../assets/images/trash_16.png" alt="" (click)="deletefile(fileat,i)" />
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>          
+          
+        </div>
+      </div>    
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>

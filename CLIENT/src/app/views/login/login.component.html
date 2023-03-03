@@ -1,0 +1,107 @@
+<section class="main-content home-login-bg" id="section-home-login">
+  <!-- <div id="app-intro" class="clearfix">
+    <div id="application-name">
+      <h4 class="font-opensans">
+        <strong class="text-uppercase ng-binding">UBND tỉnh Thừa Thiên Huế</strong><br>
+        <strong>Ban dân tộc</strong>
+      </h4>
+      <h1 class="font-opensans text-uppercase">
+        HỆ THỐNG QUẢN LÝ CSDL DÂN TỘC THIỂU SỐ
+      </h1>
+    </div>
+  </div>
+  <div id="home-login" class="panel panel-default panel-login" style="background-color:transparent;">
+    <div class="panel-body panel-login white-bg">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row" style="min-height:250px;">
+          <div class="col-md-12">
+            <h3 class="text-center">
+              <img style="margin:10px auto; width:80px; text-align:center; display:block;" src="../../../assets/images/login.png" alt="Avatar">
+              Đăng nhập
+            </h3>
+            <div class="input-group">
+              <label class="input-group-addon control-label">Tên đăng nhập</label>
+              <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email is invalid</div>
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="input-group-addon control-label">Mật khẩu</label>
+              <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+            <button class="btn btn-block btn-success" type="submit" style="height:35px;">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Đăng nhập</button>
+          </div>
+        </div>
+        <p class="text-center login-note gray-color">Xây dựng và phát triển bởi Trung tâm  CNTT - VNPT Thừa Thiên Huế <br>Điện thoại: (0234)-3846869</p>
+      </form>
+    </div>
+  </div> -->
+  <div class="main_page">
+    <div class="left_login">
+        
+    </div>
+    <div class="LoginSection">
+        <div class="LoginFormSection">
+            <div class="LoginFormTopS">
+                <div class="LoginFormBtmS">
+                    <div class="LoginFormLoopS">
+                        <div class="LoginFormPenuS">
+                            <form method="post" class="fm-v clearfix" [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <input name="__RequestVerificationToken" type="hidden" value="v0PU26QwHpBbxFitMueG9m8IkF5N4uLzEJV1nmnzSjALxTN48hEU8W3hDrRHnph2axMiT1tf3Igxvc1S_PTa-7JaxnCqkFJj9WkafSgV5gjZVylTZtPD3U5ztxozriQKfdXPiaor4q_vMQMhTJ8PEk01-_H4x4SKuvVvwcp2pxc1">
+                                <fieldset>
+                                    <legend>Đăng nhập</legend>
+                                    <label class="LabelStyle">Tên đăng nhập</label>
+                                    <p class="BgInputTextStyle Sprite1">
+                                        <span class="UserTempStyle Sprite1">
+                                          <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email">Email is invalid</div>
+                                          </div>
+                                        </span>
+                                    </p>
+                                    <label class="LabelStyle">Mật khẩu</label>
+                                    <p class="BgInputTextStyle Sprite1">
+                                        <span class="PwdTempStyle Sprite1">
+                                          <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                            <div *ngIf="f.password.errors.required">Password is required</div>
+                                          </div>
+                                        </span>
+                                    </p>
+                                    <!-- <p class="BgInputTextStyle Sprite1">
+                                        <span class="add-on btcapcha" id="btcapcha"></span>
+                                        <input type="text" id="codecapcha" autocomplete="off" placeholder="Mã bảo vệ">
+                                        <span style="line-height: 20px; margin-left: 8px; padding: 6px 10px 2px; height: 28px;" class="btn btn-primary" onclick="RefreshCapcha();" title="Chọn mã khác"><i class="icon-refresh"></i></span>
+                                        <input type="hidden" id="hiddencapcha" value="42729">
+                                    </p> -->
+                                    <div class="FixFloat FieldLogin">
+                                        
+                                        <button *ngIf="login_tele != true" class="btn btn-primary input-block-level button-login-inside" type="submit" style="height:35px;">
+                                          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                          Đăng nhập</button>
+
+                                          <button *ngIf="login_tele" class="btn btn-primary input-block-level button-login-inside" (click)="Login_tele()" style="height:35px;">
+                                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                           Đăng ký nhận thông báo Telegram</button>
+                                    </div>
+
+                                </fieldset>
+                                   
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>

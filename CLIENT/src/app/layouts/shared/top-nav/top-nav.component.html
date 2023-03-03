@@ -1,0 +1,450 @@
+<header class="fixed-top bg-white" id="navigation">
+    <div class="container-fluid">
+        <!-- <div id="application-name" title="">
+            <a [routerLink]="['/dashboard']">
+                <h1 class="font-opensans text-uppercase">Quản lý công việc</h1>
+            </a>
+        </div>         -->
+        <div id="account-info" class="pull-right text-right">
+            <span dropdown>
+                <a href id="dd-append-to-body" dropdownToggle (click)="false"
+                    aria-controls="dd-append-to-body-dropdown">
+                    <!-- <b>{{ account}} </b>
+                    &nbsp; -->
+                    <div class="product-img">
+                        <img class="avatar-img" src="{{serviceBase}}/{{hinhanh}}"
+                            onerror="this.src='../../../../assets/images/icon_account.png';" alt="Avatar"
+                            >
+                    </div>
+                    
+                </a>
+                <ul id="dd-append-to-body-dropdown" *dropdownMenu class="dropdown-menu"
+                    class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dd-append-to-body">
+                    <li role="menuitem">
+                        <a class="dropdown-item" href="javascript:void()">                            
+                            <img  src="{{serviceBase}}/{{hinhanh}}" 
+                            onerror="this.src='../../../../assets/images/icon_account.png';" class="dropdown-icon img-info" alt="ico">
+                            <strong>{{tennguoidung}}</strong>
+                           <p>{{chucdanh}}</p>
+                        </a>
+                    </li>
+                    <li role="menuitem" class="dropdown-divider divider"></li>
+                    <li role="menuitem">
+                        <a class="dropdown-item" href="javascript:void()" (click)="Change_pass()">
+                            <img src="../../../../assets/images/icon_changepass.png" class="dropdown-icon" alt="ico">
+                            Đổi mật khẩu
+                        </a>
+                    </li>
+                    <li role="menuitem" class="dropdown-divider divider"></li>
+                    <li role="menuitem">
+                        <a class="dropdown-item"><img src="../../../../assets/images/icon_log.png" class="dropdown-icon"
+                                alt="ico"> Log đăng nhập</a>
+                    </li>
+                    <li role="menuitem">
+                        <a class="dropdown-item"><img src="../../../../assets/images/icon_log.png" class="dropdown-icon"
+                                alt="ico"> Log hệ thống</a>
+                    </li>
+                    <li role="menuitem" class="dropdown-divider divider"></li>
+                    <li role="menuitem"><a href="#" class="dropdown-item" (click)="logout()"><b>Thoát</b></a></li>
+                </ul>
+            </span>
+        </div>
+        <div id="account-info" class="pull-right text-right">
+            <span dropdown>
+                <a href id="dd-append-to-body" dropdownToggle (click)="false" title="Menu"
+                    aria-controls="dd-append-to-body-dropdown">                    
+                    <img class="avatar" src="../../../../assets/images/menu.png" alt="Avatar">
+                </a>
+                <ul id="dd-append-to-body-dropdown" *dropdownMenu class="dropdown-menu"          
+                    class="dropdown-menu dropdown-menu-right menu-task" role="menu" aria-labelledby="dd-append-to-body">
+                    <!-- công việc phát sinh -->
+                    <li role="menuitem" class="menuitem">
+                        <span>Quản lý công việc phát sinh</span>
+                        <div class="subsystem_menu_list">                            
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Congviec/Giaoviec']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/giamsat.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Giao việc</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['Congviec/Chutri']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/congviecgiao.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Công việc Chủ trì</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['Congviec/Phoihop']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/phoihop.PNG">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Công việc Phối hợp</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="subsystem_menu_list">                            
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['Congviec/Giamsat']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/teamwork-svgrepo-com.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Giám sát công việc</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Công việc thường xuyến -->
+                    <!-- <li role="menuitem" class="menuitem">
+                        <span>Quản lý công việc thường xuyên</span>
+                        <div class="subsystem_menu_list">                            
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Congviec/congviecdagiao']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/congviecgiao.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Đã giao</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Congviec/congviecduocgiao']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/giamsat.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Được giao</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </li> -->
+                    <!-- <li role="menuitem" class="menuitem">
+                        <span>Kế hoạch công tác mục tiêu</span>
+                        <div class="subsystem_menu_list">                            
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Congviec/congviecdagiao']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/congviecgiao.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Đã giao</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quantrinoidung/thongbao']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/giamsat.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Được giao</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </li> -->
+                    <!-- Giám sát -->
+                    <li role="menuitem" class="menuitem">
+                        <span>Giám sát</span>
+                        <div class="subsystem_menu_list">
+                            <!-- <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/donvi']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/danhmuc.jpg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Danh mục</span>
+                                    </span>
+                                </a>
+                            </div> -->
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/donvi']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/calendar-svgrepo-com.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Công việc phát sinh</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a href="javascript:void()" (click)="Change_pass()">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/staff.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Nhân sự</span>
+                                    </span>
+                                </a>
+                            </div>                           
+                        </div>
+                    </li>
+                    <li role="menuitem" class="menuitem">
+                        <span>Quản lý danh mục</span>
+                        <div class="subsystem_menu_list">                            
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/nguonphatsinh']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/nguonphatsinh.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Nguồn phát sinh</span>
+                                    </span>
+                                </a>
+                            </div> 
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/uyquyengiaoviec']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/uyquyen.png">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Ủy quyền giao việc</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/nguoigiamsat']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/staff.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Người giám sát</span>
+                                    </span>
+                                </a>
+                            </div>                      
+                        </div>
+                    </li>
+                    <li role="menuitem" class="menuitem">
+                        <span>Quản lý nội dung</span>
+                        <div class="subsystem_menu_list">
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quantrinoidung/thongbao']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/news.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Quản lý thông báo</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <!--
+                            <div class="subsystem_menu_list_item">
+                                <a href="javascript:void()" (click)="Change_pass()">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/congviecgiao.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Công việc tôi giao</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a href="javascript:void()" (click)="Change_pass()">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/giamsat.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Công việc theo dõi</span>
+                                    </span>
+                                </a>
+                            </div> -->
+                        </div>
+                    </li>
+                    <li role="menuitem" class="menuitem">
+                        <span>Báo cáo công việc</span>
+                        <div class="subsystem_menu_list">
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Baocao/CVphatsinh']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/baocao1.jpg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Phát sinh</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Baocao/']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/baocao2.jpg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Thường xuyên</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <!--
+                            <div class="subsystem_menu_list_item">
+                                <a href="javascript:void()" (click)="Change_pass()">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/congviecgiao.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Công việc tôi giao</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a href="javascript:void()" (click)="Change_pass()">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/giamsat.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Công việc theo dõi</span>
+                                    </span>
+                                </a>
+                            </div> -->
+                        </div>
+                    </li>
+                    <li role="menuitem" class="menuitem">
+                        <span>Quản lý hệ thống</span>
+                        <div class="subsystem_menu_list">
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Hethong/qlnguoidung']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/quanlynguoidung.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Người dùng</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a href="javascript:void()" (click)="Change_pass()">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/nhomquyen.png">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Nhóm quyền</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/danh-muc/dan-toc']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/phanquyen.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Phần quyền</span>
+                                    </span>
+                                </a>
+                            </div>                           
+                        </div>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <div *ngIf="danhsachthongbao.length > 0" id="account-info" class="pull-right text-right">
+            <span dropdown>
+                <a id="dd-append-to-body" dropdownToggle (click)="false" title="Menu"
+                    aria-controls="dd-append-to-body-dropdown">                    
+                    <img class="avatar" src="../../../../assets/images/news.svg" alt="New">
+                    <div class="count-thongbao"> 
+                        <span>{{count_thongbao}}</span>
+                    </div>                   
+                </a>
+                <ul id="dd-append-to-body-dropdown" *dropdownMenu class="dropdown-menu"          
+                    class="dropdown-menu dropdown-menu-right menu-task" role="menu" aria-labelledby="dd-append-to-body">
+                    <h3 class="title-thongbao">Thông báo</h3>
+                    <!-- công việc phát sinh -->                       
+                    <li *ngFor="let thongbao of danhsachthongbao; let i = index"
+                    role="menuitem" class="menuitem">
+                        <a *ngIf="thongbao.phanloai_tacdong == '0'"
+                        class="link-thongbao" [routerLink]="['/Congviec/Giaoviec/', thongbao.ma_congviec]" (click)="viewthongbao(thongbao)">
+                            <div class="subsystem_menu_list row-thongbao">
+                                <div class="img-thongbao-header">
+                                    <img class="icon-assignee" src="{{serviceBase}}/{{thongbao.hinhanh}}"
+                                    onerror="this.src='../../../../assets/images/icon_account.png';"
+                                        alt="Ảnh đại diện" />
+                                </div>
+                                <div class="text-thongbao-header">
+                                    <p class="text-assignee"> <strong>{{thongbao.ten_nguoigui}} </strong> 
+                                        <span *ngIf="thongbao.loai_thongbao == '0'" class="thongbao_realtime">đã thêm mới bình luận trong công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '1'" class="thongbao_realtime">đã thêm mới công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '2'" class="thongbao_realtime">đã chỉnh sửa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '3'" class="thongbao_realtime">đã  xóa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '3'" class="thongbao_realtime">đã cập nhật trạng thái công việc </span>
+                                        <strong>{{thongbao.noidung}}</strong>                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        <a *ngIf="thongbao.phanloai_tacdong == '1'"
+                        class="link-thongbao" [routerLink]="['Congviec/Chutri', thongbao.ma_congviec]" (click)="viewthongbao(thongbao)">
+                            <div class="subsystem_menu_list row-thongbao">
+                                <div class="img-thongbao-header">
+                                    <img class="icon-assignee" src="{{serviceBase}}/{{thongbao.hinhanh}}"
+                                    onerror="this.src='../../../../assets/images/icon_account.png';"
+                                        alt="Ảnh đại diện" />
+                                </div>
+                                <div class="text-thongbao-header">
+                                    <p class="text-assignee"> <strong>{{thongbao.ten_nguoigui}} </strong> 
+                                        <span *ngIf="thongbao.loai_thongbao == '0'" class="thongbao_realtime">đã thêm mới bình luận trong công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '1'" class="thongbao_realtime">đã thêm mới công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '2'" class="thongbao_realtime">đã chỉnh sửa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '3'" class="thongbao_realtime">đã  xóa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '3'" class="thongbao_realtime">đã cập nhật trạng thái công việc </span>
+                                        <strong>{{thongbao.noidung}}</strong>                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        <a *ngIf="thongbao.phanloai_tacdong == '2'"
+                        class="link-thongbao" [routerLink]="['Congviec/Phoihop', thongbao.ma_congviec]" (click)="viewthongbao(thongbao)">
+                            <div class="subsystem_menu_list row-thongbao">
+                                <div class="img-thongbao-header">
+                                    <img class="icon-assignee" src="{{serviceBase}}/{{thongbao.hinhanh}}"
+                                    onerror="this.src='../../../../assets/images/icon_account.png';"
+                                        alt="Ảnh đại diện" />
+                                </div>
+                                <div class="text-thongbao-header">
+                                    <p class="text-assignee"> <strong>{{thongbao.ten_nguoigui}} </strong> 
+                                        <span *ngIf="thongbao.loai_thongbao == '0'" class="thongbao_realtime">đã thêm mới bình luận trong công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '1'" class="thongbao_realtime">đã thêm mới công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '2'" class="thongbao_realtime">đã chỉnh sửa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '3'" class="thongbao_realtime">đã  xóa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '3'" class="thongbao_realtime">đã cập nhật trạng thái công việc </span>
+                                        <strong>{{thongbao.noidung}}</strong>                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        <a *ngIf="thongbao.phanloai_tacdong == '3'"
+                        class="link-thongbao" [routerLink]="['Congviec/Giamsat', thongbao.ma_congviec]" (click)="viewthongbao(thongbao)">
+                            <div class="subsystem_menu_list row-thongbao">
+                                <div class="img-thongbao-header">
+                                    <img class="icon-assignee" src="{{serviceBase}}/{{thongbao.hinhanh}}"
+                                    onerror="this.src='../../../../assets/images/icon_account.png';"
+                                        alt="Ảnh đại diện" />
+                                </div>
+                                <div class="text-thongbao-header">
+                                    <p class="text-assignee"> <strong>{{thongbao.ten_nguoigui}} </strong> 
+                                        <span *ngIf="thongbao.loai_thongbao == '0'" class="thongbao_realtime">đã thêm mới bình luận trong công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '1'" class="thongbao_realtime">đã thêm mới công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '2'" class="thongbao_realtime">đã chỉnh sửa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '1' && thongbao.loaitacdong == '3'" class="thongbao_realtime">đã  xóa công việc </span>
+                                        <span *ngIf="thongbao.loai_thongbao == '3'" class="thongbao_realtime">đã cập nhật trạng thái công việc </span>
+                                        <strong>{{thongbao.noidung}}</strong>                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </a>  
+                    </li>                   
+                </ul>
+            </span>
+        </div>
+    </div>
+</header>

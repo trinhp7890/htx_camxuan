@@ -1,0 +1,96 @@
+<div class="toolbar pull-right command-bar">
+    <div class="btn-group" role="group">
+        <button class="btn btn-sm btn-default" (click)="add()">
+            <img src="../../../../assets/images/add-icon.png" alt="Thêm mới" />
+             Thêm mới
+        </button>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li>Danh mục</li>
+    <li class="active">Danh mục Dân tộc</li>
+</ol>
+<div class="panel panel-default">
+    <div class="panel-body full-width">
+        <div class="col-md-12">
+            <input class="form-control" type="text" name="search" [(ngModel)]="term"
+                placeholder="Nhập thông tin cần tìm kiếm">
+        </div>
+        <div id="grid-result" class="body">
+            <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <!-- <th class="text-center w35">
+                                <a title="Thêm mới" href="javascript:void(0);" (click)="add()">
+                                    <img src="../../../../assets/images/add-icon.png" alt="Thêm mới" />
+                                </a>
+                            </th> -->
+                            <th class="text-center w35">#</th>
+                            <th class="text-left w35">Mã</th>
+                            <th class="text-left w99">Tên dân tộc</th>
+                            <th>Tên gọi khác</th>
+                            <th class="text-center w35"></th>                    
+                            <th class="text-center w35"></th>
+                            <th class="text-center w35"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let dantoc of dantocs | filter:term | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+                            
+                            <td>{{10*(p-1) + i + 1 }}</td>
+                            <td class="font-600">{{ dantoc.ma_dantoc }}</td>
+                            <td>{{ dantoc.ten_dantoc }}</td>
+                            <td>{{ dantoc.ten_goikhac}}</td>
+                            <td class="text-center">
+                                <a title="Chuyển trạng thái" href="javascript:void(0);" (click)="toggle(dantoc)">
+                                    <img *ngIf="dantoc.trangthai == 1" src="../../../../assets/images/unlocked_16.gif"
+                                        alt="" />
+                                    <img *ngIf="dantoc.trangthai == 2" src="../../../../assets/images/locked_16.gif"
+                                        alt="" />
+                                </a>
+                            </td>
+                            <td>
+                                <a *ngIf="dantoc.ma_dantoc != '00'" href="javascript:void(0);" (click)="edit(dantoc);">
+                                    <img src="../../../../assets/images/page_edit.png" alt="" />
+                                </a>
+                            </td>
+                            <td>
+                                <a *ngIf="dantoc.ma_dantoc != '00'" href="javascript:void(0);" (click)="delete(dantoc)">
+                                    <img src="../../../../assets/images/trash_16.png" alt="" />
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="gray-bg btn-block">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row row-frm">
+                        <div class="col-md-6">
+                            <span class="grid-counter gray-color fc-666 pull-left">Có <strong>{{totalItems}}</strong>
+                                dòng</span>
+                        </div>
+                        <div class="col-md-6">
+                            <pagination-controls (pageChange)="p = $event" class="pull-right" previousLabel=""
+                                nextLabel="">
+                            </pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul class="list-inline icon-note gray-color">
+                    <li>Ghi chú: </li>
+                    <li><img class="status" src="../../../../assets/images/unlocked_16.gif" alt="" title="Sử dụng" /> Sử
+                        dụng</li>
+                    <li><img class="status" src="../../../../assets/images/locked_16.gif" alt=""
+                            title="Không sử dụng" /> Không sử dụng</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

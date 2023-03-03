@@ -1,0 +1,58 @@
+<section id="main" class="extend clearfix">
+  <div *ngIf="hide_title == true" class="header-div">
+    <div class="header-text" style="padding-left: 55px;">
+      <h3 style="float: left">
+        <a href="/">
+          <span class="header-img">
+            Báo cáo công việc phát sinh
+          </span>
+        </a>
+      </h3>
+    </div>
+  </div>
+  <div style="float: left;
+  position: FIXED;
+  top: 10px;
+  z-index: 9999;
+  left: 38px;">
+    <div id="account-info" class="pull-right text-right">
+      <span dropdown>
+        <a id="dd-append-to-body" dropdownToggle (click)="show_hide_menu()" title="Menu" style="    color: #0067B1;
+        font-size: 30px; cursor: pointer;" aria-controls="dd-append-to-body-dropdown">
+          <i style="margin-right: 13px;" class="fa fa-bars"></i>
+        </a>
+        <ul *ngIf="hide_menu== true" class="dropdown-menu dropdown-menu-right menu-task menu-baocao" role="menu"
+          aria-labelledby="dd-append-to-body">
+          <!-- công việc phát sinh -->
+          <li role="menuitem" class="menuitem">
+            <span class="title-menubaocao">Danh sách báo cáo</span>
+            <div class="menu-item-baocao ">
+              <a (click)="Baocao(1)" title="Menu">
+                <i style="margin-right: 13px;" class="fa fa-home"></i> 
+                Báo cáo công việc theo đơn vị
+              </a>
+            </div>
+            <div class="menu-item-baocao ">
+              <a (click)="Baocao(2)" title="Menu">
+                <i style="margin-right: 13px;" class="fa fa-users"></i> 
+                Báo cáo công việc theo nhân viên
+              </a>
+            </div>
+            <div class="menu-item-baocao ">
+              <a (click)="Baocao(3)" title="Menu">
+                <i style="margin-right: 13px;" class="fa fa-file-text-o"></i> 
+                Báo cáo công việc theo nguồn phát sinh
+              </a>
+            </div>
+          </li>
+        </ul>
+      </span>
+    </div>
+  </div>
+  <div>
+    <app-bc-donvi *ngIf="id_baocao==1" ></app-bc-donvi>
+    <app-bc-nhanvien *ngIf="id_baocao==2" ></app-bc-nhanvien>
+    <app-bc-nguonps *ngIf="id_baocao==3" ></app-bc-nguonps>
+  </div>
+
+</section>

@@ -1,0 +1,130 @@
+<section id="main" class="extend clearfix">
+  <div *ngIf="hide_title == true" class="header-div">
+    <div class="header-text">
+      <h3 style="float: left">        
+        <a href="/">
+          <span class="header-img">
+            <img src="../../../../assets/images/logo_ktm.png">
+            Quản lý công việc phối hợp
+          </span>
+        </a>
+      </h3>
+    </div>
+  </div>
+  <div class="danhsachcongviec">
+    <div class="row row-frm">
+      <div class="col-sm-12" >
+        <div class="col-sm-6" title="Tìm kiếm">                
+          <input type="text" name="name" class="question" id="nme" required autocomplete="off"  (input)="onSearchChange($event.target.value)"/>
+          <label for="nme" class="lb_question"><span>Tìm kiếm công việc</span></label>   
+          <!-- <a (click)="timkiemcongviec_bydate()"><i class="fa fa-search" aria-hidden="true"></i></a> -->
+        </div>
+        <div class="search-by-date col-sm-5" title="Tìm kiếm">
+          <input type="date" [(ngModel)]="ngaybatdau_tk" class="form-control col-sm-5"/> 
+          <label class="col-sm-1"> <strong>-</strong></label>
+          <input type="date" [(ngModel)]="ngayketthuc_tk" class="form-control col-sm-5"/>
+          <a (click)="timkiemcongviec_bydate()" class="col-sm-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+        </div>
+      </div>
+    </div>
+    <ejs-kanban keyField='keyfield' [dataSource]='data' [cardSettings]='cardSettings'
+      [swimlaneSettings]='swimlaneSettings' (dialogOpen)="dialogOpen($event)"  [allowDragAndDrop]='allowDragAndDrop'>
+      <e-columns>
+        <e-column headerText='Chưa thực hiện' keyField='0'></e-column>
+        <e-column headerText='Đang thực hiện' keyField='1'></e-column>
+        <!-- <e-column headerText='Chờ đánh giá' keyField='Testing'></e-column> -->
+        <e-column headerText='Hoàn thành' keyField='2'></e-column>
+      </e-columns>
+      <ng-template #cardSettingsTemplate let-data>
+        <div class='e-card-content'>
+          <!-- <div class="edit-card-custom">
+            <a class="text-center tooltips c-pointer" (click)="editcard(data)"
+              style="position: absolute; right: 30px; cursor:pointer;">              
+              <i class="fa fa-edit" style="color: blue; font-size: 20px;"></i>
+            </a>
+            <a class="text-center tooltips c-pointer" (click)="deleteCard(data)"
+              style="position: absolute; right: 8px; cursor:pointer;">              
+              <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
+            </a>
+          </div> -->
+          <table class="card-template-wrap">
+            <tbody>
+              <tr>
+                <td class="card-name-cs">{{data.ten_cv}}</td>
+              </tr>
+              <tr>
+                <td>{{data.noidung}}</td>
+              </tr>
+              <tr>
+                <div class="c-assignee">
+                  <td style="float: left;">
+                    <img class="icon-assignee" src="{{serviceBase}}/{{data.hinhanh}}"
+                    onerror="this.src='../../../../assets/images/icon_account.png';" alt="Ảnh đại diện" />
+                    <p class="text-assignee">{{data.ten_nd}} </p>
+                  </td>
+                  <td  *ngIf="data.tinh_chat==1" style="float: right;">
+                    <p class="text-assignee do-uu-tien-cao"> Ưu tiên</p>
+                  </td>
+                </div>
+              </tr>
+              <tr>
+                <div class="c-assignee">
+                  <td>                    
+                    <p>{{data.ten_dv}}</p>
+                  </td>
+                </div>
+              </tr>
+              <tr>
+                <td>
+                  <img class="icon-time" src="../../../../assets/images/time.png" alt="Thời gian thực hiện" />
+                  <p class="text-time">{{data.ngay_batdau}} -{{data.ngay_ketthuc}} </p>
+                </td>
+              </tr>
+              <tr *ngIf="data.keyfield == '1'">
+                <div class="float-input trangthai" title="Hoàn thành">
+                  <ngx-slider [options]="options" [(value)]="data.tile_hoanthanh"></ngx-slider>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+      <ng-template #swimlaneSettingsTemplate let-data>
+        <div id="swimlaneTemplate">
+          <div class="swimlane-template e-swimlane-template-table">
+            <div class="e-swimlane-row-text">
+              <img class="icon-time" src="../../../../assets/images/time.png"
+              alt="{{data.keyField}}" /><span>{{data.textField}}</span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ejs-kanban>
+  </div>
+  <div class="sidebar-right">
+    <ul class="sidebar-menu tree" data-widget="tree">
+      <!-- <li class="treeview-danhsach" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Xem công việc dạng danh sách">
+        <a class="text-center tooltips c-pointer" data-value="danhsach" ng-click="myStaff_changeViewCongViec('danhsach')">
+          <i class="fa-times-circle "></i>
+        </a>
+      </li> -->
+      <li class="treeview-board" data-toggle="tooltip" data-placement="auto" title=""
+        title="Xem công việc dạng bảng Kanban">
+        <a class="text-center tooltips c-pointer" data-value="board" (click)="viewbyboard();">
+          <i class="fa fa-columns"></i>
+        </a>
+      </li>
+      <li class="treeview-nhansu" data-toggle="tooltip" data-placement="auto" title="Xem công việc theo ngày">
+        <a class="text-center tooltips c-pointer" data-value="nhansu" (click)="viewbynhansu();">
+          <i class="fa fa-calendar"></i>
+        </a>
+      </li>
+      <!-- <li class="treeview-tiendo active" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Xem công việc dạng bảng tiến độ GANTT">
+        <a class="text-center tooltips c-pointer" data-value="tiendo" ng-click="myStaff_changeViewCongViec('tiendo')">
+          <i class="fa fa-table"> </i>
+        </a>
+      </li> -->
+    </ul>
+  </div>
+</section>

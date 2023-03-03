@@ -1,0 +1,143 @@
+<section id="main" class="extend clearfix"> 
+  <div  *ngIf="hide_title == true" class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div> 
+  <div class="col-sm-12">
+    <div class="header-text">
+      <h3 class="header-baocao">
+        <span class="header-img">
+         Báo cáo tổng hợp theo nguồn phát sinh
+        </span>
+      </h3>
+    </div>
+    <div title="Tìm kiếm" class="div-input-baocao">
+      <div class="col-sm-4" title="Nguồn phát sinh">
+        <label>Nguồn phát sinh</label>
+        <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+        <ng-select *ngIf="hide_title == false" bindLabel="name" placeholder="Nguồn phát sinh" appendTo="body" [searchable]="true" [clearable]="true"
+          [(ngModel)]="nguonphatsinh_select">
+          <ng-option [value]="item.ma_nguonphatsinh" *ngFor="let item of danhsachnguonphatsinh">
+            {{item.ten}}
+          </ng-option>
+        </ng-select>
+        <ng-select *ngIf="hide_title == true" bindLabel="name" placeholder="Nguồn phát sinh" appendTo="body" [searchable]="true" [clearable]="true"
+          [(ngModel)]="nguonphatsinh_select" [disabled]="true" >
+          <ng-option [value]="item.ma_nguonphatsinh" *ngFor="let item of danhsachnguonphatsinh">
+            {{item.ten}}
+          </ng-option>
+        </ng-select>
+      </div>
+      <div class="col-sm-2" title="Từ ngày">
+        <label >Từ ngày</label>
+        <input type="date" [(ngModel)]="ngaybatdau_tk" class="form-control input-baocao"/> 
+      </div>
+      <div class="col-sm-2" title="Đến ngày">
+        <label>Đến ngày</label>
+        <input type="date" [(ngModel)]="ngayketthuc_tk" class="form-control input-baocao"/> 
+      </div>
+      <!-- <div class="col-sm-1">
+        <label>Độ ưu tiên</label>
+        <select [(ngModel)]="tinhchat" class="form-control input-baocao" style="height: 36px;">
+          <option value="0">Thường</option>
+          <option value="1">Khẩn</option>
+        </select>
+      </div> -->
+      <label class="save-task buttonbc">
+        <a (click)="xembaocao()">
+          <i class="fa fa-search"> Xem báo cáo</i>
+        </a>
+      </label>
+      <label class="save-task buttonbc">
+        <a (click)="taifile()">
+          <i class="fa fa-cloud-download"> Tải xuống</i>
+        </a>
+      </label>
+    </div>
+  </div>
+  <div  class="col-sm-12" >
+    <div class="modal-body body-baocao">
+      <div class="clearfix">
+        <div class="body">
+          <div id="grid-result" >
+            <table  id="baocao-result" class="table table-condensed table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th class="text-center">STT</th>                  
+                  <th class="text-center">Ngày giao</th>
+                  <th class="text-center">Tên công việc</th>
+                  <th class="text-center">Nguồn phát sinh</th>
+                  <th class="text-center">Người giao</th>
+                  <th class="text-center">Người chủ trì</th>
+                  <th class="text-center">Người phối hợp</th>
+                  <th class="text-center">Người giám sát</th>
+                  <th class="text-center">Ngày bắt đầu</th>
+                  <th class="text-center">Ngày kết thúc</th>
+                  <th class="text-center">Tình trạng</th>
+                  <th class="text-center">Tỷ lệ hoàn thành</th>
+                  <th class="text-center">Tính chất</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let item of data_baocao;let i = index">
+                  <td class="text-center">{{i + 1}}</td>
+                  <td class="text-center">
+                    {{item.ngay_giao}}
+                  </td>
+                  <td>
+                    {{item.ten_cv}}
+                  </td>
+                  <td>
+                    {{item.nguonphatsinh}}
+                  </td>
+                  <td>
+                    {{item.nguoi_giao1}}
+                  </td> 
+                  <td>
+                    {{item.nguoi_chutri1}}
+                  </td> 
+                  <td>
+                    {{item.nguoi_phoihop}}
+                  </td> 
+                  <td>
+                    {{item.nguoi_giamsat1}}
+                  </td> 
+                  <td class="text-center">
+                    {{item.ngay_batdau}}
+                  </td> 
+                  <td class="text-center">
+                    {{item.ngay_ketthuc}}
+                  </td>
+                   
+                  <td class="text-center">
+                    {{item.trangthai1}}
+                  </td> 
+                   
+                  <td class="text-center">
+                    {{item.tile_hoanthanh}} %
+                  </td> 
+                   
+                  <td class="text-center">
+                    {{item.tinh_chat1}}
+                  </td> 
+                  
+                </tr>
+                <tr *ngIf="data_baocao.length == null  || data_baocao.length == 0">
+                  <td colspan="13" class="text-center empty gray-color fs13"
+                      style="min-height:18px; line-height:18px;">
+                      Chưa có dòng dữ liệu nào
+                  </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</section>

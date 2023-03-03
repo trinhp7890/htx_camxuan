@@ -1,0 +1,354 @@
+<section id="dashboard" class="extend clearfix">
+  <div class='row sum-boxes not-min'>
+    <div class='col-md-2'>
+      <div class="sum-box info">
+        <h2>130</h2>
+        <h4>Tổng số</h4>
+        <h5>NỘI DUNG 1</h5>
+      </div>
+    </div>
+    <div class='col-md-2'>
+      <div class="sum-box">
+        <h2 class="st-number clr-yellow">120</h2>
+        <h4 style="color: black;">Đang thực hiện</h4>
+        <h5 style="color: black;">NỘI DUNG 2</h5>
+      </div>
+    </div>
+    <div class='col-md-2'>
+      <div class="sum-box puple">
+        <h2>70</h2>
+        <h4>Chi tiết nội dung 3</h4>
+        <h5>NỘI DUNG 3</h5>
+      </div>
+    </div>
+    <div class='col-md-2'>
+      <div class="sum-box orange">
+        <h2>65</h2>
+        <h4>Chi tiết nội dung 4 </h4>
+        <h5>NỘI DUNG 4</h5>
+      </div>
+    </div>
+    <div class='col-md-2'>
+      <div class="sum-box">
+        <h2 class="st-number clr-green">50</h2>
+        <h4 style="color: black;">Chi tiết nội dung 5</h4>
+        <h5 style="color: black;">NỘI DUNG 5</h5>
+      </div>
+    </div>
+    <div class='col-md-2'>
+      <div class="sum-box yellow">
+        <h2>5</h2>
+        <h4>Đang chờ</h4>
+        <h5>NỘI DUNG 6</h5>
+      </div>
+    </div>
+  </div>
+  <div class='row sum-boxes not-min'>
+    <div class='col-md-3'>
+      <div class="sum-box red">
+        <h2>130</h2>
+        <h4>Sắp quá hạn</h4>
+        <h5>NỘI DUNG 7</h5>
+      </div>
+    </div>
+    <div class='col-md-3'>
+      <div class="sum-box">
+        <h2 class="st-number clr-red">120</h2>
+        <h4 style="color: black;">Chi tiết ND7</h4>
+        <h5 style="color: black;">NỘI DUNG 7</h5>
+      </div>
+    </div>
+    <div class='col-md-3'>
+      <div class="sum-box green">
+        <h2>70</h2>
+        <h4>Cần làm hôm nay</h4>
+        <h5>NỘI DUNG 7</h5>
+      </div>
+    </div>
+    <div class='col-md-3'>
+      <div class="sum-box">
+        <div>
+          <h2 class="st-number clr-blue">65</h2>
+        </div>
+        <h4 style="color: black;">Tổng quy trình</h4>
+        <h5 style="color: black;">QUY TRÌNH</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Biểu đồ tiến độ hoàn thành</strong>
+          </h4>
+          <div class="clearfix">
+            <canvas id="tientrinh_hoanthanh" width="1200px" height="500"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Biểu đồ trạng thái hoàn thành</strong>
+          </h4>
+          <div class="clearfix">
+            <canvas id="tiendo_thuchien" width="1200px" height="500"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Trạng thái hoàn thành</strong>
+          </h4>
+          <div class="clearfix">
+            <div id="grid-result" class="body">
+              <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="w35 center">Đang làm</th>
+                      <th class="w99 center">Trong tuần</th>
+                      <th class="w35 center">Quá hạn</th>
+                      <th class="w35 center">Hoàn thành</th>
+                      <th class="w35 center">Chưa gán</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-green center bold">35(32,50%)</td>
+                      <td class="text-blue center bold">12(22,50%)</td>
+                      <td class="text-red center bold">19(22,50%)</td>
+                      <td class="text-yellow center bold">39(36,50%)</td>
+                      <td class="center bold">0(0,00%)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Nội dung 9</strong>
+          </h4>
+          <div class="clearfix">
+            <canvas id="conviec_radar" width="1200px" height="800"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Tiến độ thực hiện các trung tâm - Phòng ban</strong>
+          </h4>
+          <div class="clearfix">
+            <canvas id="conviec_trungtam" width="1200px" height="800"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Nội dung 10</strong>
+          </h4>
+          <div class="clearfix">
+            <div id="grid-result" class="body">
+              <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="w35 center">Tên công việc</th>
+                      <th class="w99 center">Người chủ trì</th>
+                      <th class="w35 center">Tiến độ</th>
+                      <th class="w35 center">Bắt đầu dự kiến</th>
+                      <th class="w35 center">Kết thúc dự kiến</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="bold">Quản lí công việc</td>
+                      <td class="bold">Bùi Hương Đông</td>
+                      <td class="center">22,50%</td>
+                      <td class="center">01/11/2021</td>
+                      <td class="center">31/11/2021</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Chuyển đổi CSS</td>
+                      <td class="bold">Lê Việt Tuấn</td>
+                      <td class="center">56,50%</td>
+                      <td class="center">01/12/2021</td>
+                      <td class="center">31/12/2021</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Xử phạt hành chính</td>
+                      <td class="bold">Trần Sỹ Chung</td>
+                      <td class="center">84,50%</td>
+                      <td class="center">01/11/2021</td>
+                      <td class="center">31/12/2021</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Lập báo cáo, hỗ trợ CSS</td>
+                      <td class="bold">Nguyễn Minh Nhật</td>
+                      <td class="center">45,50%</td>
+                      <td class="center">01/10/2021</td>
+                      <td class="center">31/12/2021</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Xây dựng Module Dashboard VTT</td>
+                      <td class="bold">Trần Văn Thi</td>
+                      <td class="center">86,50%</td>
+                      <td class="center">01/11/2021</td>
+                      <td class="center">31/12/2021</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Biểu đồ trạng thái công việc</strong>
+          </h4>
+          <div class="clearfix">
+            <canvas id="tiendo_nhanvien" width="1200px" height="250"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default sbox">
+        <div class="panel-body card-body text-left">
+          <h4 class="ng-binding color-blue"><strong>Trạng thái công việc theo nhân viên</strong>
+          </h4>
+          <div class="clearfix">
+            <div id="grid-result" class="body">
+              <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="w35 center">Tên nhân viên</th>
+                      <th class="w99 center">Đang thực hiện</th>
+                      <th class="w35 center">Trong tuần</th>
+                      <th class="w35 center">Quá hạn</th>
+                      <th class="w35 center">Hoàn thành</th>
+                      <th class="w35 center">Tổng</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="bold">Bùi Hương Đông</td>
+                      <td class="center text-blue">25(22,50%)</td>
+                      <td class="center text-blue">12(12,50%)</td>
+                      <td class="center text-red">5(4,50%)</td>
+                      <td class="center text-green">16(18,50%)</td>
+                      <td class="center">6(14,50%)</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Trần Văn Thi</td>
+                      <td class="center text-blue">26(22,50%)</td>
+                      <td class="center text-blue">32(5,50%)</td>
+                      <td class="center text-red">12(43,50%)</td>
+                      <td class="center text-green">26(23,50%)</td>
+                      <td class="center">25(26,50%)</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Lê Việt Tuấn</td>
+                      <td class="center text-blue">24(19,50%)</td>
+                      <td class="center text-blue">35(23,50%)</td>
+                      <td class="center text-red">25(35,50%)</td>
+                      <td class="center text-green">12(36,50%)</td>
+                      <td class="center">11(11,50%)</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Phan Trình</td>
+                      <td class="center text-blue">34(22,50%)</td>
+                      <td class="center text-blue">73(24,50%)</td>
+                      <td class="center text-red">25(45,50%)</td>
+                      <td class="center text-green">12(28,50%)</td>
+                      <td class="center">23(23,50%)</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Trần Khôi Nguyên</td>
+                      <td class="center text-blue">21(22,50%)</td>
+                      <td class="center text-blue">34(16,50%)</td>
+                      <td class="center text-red">54(24,50%)</td>
+                      <td class="center text-green">21(35,50%)</td>
+                      <td class="center">12(32,50%)</td>
+                    </tr>
+                    <tr>
+                      <td class="bold">Trần Sỹ Chung</td>
+                      <td class="center text-blue">55(31,50%)</td>
+                      <td class="center text-blue">35(34,50%)</td>
+                      <td class="center text-red">31(21,50%)</td>
+                      <td class="center text-green">16(11,50%)</td>
+                      <td class="center">623(16,50%)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-right" style="float: left;
+  width: 3%;">
+    <ul class="sidebar-menu tree" data-widget="tree">
+      <!-- <li class="treeview-dashboard" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Xem công việc dạng tổng quan">
+        <a class="text-center tooltips c-pointer" data-value="danhsach" ng-click="myStaff_changeViewCongViec('dashboard')">
+          <i class="fa fa-dashboard"></i>
+        </a>
+      </li>
+      <li class="treeview-danhsach" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Xem công việc dạng danh sách">
+        <a class="text-center tooltips c-pointer" data-value="danhsach" ng-click="myStaff_changeViewCongViec('danhsach')">
+          <i class="fa-times-circle "></i>
+        </a>
+      </li> -->
+      <li class="treeview-board" data-toggle="tooltip" data-placement="auto" title=""
+        data-original-title="Xem công việc dạng bảng Kanban">
+        <a class="text-center tooltips c-pointer" data-value="board">
+          <i class="fa fa-columns"></i>
+        </a>
+      </li>
+      <li class="treeview-nhansu" data-toggle="tooltip" data-placement="auto" title=""
+        data-original-title="Xem công việc theo bảng phân bổ nguồn lực">
+        <a class="text-center tooltips c-pointer" data-value="nhansu">
+          <i class="fa fa-users"></i>
+        </a>
+      </li>
+      <!-- <li class="treeview-tiendo active" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Xem công việc dạng bảng tiến độ GANTT">
+        <a class="text-center tooltips c-pointer" data-value="tiendo" ng-click="myStaff_changeViewCongViec('tiendo')">
+          <i class="fa fa-table"> </i>
+        </a>
+      </li> -->
+
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,294 @@
+<div class="modal-header" style="display: flow-root;">
+  <button type="button" class="close" (click)="closed()">
+    <span aria-hidden="true">×</span>
+  </button>
+  <h4 class="modal-title" style="margin-bottom: 0px;">
+    <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+  </h4>
+</div>
+<div class="modal-body" style="background-color:#f2f2f2">
+  <div class="clearfix">
+    <div class="row">
+      <div class="col-sm-3" style="padding-right: 0;">
+        <div style="position: relative;overflow: hidden;width: auto;height: 549px;">
+          <div
+            style="background-color: rgb(255, 255, 255); border-radius: 3px; overflow: hidden; width: auto; height: 549px;">
+            <div style="position: relative; padding: 10px; border-bottom: 1px solid #f2f2f2;">
+              <h4 class="title-assignto" style="margin-top: 5px; font-size: 14px; font-weight: 500;">Danh sách người
+                thực hiện</h4>
+              <div class="assignto-list">
+                <ul class="products-list product-list-in-box todo-list">
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="../../../../assets/images/icon_account.png" alt="Giám đốc Công ty"
+                        style="cursor: pointer">
+                    </div>
+                    <div class="product-info"><span class="">Phan Trình</span></div>
+                  </li>
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="../../../../assets/images/icon_account.png" alt="FW.SP.MN" style="cursor: pointer">
+                    </div>
+                    <div class="product-info"><span class="">Trần Văn Thi</span></div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- danh sach nguoi thuc hien -->
+              <a (click)="showAssignTosTask()" style="margin-top:10px; display:block; color: #17b799;"
+                class="follwer-change text-smw link_task_edit_content">Thay đổi người thực hiện?</a>
+              <div *ngIf="showthemnguoi==true" role="menu" class="dropdown-task-assin">
+                <div class="pop-header text-center" style="padding-bottom: 5px;">
+                  <span class="text-header-assin">
+                    <i (click)="showAssignTosTask()" class="fa fa-remove pull-right c-pointer"></i> Người thực
+                    hiện</span>
+                </div>
+                <div class="form-group">
+                  <div class="divider"></div>
+                  <div class="divSearch"><input id="performTask" type="text" placeholder="Tìm thành viên..."
+                      onkeyup="findMemberProject(this)" class="form-control input-sm"></div>
+                  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;">
+                    <ul class="products-list product-list-in-box list-members-project"
+                      style="overflow: hidden; width: auto; height: 300px;">
+                      <li class="item c-pointer" data-email="fastwork" data-name="fw.sp.mn" onclick="clickMember(this)"
+                        style="display: block;">
+                        <div class="product-img"><img
+                            src="https://image.fastwork.vn:6007/avatar/5e6c2fccd4d171603ed38e6a/1623056788354.jpg"
+                            alt="FW.SP.MN">
+                        </div>
+                        <div class="product-info"><span class="product-title"
+                            style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">FW.SP.MN (CÔNG
+                            TY)<span class="pull-right joinin"><i class="fa fa-check"
+                                style="color: #444;"></i></span></span></div>
+                      </li>
+                    </ul>
+                    <div class="slimScrollBar"
+                      style="background: rgb(0, 0, 0); width: 7px; position: absolute; border-radius: 7px; z-index: 99; right: 1px; height: 122.449px; display: none; opacity: 0.4;">
+                    </div>
+                    <div class="slimScrollRail"
+                      style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- danh sách nguoi theo doi -->
+            <div style="position: relative; padding: 10px; border-bottom: 1px solid #f2f2f2;">
+              <h4 class="title-assignto" style="margin-top: 5px; font-size: 14px; font-weight: 500;">Danh sách người
+                giám sát</h4>
+
+              <div class="assignto-list">
+                <ul class="products-list product-list-in-box todo-list">
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="../../../../assets/images/icon_account.png" alt="Giám đốc Công ty"
+                        style="cursor: pointer">
+                    </div>
+                    <div class="product-info"><span class="">Giám đốc Công ty (CÔNG TY)</span></div>
+                  </li>
+                  <li class="item">
+                    <div class="product-img">
+                      <img src="../../../../assets/images/icon_account.png" alt="FW.SP.MN" style="cursor: pointer">
+                    </div>
+                    <div class="product-info"><span class="">FW.SP.MN (CT - CÔNG TY)</span></div>
+                  </li>
+                </ul>
+              </div>
+
+              <a (click)="showfollwerTosTask()" style="margin-top:10px; display:block; color: #17b799;"
+                class="follwer-change text-smw link_task_edit_content">Thay đổi người giám sát công việc?</a>
+              <div *ngIf="showfollwer==true" role="menu" class="dropdown-task-assin">
+                <div class="pop-header text-center" style="padding-bottom: 5px;">
+                  <span class="text-header-assin">
+                    <i (click)="showfollwerTosTask()" class="fa fa-remove pull-right c-pointer"></i> Người giám sát công
+                    việc</span>
+                </div>
+                <div class="form-group">
+                  <div class="divider"></div>
+                  <div class="divSearch"><input id="performTask" type="text" placeholder="Tìm thành viên..."
+                      onkeyup="findMemberProject(this)" class="form-control input-sm"></div>
+                  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;">
+                    <ul class="products-list product-list-in-box list-members-project"
+                      style="overflow: hidden; width: auto; height: 300px;">
+                      <li class="item c-pointer" data-email="fastwork" data-name="fw.sp.mn" onclick="clickMember(this)"
+                        style="display: block;">
+                        <div class="product-img"><img
+                            src="https://image.fastwork.vn:6007/avatar/5e6c2fccd4d171603ed38e6a/1623056788354.jpg"
+                            alt="FW.SP.MN">
+                        </div>
+                        <div class="product-info"><span class="product-title"
+                            style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">FW.SP.MN (CÔNG
+                            TY)<span class="pull-right joinin"><i class="fa fa-check"
+                                style="color: #444;"></i></span></span></div>
+                      </li>
+                    </ul>
+                    <div class="slimScrollBar"
+                      style="background: rgb(0, 0, 0); width: 7px; position: absolute; border-radius: 7px; z-index: 99; right: 1px; height: 122.449px; display: none; opacity: 0.4;">
+                    </div>
+                    <div class="slimScrollRail"
+                      style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thông tin người giao -->
+            <div style="position: relative; padding: 10px; border-bottom: 1px solid #f2f2f2;">
+              <h4 class="title-assignto" style="margin-top: 5px; font-size: 14px; font-weight: 500;">Thông tin người
+                giao việc</h4>
+
+              <div class="form-horizontal create-task" style="width: 70%;">
+                <div class="form-group">
+                  <div class="col-sm-5">Người giao:</div>
+                  <div class="col-sm-7">Giám đốc Công ty</div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-5">Ngày giao:</div>
+                  <div class="col-sm-7">17/10/2021</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-9" style="padding-left: 0;">
+        <div style="position: relative; overflow: hidden; width: auto; height: 549px;">
+          <div
+            style=" margin-left: 10px; background-color: rgb(255, 255, 255); padding: 10px; border-radius: 3px; overflow: hidden; width: auto; height: 549px;">
+            <div>
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="row row-frm">
+                      <div class="col-sm-12">
+                        <div class="float-input" title="Tên công việc">
+                          <label class="disabled">Tên công việc: <span class="required"></span></label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row row-frm">
+                      <div class="col-sm-12">
+                        <div class="float-input" title="Nội dung thực hiện">
+                          <label class="disabled">Nội dung thực hiện<span class="required"></span></label>
+                          <textarea type="text" placeholder="Nội dung thực hiện ..."  class="textarea-dit">Thực hiện rà soát dữ liệu khách hàng theo yêu cầu mới của văn bản số 1339/VB</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row row-frm">
+                      <div class="col-sm-12">
+                        <div class="float-input" title="Văn bản liên quan">
+                          <label class="disabled">Văn bản liên quan<span class="required"></span></label>
+                          <input type="text" class="form-control" />
+                          <a (click)="attachfile()" style="position: absolute; z-index: 9; top: 4px; right: 5px;"><i
+                              class="fa fa-file-text-o" style="color: #17b799; font-size: 25px;"></i> </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row row-frm">
+                      <div class="col-sm-12">
+                        <div class="float-input" title="Trích yếu văn bản">
+                          <label class="disabled">Trích yếu văn bản<span class="required"></span></label>
+                          <textarea class="textarea-dit" placeholder="Trích yếu văn bản ..." type="text"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-sm-12">
+                  <div class="row row-frm">
+                    <div class="col-sm-3">
+                      <div class="float-input" title="Ngày bắt đầu">
+                        <label class="disabled">Ngày bắt đầu</label>
+                        <input type="date" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="float-input" title="Ngày kết thúc">
+                        <label class="disabled">Ngày kết thúc</label>
+                        <input type="date" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="float-input" title="Trạng thái">
+                        <label class="disabled">Trạng thái</label>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2" style="text-align: right;">                    
+                        <button type="submit" class="btn btn-sm btn-primary save-task" style="background-color: #17B799;
+                        border-color: #109D90; height: 30px; padding-top: 0px;"><i class="fa fa-check"></i> Lưu</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- trao đổi công việc -->
+              <div class="borBot"></div>
+              <div id="divComments" class="box-collapse">
+                <h4 class="title-task"><i class="fa fa-comments"></i>Trao đổi
+                  <button type="button" (click)="antraodoi()" title="Ẩn" class="btn btn-box-tool pull-right">
+                    <i *ngIf="showtraodoi==true" class="fa fa-minus"></i>
+                    <i *ngIf="showtraodoi==false" class="fa fa-plus"></i>
+                  </button>
+                </h4>
+                <div *ngIf="showtraodoi==true" class="box-task-comments">                 
+                  <div class="textarea-wrapper">
+                    <a *ngIf="showbtngui==true" (click)="anbuttongui()">
+                      <i class="fa fa-times" style="font-size: 16px; color: red;"></i>
+                    </a>
+                    <textarea class="textarea-dit" placeholder="Nội dung trao đổi ..." type="text" (click)="hienbuttongui()"></textarea>
+                    <div *ngIf="showbtngui==true" class="div-btn">
+                      <button type="button" (click)="guitraodoi()" class="btn btn-box-tool pull-right save-task">
+                        <i class="fa fa-paper-plane-o"> Gửi</i>
+                      </button>
+                      <button type="button" (click)="guitraodoi()" class="btn btn-box-tool pull-right save-task">
+                        <i class="fa fa-file-text-o"> Đính kèm</i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="borBot"></div>
+                  <div class="assignto-list">
+                    <ul class="products-list product-list-in-box todo-list">
+                      <li class="item">
+                        <div class="product-img">
+                          <img src="../../../../assets/images/icon_account.png" alt="Giám đốc Công ty"
+                            style="cursor: pointer">
+                        </div>
+                        <div class="contentcomment">
+                          <p class="name-comment">Phan Trình</p>    
+                          <p >
+                            <a href="/Congviec/cuatoi">File công việc.doc</a> 
+                          </p>                                        
+                          <p >Em đã hoàn thành công việc
+                          </p>
+                          <p class="ngaycomment">21/10/2021 11:17 </p>
+                        </div>
+                      </li>
+                      <div class="borBot"></div>
+                      <li class="item">
+                        <div class="product-img">
+                          <img src="../../../../assets/images/icon_account.png" alt="FW.SP.MN" style="cursor: pointer">
+                        </div>
+                        <div class="contentcomment">
+                          <p class="name-comment">Trần Văn Thi</p>
+                          <p >Anh sẽ kiểm tra lại nhé</p>
+                          <p class="ngaycomment">21/10/2021 11:30 </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

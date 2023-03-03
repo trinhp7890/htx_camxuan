@@ -1,0 +1,446 @@
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\obj\Debug\API_TPL.csprojResolveAssemblyReference.cache
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\ApplicationInsights.config
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\csc.exe
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\System.Collections.Immutable.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\System.Reflection.Metadata.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\vbc.exe
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\VBCSCompiler.exe
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\roslyn\VBCSCompiler.exe.config
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\API_TPL.dll.config
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\API_TPL.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\API_TPL.pdb
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.Agent.Intercept.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.DependencyCollector.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.PerfCounterCollector.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.Web.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.WindowsServer.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.ApplicationInsights.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Core.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.Cookies.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.OAuth.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Newtonsoft.Json.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Owin.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Net.Http.Formatting.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Http.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Http.Owin.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Http.WebHost.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.DependencyCollector.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.Web.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AI.WindowsServer.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.ApplicationInsights.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Core.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.Cookies.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.OAuth.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Net.Http.Formatting.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Http.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Http.Owin.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Newtonsoft.Json.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Http.WebHost.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\obj\Debug\API_TPL.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\obj\Debug\API_TPL.pdb
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Cors.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Cors.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Cors.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\Microsoft.Web.Infrastructure.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Helpers.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Mvc.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Razor.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Deployment.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Razor.dll
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Helpers.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Mvc.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.Razor.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Deployment.xml
+G:\VNPT\aDUAN\API_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Razor.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\ApplicationInsights.config
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\csc.exe
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\System.Collections.Immutable.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\System.Reflection.Metadata.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\vbc.exe
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\VBCSCompiler.exe
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\roslyn\VBCSCompiler.exe.config
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\API_TPL.dll.config
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\API_TPL.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\API_TPL.pdb
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.Agent.Intercept.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.DependencyCollector.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.PerfCounterCollector.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.Web.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.WindowsServer.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.ApplicationInsights.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Core.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Cors.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.Cookies.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.OAuth.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Web.Infrastructure.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Newtonsoft.Json.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Owin.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Net.Http.Formatting.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Cors.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Helpers.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Http.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Http.Owin.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Http.WebHost.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Mvc.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Razor.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Deployment.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Razor.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.DependencyCollector.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.Web.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AI.WindowsServer.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.ApplicationInsights.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Core.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Cors.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.Cookies.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Microsoft.Owin.Security.OAuth.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Net.Http.Formatting.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Helpers.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Http.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Http.Owin.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Http.WebHost.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Mvc.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.Razor.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Deployment.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\System.Web.WebPages.Razor.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\bin\Newtonsoft.Json.xml
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\obj\Debug\API_TPL.csprojResolveAssemblyReference.cache
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\obj\Debug\API_TPL.dll
+G:\VNPT\aDUAN\PROJECT_TPL\API_TPL\API_TPL\obj\Debug\API_TPL.pdb
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\ApplicationInsights.config
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\csc.exe
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\System.Collections.Immutable.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\System.Reflection.Metadata.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\vbc.exe
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\VBCSCompiler.exe
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\roslyn\VBCSCompiler.exe.config
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\API_TPL.dll.config
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\API_TPL.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\API_TPL.pdb
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Agent.Intercept.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.DependencyCollector.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Web.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.WindowsServer.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.ApplicationInsights.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Cors.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Web.Infrastructure.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Newtonsoft.Json.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Owin.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Net.Http.Formatting.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Cors.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Helpers.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.Owin.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.WebHost.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Mvc.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Razor.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Deployment.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Razor.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.DependencyCollector.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Web.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.WindowsServer.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.ApplicationInsights.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Cors.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Net.Http.Formatting.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Helpers.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.Owin.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.WebHost.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Mvc.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.Razor.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Deployment.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Razor.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\bin\Newtonsoft.Json.xml
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.csprojAssemblyReference.cache
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.csproj.CoreCompileInputs.cache
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.csproj.CopyComplete
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.dll
+F:\PHANMEM\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.pdb
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\ApplicationInsights.config
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\csc.exe
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\System.Collections.Immutable.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\System.Reflection.Metadata.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\vbc.exe
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\VBCSCompiler.exe
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\roslyn\VBCSCompiler.exe.config
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\API_TPL.dll.config
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\API_TPL.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\API_TPL.pdb
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Agent.Intercept.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.DependencyCollector.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Web.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.WindowsServer.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.ApplicationInsights.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Cors.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Web.Infrastructure.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Newtonsoft.Json.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Owin.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Net.Http.Formatting.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Cors.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Helpers.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.Owin.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.WebHost.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Mvc.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Razor.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Deployment.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Razor.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.DependencyCollector.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Web.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.WindowsServer.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.ApplicationInsights.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Cors.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Net.Http.Formatting.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Helpers.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.Owin.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.WebHost.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Mvc.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.Razor.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Deployment.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Razor.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\bin\Newtonsoft.Json.xml
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.csprojResolveAssemblyReference.cache
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.dll
+E:\BSC_CHITIETHANGTHANG\DUAN_OUTSOURCE\CA HUE\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.pdb
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\ApplicationInsights.config
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\csc.exe
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\System.Collections.Immutable.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\System.Reflection.Metadata.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\vbc.exe
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\VBCSCompiler.exe
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\roslyn\VBCSCompiler.exe.config
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\API_TPL.dll.config
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\API_TPL.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\API_TPL.pdb
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Agent.Intercept.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.DependencyCollector.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Web.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.WindowsServer.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.ApplicationInsights.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Cors.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Web.Infrastructure.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Newtonsoft.Json.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Owin.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Net.Http.Formatting.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Cors.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Helpers.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.Owin.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.WebHost.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Mvc.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Razor.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Deployment.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Razor.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.DependencyCollector.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.Web.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AI.WindowsServer.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.ApplicationInsights.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Cors.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Net.Http.Formatting.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Helpers.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.Owin.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Http.WebHost.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Mvc.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.Razor.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Deployment.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\System.Web.WebPages.Razor.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\bin\Newtonsoft.Json.xml
+D:\WEB\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.csprojResolveAssemblyReference.cache
+D:\WEB\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.dll
+D:\WEB\CAHUE\CODE\API\API_TPL\obj\Debug\API_TPL.pdb
+D:\WEB\QLCV\API\API_TPL\bin\ApplicationInsights.config
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\csc.exe
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\System.Collections.Immutable.dll
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\System.Reflection.Metadata.dll
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\vbc.exe
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\VBCSCompiler.exe
+D:\WEB\QLCV\API\API_TPL\bin\roslyn\VBCSCompiler.exe.config
+D:\WEB\QLCV\API\API_TPL\bin\API_TPL.dll.config
+D:\WEB\QLCV\API\API_TPL\bin\API_TPL.dll
+D:\WEB\QLCV\API\API_TPL\bin\API_TPL.pdb
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.Agent.Intercept.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.DependencyCollector.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.Web.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.WindowsServer.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.ApplicationInsights.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Cors.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Security.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Web.Infrastructure.dll
+D:\WEB\QLCV\API\API_TPL\bin\Newtonsoft.Json.dll
+D:\WEB\QLCV\API\API_TPL\bin\Owin.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Net.Http.Formatting.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Cors.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Helpers.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Http.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Http.Owin.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Http.WebHost.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Mvc.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Razor.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.WebPages.Deployment.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.WebPages.dll
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.WebPages.Razor.dll
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.DependencyCollector.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.Web.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AI.WindowsServer.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.ApplicationInsights.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AspNet.Identity.Core.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Cors.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Security.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Security.Cookies.xml
+D:\WEB\QLCV\API\API_TPL\bin\Microsoft.Owin.Security.OAuth.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Net.Http.Formatting.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Helpers.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Http.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Http.Owin.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Http.WebHost.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Mvc.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.Razor.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.WebPages.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.WebPages.Deployment.xml
+D:\WEB\QLCV\API\API_TPL\bin\System.Web.WebPages.Razor.xml
+D:\WEB\QLCV\API\API_TPL\bin\Newtonsoft.Json.xml
+D:\WEB\QLCV\API\API_TPL\obj\Debug\API_TPL.dll
+D:\WEB\QLCV\API\API_TPL\obj\Debug\API_TPL.pdb
+D:\WEB\QLCV\API\API_TPL\obj\Debug\API_TPL.csprojResolveAssemblyReference.cache

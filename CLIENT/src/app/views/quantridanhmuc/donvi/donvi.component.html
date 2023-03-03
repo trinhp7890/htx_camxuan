@@ -1,0 +1,291 @@
+<section id="main" class="extend clearfix" style="min-height: 700px;">
+  <div class="header-div">
+    <div class="header-text">
+      <h3 style="float: left">        
+        <a href="/">
+          <span class="header-img">
+            <img src="../../../../assets/images/logo_ktm.png">
+            Giám sát công việc phát sinh
+          </span>
+        </a>
+      </h3>
+    </div>
+  </div>
+  <div style="float: left; width: 97%; padding-top: 20px;">
+    <div class="row row-frm">
+      <div class="col-sm-4">
+        <div class="panel-body gray-bg" style="min-height: auto !important; padding-top: 0px">
+          <label class="title-form"> <i style="margin-right: 13px;" class="fa fa-university"></i>Cây cấu trúc đơn
+            vị</label>
+          <div class="panel-body" style="border:solid 1px #ccc; height: auto; max-height: 1000px; overflow: scroll;"
+            *ngIf="isDataAvailable">
+            <div class="form-group">
+              <div style="position: relative;">
+                <input id="filter" #filter (keyup)="tree.treeModel.filterNodes(filter.value)"
+                  placeholder="Nhập thông tin cần tìm" /> <i class="fa  icon-search"></i>
+              </div>
+              <tree-root #tree [focused]="true" [nodes]="node" [options]="options" (activate)="onEvent($event.node)"
+                (initialized)="onInitialized(tree)">
+              </tree-root>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="modal-body">
+          <div class="clearfix">
+            <tabset>
+              <tab heading="Nhân sự" class="mt-2" (selectTab)="onSelect(1)">
+                <div id="grid-result" class="body">
+                  <div
+                    *ngFor="let nhansu of nhansus  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
+                    class="col-sm-12 nhansu-detail">
+                    <div class="edit-card-custom">
+                      <a class="text-center tooltips c-pointer" (click)="giamsat(nhansu)"
+                        style="position: absolute; right: 60px; cursor:pointer;">
+                        <!-- <img class="icon-assignee" src="../../../../assets/images/trash_16.png" alt="Xóa công việc" />  -->
+                        <i class="fa fa-list-alt " style="color: black; font-size: 20px;"></i>
+
+                      </a>
+                      <a class="text-center tooltips c-pointer" (click)="edit(nhansu)"
+                        style="position: absolute; right: 30px; cursor:pointer;">
+                        <!-- <img class="icon-assignee" src="../../../../assets/images/page_edit.png" alt="Chỉnh sửa công việc" />  -->
+                        <i class="fa fa-edit" style="color: blue; font-size: 20px;"></i>
+                      </a>
+                      <a class="text-center tooltips c-pointer" (click)="giamsat(nhansu)"
+                        style="position: absolute; right: 8px; cursor:pointer;">
+                        <!-- <img class="icon-assignee" src="../../../../assets/images/trash_16.png" alt="Xóa công việc" />  -->
+                        <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
+
+                      </a>
+                    </div>
+                    <a href="javascript:void(0);" (click)="giamsat(nhansu)" style="color: black;" class="viewnhansu">
+                      <div class="col-sm-2" style="text-align: center;">
+                        <img class="img-nhansu" src="{{serviceBase}}/{{nhansu.duongdan_file}}/{{nhansu.ten_file}}"
+                          onerror="this.src='../../../../assets/images/icon_account.png';" />
+                      </div>
+                      <div class="col-sm-4">
+                        <p class="nhansu-name">{{nhansu.ten_nd}}</p>
+                        <p> <i style="margin-right: 5px;" class="fa fa-address-card"></i> {{nhansu.chucdanh}}</p>
+                        <p> <i style="margin-right: 5px;" class="fa fa-phone-square"></i> {{nhansu.so_dt}}</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <p> <i *ngIf="nhansu.active == 1" style="margin-right: 5px; color: chartreuse;"
+                            class="fa fa-circle"></i>
+                          <i *ngIf="nhansu.active != 1" style="margin-right: 5px; color: red;" class="fa fa-circle"></i>
+                          {{nhansu.ma_nv}}
+                        </p>
+                        <p> <i style="margin-right: 5px; " class="fa fa-university"></i> {{nhansu.ten_dv}}</p>
+                        <p> <i style="margin-right: 5px; color: coral;" class="fa fa-envelope"></i>{{nhansu.email}}</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="gray-bg btn-block">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="row row-frm">
+                          <div class="col-md-6">
+                            <span class="grid-counter gray-color fc-666 pull-left">Có <strong>{{totalItems}}</strong>
+                              nhân sự</span>
+                          </div>
+                          <div class="col-md-6">
+                            <pagination-controls (pageChange)="p = $event" class="pull-right" previousLabel=""
+                              nextLabel="">
+                            </pagination-controls>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <ul class="list-inline icon-note gray-color">
+                        <li>Ghi chú: </li>
+                        <li>
+                          <i style="margin-right: 5px; color: chartreuse;" class="fa fa-circle"></i>Đang làm việc
+                        </li>
+                        <li>
+                          <i style="margin-right: 5px; color: red;" class="fa fa-circle"></i> Nghỉ việc
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </tab>
+              <tab heading="Chi tiết đơn vị" class="mt-2" (selectTab)="onSelect(2)">
+                <div id="grid-result" class="body">
+                  <div class='row sum-boxes not-min'>
+                    <div class='col-md-3'>
+                      <div class="sum-box info">
+                        <h2>{{tongso}}</h2>
+                        <h4>Tổng số</h4>
+                      </div>
+                    </div>
+                    <div class='col-md-3'>
+                      <div class="sum-box orange">
+                        <h2>{{quahan}}</h2>
+                        <h4>Quá hạn </h4>
+                      </div>
+                    </div>
+                    <div class='col-md-3'>
+                      <div class="sum-box yellow">
+                        <h2>{{chuathuchien}}</h2>
+                        <h4>Chưa thực hiện</h4>
+                      </div>
+                    </div>
+                    <div class='col-md-3'>
+                      <div class="sum-box green">
+                        <h2>{{hoanthanh}}</h2>
+                        <h4>Hoàn thành</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div *ngIf="this.list_quahan.length > 0" class="row">
+                        <div class="col-md-12">
+                          <div class="panel panel-default sbox">
+                            <div class="panel-body card-body text-left pd-0">
+                              <h4 class="ng-binding color-warning"><strong>Cảnh báo công việc quá hạn</strong>
+                              </h4>
+                              <div class="clearfix">
+                                <div id="grid-result" class="body">
+                                  <div class="hr-grid table-responsive">
+                                    <table class="table table-sm">
+                                      <thead>
+                                        <tr>
+                                          <th class="w200 center">Tên công việc</th>
+                                          <th class="w35 center">Người chủ trì</th>
+                                          <th class="w35 center">Ngày bắt đầu</th>
+                                          <th class="w35 center">Ngày kết thúc</th>
+                                          <th class="w35 center">Số ngày quá hạn</th>
+                                          <th class="w35 center">Tiến độ</th>
+                                          <th class="w35 center"></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let quahan of list_quahan">
+                                          <td class="font-600">{{ quahan.ten_cv }}</td>
+                                          <td class="center">{{ quahan.nguoi_chutri }}</td>
+                                          <td class="center">{{ quahan.ngay_batdau }}</td>
+                                          <td class="center">{{ quahan.ngay_ketthuc }}</td>
+                                          <td class="center">{{ quahan.songay_quahan}}</td>
+                                          <td class="center">
+                                            <div class="progress">
+                                              <div *ngIf="60 > quahan.tile_hoanthanh" class="progress-bar-danger"
+                                                role="progressbar" [aria-valuenow]="quahan.tile_hoanthanh"
+                                                aria-valuemin="0" aria-valuemax="100"
+                                                [style]="{ 'width': quahan.tile_hoanthanh+'%'}">
+                                                <span class="sr-only">60% Complete</span>
+                                              </div>
+                                              <div *ngIf="quahan.tile_hoanthanh > 60" class="progress-bar-warning"
+                                                role="progressbar" [aria-valuenow]="quahan.tile_hoanthanh"
+                                                aria-valuemin="0" aria-valuemax="100"
+                                                [style]="{ 'width': quahan.tile_hoanthanh+'%'}">
+                                                <span class="sr-only">60% Complete</span>
+                                              </div>
+                                              <div *ngIf="quahan.tile_hoanthanh == 100" class="progress-bar-success"
+                                                role="progressbar" [aria-valuenow]="quahan.tile_hoanthanh"
+                                                aria-valuemin="0" aria-valuemax="100"
+                                                [style]="{ 'width': quahan.tile_hoanthanh+'%'}">
+                                                <span class="sr-only">60% Complete</span>
+                                              </div>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="this.list_duocgiao.length > 0" class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-default sbox">
+                        <div class="panel-body card-body text-left pd-0">
+                          <h4 class="ng-binding color-green"><strong>Danh sách công việc cần thực hiện</strong>
+                          </h4>
+                          <div class="clearfix">
+                            <div id="grid-result" class="body">
+                              <div class="hr-grid table-responsive">
+                                <table class="table table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th class="w200 center">Tên công việc</th>
+                                      <th class="w35 center">Tính chất</th>
+                                      <th class="w35 center">Người chủ trì</th>
+                                      <th class="w35 center">Ngày bắt đầu</th>
+                                      <th class="w35 center">Ngày kết thúc</th>
+                                      <th class="w100 center">Trạng thái</th>
+                                      <th class="w35 center">Số ngày còn lại</th>
+                                      <th class="w35 center">Tiến độ</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let duocgiao of list_duocgiao">
+                                      <td class="font-600">{{ duocgiao.ten_cv }}</td>
+                                      <td *ngIf="duocgiao.tinh_chat == 1" class="center color-red">
+                                        <img src="../../../../assets/images/fast.png" style="width: 28px;" alt="" />
+                                        Khẩn
+                                      </td>
+                                      <td *ngIf="duocgiao.tinh_chat == 0" class="center">
+                                        <img src="../../../../assets/images/normal.jpg" style="width: 20px;" alt="" />
+                                        Thường
+                                      </td>
+                                      <td>{{ duocgiao.nguoi_chutri }}</td>
+                                      <td class="center">{{ duocgiao.ngay_batdau }}</td>
+                                      <td class="center">{{ duocgiao.ngay_ketthuc }}</td>
+                                      <td *ngIf="duocgiao.trangthai == 3"><span class="bold center bg_red pd-5">{{
+                                          duocgiao.ten_trangthai}}</span></td>
+                                      <td *ngIf="duocgiao.trangthai == 2"><span class="bold center bg_green pd-5 ">{{
+                                          duocgiao.ten_trangthai}}</span></td>
+                                      <td *ngIf="duocgiao.trangthai == 1"><span class="bold center pd-5">{{
+                                          duocgiao.ten_trangthai}}</span></td>
+                                      <td *ngIf="duocgiao.trangthai == 0"><span class="bold center bg_warning pd-5"> {{
+                                          duocgiao.ten_trangthai}}</span></td>
+                                      <td class="center">{{ duocgiao.songay_conlai }}</td>
+                                      <td class="center">
+                                        <div class="progress">
+                                          <div *ngIf="60 > duocgiao.tile_hoanthanh" class="progress-bar-danger"
+                                            role="progressbar" [aria-valuenow]="duocgiao.tile_hoanthanh"
+                                            aria-valuemin="0" aria-valuemax="100"
+                                            [style]="{ 'width': duocgiao.tile_hoanthanh+'%'}">
+                                            <span class="sr-only">{{duocgiao.tile_hoanthanh}}% hoàn thành</span>
+                                          </div>
+                                          <div *ngIf="duocgiao.tile_hoanthanh >= 60" class="progress-bar-warning"
+                                            role="progressbar" [aria-valuenow]="duocgiao.tile_hoanthanh"
+                                            aria-valuemin="0" aria-valuemax="100"
+                                            [style]="{ 'width': duocgiao.tile_hoanthanh+'%'}">
+                                            <span class="sr-only">{{duocgiao.tile_hoanthanh}}% hoàn thành</span>
+                                          </div>
+                                          <div *ngIf="duocgiao.tile_hoanthanh == 100" class="progress-bar-success"
+                                            role="progressbar" [aria-valuenow]="duocgiao.tile_hoanthanh"
+                                            aria-valuemin="0" aria-valuemax="100"
+                                            [style]="{ 'width': duocgiao.tile_hoanthanh+'%'}">
+                                            <span class="sr-only">{{duocgiao.tile_hoanthanh}}% hoàn thành</span>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tab>
+            </tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

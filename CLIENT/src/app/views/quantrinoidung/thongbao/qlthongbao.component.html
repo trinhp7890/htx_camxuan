@@ -1,0 +1,77 @@
+<section id="main" class="extend clearfix"> 
+    <div *ngIf="hide_title == true" class="header-div" >
+        <div class="header-text">
+          <h3 style="float: left"> 
+            <i style="margin-right: 13px;" class="fa fa-bell"></i> Quản lý thông báo
+          </h3>          
+        </div>
+    </div>
+    <div style="float: left; width: 97%; padding-top: 20px;">    
+    <ejs-kanban keyField='keyfield' [dataSource]='data' [cardSettings]='cardSettings' [swimlaneSettings]='swimlaneSettings'  [allowDragAndDrop]='allowDragAndDrop' (dialogOpen)="dialogOpen($event)">
+      <e-columns>
+        <e-column headerText='Danh sách thông báo' keyField ='1'></e-column>
+      </e-columns>
+      <ng-template #cardSettingsTemplate let-data>
+        <div class='e-card-content'>
+          <div class="edit-card-custom">
+            <a class="text-center tooltips c-pointer edit-thongbao" (click)="editcard(data)" >
+              <i class="fa fa-edit" style="color: blue;"></i>
+            </a>
+            <a  class="text-center tooltips c-pointer del-thongbao" (click)="deletecard(data)">              
+              <i class="fa fa-times-circle" style="color: red; "></i>
+            </a>
+          </div>
+            <table class="card-template-wrap">
+              <tbody>
+                <tr>
+                  <td class="img-thongbao">
+                    <div >
+                      <img class="thumbnail" src="{{serviceBase}}/{{data.hinhanh}}" alt="{{data.tieude}}"
+                        onerror="this.src='../../../../assets/images/no-thong-bao.png';" />
+                    </div>
+                  </td>
+                  <td class="noidung-thongbao">
+                    <p class="card-name-cs">{{data.tieude}}</p>
+                    <p>{{data.mota}}</p>
+                    <p class="thoigian-thongbao"><img class="icon-time" src="../../../../assets/images/time.png" alt="Thời gian thực hiện" />
+                      Thời gian đăng: {{data.vao_luc}} ngày {{data.ngay_dang}}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </ng-template>
+    <ng-template #swimlaneSettingsTemplate let-data>
+      <div id="swimlaneTemplate">
+          <div class="swimlane-template e-swimlane-template-table">
+              <div class="e-swimlane-row-text">
+                  <img class="icon-time" src="../../../../assets/images/time.png"
+                      alt="{{data.keyField}}" /><span>{{data.textField}}</span>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+  </ejs-kanban>
+</div>
+  <div class="sidebar-right" style="position: absolute; right: 2.5%; top: 74px;">
+    <ul class="sidebar-menu tree" data-widget="tree">
+      <li class="treeview-dashboard" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Xem thông báo theo danh sách">
+        
+        <a class="text-center tooltips c-pointer" data-value="danhsach" (click)="ins_thongbao()" title="Thêm thông báo">
+          <i class="fa fa-plus-circle"></i>
+        </a>
+      </li>
+      <li class="treeview-board" data-toggle="tooltip" data-placement="auto" title="" title="Xem thông báo theo danh sách">
+        <a class="text-center tooltips c-pointer" data-value="board" (click)="viewbyboard();">
+          <i class="fa fa-columns"></i>
+        </a>
+      </li>
+      <li class="treeview-nhansu" data-toggle="tooltip" data-placement="auto" title="Xem thông báo theo ngày">
+        <a class="text-center tooltips c-pointer" data-value="nhansu" (click)="viewbydate();">
+          <i class="fa fa-calendar"></i>
+        </a>
+      </li>
+     
+    </ul>   
+  </div>
+</section>

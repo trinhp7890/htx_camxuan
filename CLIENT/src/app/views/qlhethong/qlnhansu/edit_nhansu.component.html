@@ -1,0 +1,153 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">
+        <div class="col-sm-4 text-center">
+          <div class="img-thumbnail" style="position:relative;">
+            <img *ngIf="isImageSelected==false" alt="No Photo" title="Ảnh đại diện" class="img-responsive"
+              src='../../../../assets/images/icon_account.png' id="ảnh đại diện"
+              style="visibility:visible; height:auto; max-height: 300px;" />
+            <img alt="No Photo" id="file" [src]="imagePreviewSrc" alt="{{data.tieude}}" class="img-responsive"
+              *ngIf="isImageSelected" style="visibility:visible; height:auto; max-height: 300px;" />
+            <div class="img-btn" style="position:absolute;top:-1px;left:-1px;z-index:10;">
+              <button type="button" title="Xóa ảnh" (click)="del_img()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="img-btn"
+              style="position:absolute;top:4px;right:2px;z-index:10;width:25px;height:20px;line-height:20px;background-color:rgba(255,255,255,1);">
+              <label for="files" class="label-input">
+                <span class="glyphicon glyphicon-picture" aria-hidden="true" title="Ảnh đại diện"
+                  style="color:#888;"></span>
+              </label>
+            </div>
+          </div>
+          <div class="clearfix hidden">
+            <input id="files" class="hidden" type="file" (change)="onChange($event)" accept=".jpeg,.jpg" />
+            <label class="gray-color font-400">Ảnh đại diện</label>
+          </div>
+
+        </div>
+
+        <div class="col-sm-8">
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Tên nhân viên">
+                <label class="disabled">Tên nhân viên: <span class="required"></span></label>
+                <input type="text" formControlName="ten_nd" class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="float-input" title="Mã nhân viên:">
+                <label class="disabled">Mã nhân viên: <span class="required"></span></label>
+                <input type="text" readonly formControlName="ma_nv" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="float-input" title="User name:">
+                <label class="disabled">User name: <span class="required"></span></label>
+                <input type="text" readonly formControlName="ma_nd" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-3">
+              <div class="float-input" title="Ngày sinh:">
+                <label class="disabled">Ngày sinh: <span class="required"></span></label>
+                <input type="date" formControlName="ngaysinh"  class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="float-input" title="Giới tính:">
+                <label class="disabled">Giới tính: <span class="required"></span></label>            
+                <select  formControlName="gioitinh" class="form-control input-baocao" style="height: 36px;">
+                  <option value="1">Nữ</option>
+                  <option value="2">Nam</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Địa chỉ:">
+                <label class="disabled">Địa chỉ: <span class="required"></span></label>
+                <input type="text" formControlName="nguyenquan" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-3">
+              <div class="float-input" title="Số chứng minh/căn cước:">
+                <label class="disabled">Số chứng minh/căn cước: <span class="required"></span></label>
+                <input type="text" formControlName="so_cmnd" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="float-input" title="Ngày cấp:">
+                <label class="disabled">Ngày cấp: <span class="required"></span></label>            
+                <input type="date" formControlName="ngaycap_cmnd" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Nơi cấp chứng minh/căn cước:">
+                <label class="disabled">Nơi cấp chứng minh/căn cước: <span class="required"></span></label>
+                <input type="text" formControlName="noicap_cmnd" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Số điện thoại:">
+                <label class="disabled">Số điện thoại: <span class="required"></span></label>
+                <input type="text" formControlName="sodt" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Email:">
+                <label class="disabled">Email: <span class="required"></span></label>
+                <input type="text" formControlName="email" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Đơn vị:">
+                <label class="disabled">Đơn vị: <span class="required"></span></label>
+                <!-- <input type="text" formControlName="donvi" class="form-control"> -->
+                <ng-select bindLabel="name" formControlName="ma_dv" placeholder="Người thực hiện" appendTo="body"
+                  [searchable]="true" [clearable]="true" [(ngModel)]="donvi_select">
+                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.ten_dv}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Chức danh:">
+                <label class="disabled">Chức danh: <span class="required"></span></label>
+                <input type="text" formControlName="chucdanh" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>

@@ -1,0 +1,118 @@
+<section id="main" class="extend clearfix">  
+  <div class="col-sm-12">
+    <div class="header-text">
+      <h3 class="header-baocao">
+        <span class="header-img">
+         Báo cáo tổng hợp công việc theo nhân viên
+        </span>
+      </h3>
+    </div>
+    <div title="Tìm kiếm" class="div-input-baocao">
+      <div class="col-sm-4" title="Đơn vị chủ trì">
+        <label>Đơn vị chủ trì</label>
+        <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+        <ng-select bindLabel="name" placeholder="Người thực hiện" appendTo="body"
+          [searchable]="true" [clearable]="true" [(ngModel)]="donvichutri_select">
+          <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+            <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+            {{item.ten_dv}}
+          </ng-option>
+        </ng-select>
+      </div>
+      <div class="col-sm-2" title="Từ ngày">
+        <label >Từ ngày</label>
+        <input type="date" [(ngModel)]="ngaybatdau_tk" class="form-control input-baocao"/> 
+      </div>
+      <div class="col-sm-2" title="Đến ngày">
+        <label>Đến ngày</label>
+        <input type="date" [(ngModel)]="ngayketthuc_tk" class="form-control input-baocao"/> 
+      </div>
+      <!-- <div class="col-sm-1">
+        <label>Độ ưu tiên</label>
+        <select [(ngModel)]="tinhchat" class="form-control input-baocao" style="height: 36px;">
+          <option value="0">Thường</option>
+          <option value="1">Khẩn</option>
+        </select>
+      </div> -->
+      <label class="save-task buttonbc">
+        <a (click)="xembaocao()">
+          <i class="fa fa-search"> Xem báo cáo</i>
+        </a>
+      </label>
+      <label class="save-task buttonbc">
+        <a (click)="taifile()">
+          <i class="fa fa-cloud-download"> Tải xuống</i>
+        </a>
+      </label>
+    </div>
+  </div>
+  <div  class="col-sm-12" >
+    <div class="modal-body body-baocao">
+      <div class="clearfix">
+        <div class="body">
+          <div>
+            <table  id="baocao-result" class="table table-condensed table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th class="text-center" rowspan="2">STT</th>                  
+                  <th class="text-center" rowspan="2" >Tên nhân viên</th>
+                  <th class="text-center" colspan="4">Công việc chủ trì</th>
+                  <th class="text-center" colspan="4">Công việc phối hợp</th>
+                </tr>
+                  <tr>
+                  <th class="text-center" >Mới</th>
+                  <th class="text-center">Đang thực hiện</th>
+                  <th class="text-center">Hoàn thành</th>
+                  <th class="text-center">Tổng</th>
+                  <th class="text-center" >Mới</th>
+                  <th class="text-center">Đang thực hiện</th>
+                  <th class="text-center">Hoàn thành</th>
+                  <th class="text-center">Tổng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let item of data_baocao;let i = index">
+                  <td class="text-center">{{i + 1}}</td>
+                  <td >
+                    {{item.ten_nd}}
+                  </td>
+                  <td class="text-center">
+                    {{item.chutri_moi}}
+                  </td>
+                  <td class="text-center">
+                    {{item.chutri_dangthuchien}}
+                  </td>
+                  <td class="text-center">
+                    {{item.chutri_dahoanthanh}}
+                  </td> 
+                  <td class="text-center">
+                    <strong> {{item.chutri_tong}}</strong>                   
+                  </td> 
+                  <td class="text-center">
+                    {{item.phoihop_moi}}
+                  </td> 
+                  <td class="text-center">
+                    {{item.phoihop_dangthuchien}}
+                  </td> 
+                  <td class="text-center">
+                    {{item.phoihop_dahoanthanh}}
+                  </td> 
+                  <td class="text-center">
+                    <strong>{{item.phoihop_tong}}</strong>                    
+                  </td>  
+                </tr>
+                <tr *ngIf="data_baocao.length == null  || data_baocao.length == 0">
+                  <td colspan="13" class="text-center empty gray-color fs13"
+                      style="min-height:18px; line-height:18px;">
+                      Chưa có dòng dữ liệu nào
+                  </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</section>
