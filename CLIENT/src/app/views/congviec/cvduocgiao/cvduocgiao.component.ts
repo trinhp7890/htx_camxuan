@@ -9,7 +9,6 @@ import { Options } from '@angular-slider/ngx-slider';
 import { CongviecphatsinhService } from '@app/_services/congviec/congviecphatsinh.service';
 import { ToastrService } from "ngx-toastr";
 import { environment } from '@environments/environment';
-import { RealtimeService } from '@app/_services/realtime.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
@@ -26,7 +25,6 @@ export class CvduocgiaoComponent {
     private modalService: BsModalService,
     private congviecPSService: CongviecphatsinhService,
     private toastr: ToastrService,
-    private realtimeService: RealtimeService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -187,7 +185,6 @@ export class CvduocgiaoComponent {
       this.macongviec_input = params.get('id')
     })
     this.get_danhsachcongviecchutri();
-    this.connect_realtime();
   }
   // lấy danh sách công việc chu tri
   get_danhsachcongviecchutri() {
@@ -237,20 +234,6 @@ export class CvduocgiaoComponent {
           this.data_search = _data;
         }
       );
-  }
-  // realtime
-  connect_realtime(): void {    
-    //this.realtimeService.connect_realtime(this.UserName);   
-    try{
-    this.realtimeService._hubConnection.on('Congviec_phatsinh', (message)=>{
-      console.log(message);
-      this.get_danhsachcongviecchutri();
-      //this.getConnectionId();
-    })
-  } catch (e) {
-    //console.log("Lỗi");
-    this.router.navigate(['/']);
-  }
   }
   onSearchChange(event){    
     if(event == '' || event == null){

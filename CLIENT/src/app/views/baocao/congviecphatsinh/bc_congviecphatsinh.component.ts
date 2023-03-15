@@ -11,7 +11,6 @@ import { HttpClient, HttpUrlEncodingCodec } from '@angular/common/http';
 // module realtime
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
-import { RealtimeService } from '@app/_services/realtime.service';
 import { Bc_donviComponent } from './bc_donvicomponent';
 
 @Component({
@@ -28,8 +27,7 @@ export class Bc_congviecphatsinhComponent {
     private quantriService: QuantrinoidungService,
     private confirmService: ConfirmService,
     private toastr: ToastrService,
-    private http: HttpClient,
-    private realtimeService: RealtimeService
+    private http: HttpClient
   ) { }
   public allowDragAndDrop: Boolean = false;
 

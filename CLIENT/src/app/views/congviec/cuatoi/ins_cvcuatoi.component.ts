@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { BsModalRef } from "ngx-bootstrap/modal";
 import { ToastrService } from "ngx-toastr";
 import { DonviService } from "@app/_services/danhmuc/donvi.service";
-import { NguonphatsinhService } from "@app/_services/danhmuc/nguonphatsinh.service";
+import { PhanxuongService } from "@app/_services/danhmuc/phanxuong.service";
 import { QuantrinoidungService } from '@app/_services/quantri/quantrinoidung.service';
 import { GlobalConstants } from '@app/_models/config';
 import { Query, DataManager, ODataV4Adaptor } from '@syncfusion/ej2-data';
@@ -13,7 +13,6 @@ import { UserService } from '@app/_services/sys/user.service';
 import { CongviecphatsinhService } from '@app/_services/congviec/congviecphatsinh.service';
 import { environment } from '@environments/environment';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
-import { RealtimeService } from '@app/_services/realtime.service';
 import { UyquyengiaoviecService } from '@app/_services/danhmuc/uyquyengiaoviec.service';
 import * as moment from 'moment';
 @Component({
@@ -79,9 +78,8 @@ export class Ins_cvcuatoiComponent implements OnInit {
         private donviService: DonviService,
         private congviecPSService: CongviecphatsinhService,
         private quantrinoidungService: QuantrinoidungService,
-        private nguonphatsinhService: NguonphatsinhService,
+        private phanxuongService: PhanxuongService,
         private confirmService: ConfirmService,
-        private realtimeService: RealtimeService,
         private uyquyengiaoviecService: UyquyengiaoviecService
     ) { }
 
@@ -460,7 +458,6 @@ export class Ins_cvcuatoiComponent implements OnInit {
             Nguoigiamsat: prmnguoiphoidhop
             
           }
-        this.realtimeService.sendmsg_congviec(data);
     }
     closed() {
         this.event.emit(true);
@@ -581,7 +578,7 @@ export class Ins_cvcuatoiComponent implements OnInit {
 
     // Get nguồn phát sinh
     get_nguonphatsinh() {
-        this.nguonphatsinhService.get_dieukien('1', '0')
+        this.phanxuongService.get_dieukien('1', '0')
             .subscribe(
                 _data => {
                     this.danhsachnguonphatsinh = _data;

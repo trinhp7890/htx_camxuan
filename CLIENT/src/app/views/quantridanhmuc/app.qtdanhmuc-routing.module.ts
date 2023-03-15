@@ -1,18 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { QldonviComponent } from "./donvi/donvi.component";
-import { NguonphatsinhComponent } from "./nguonphatsinh/nguonphatsinh.component";
-import { UyquyengiaoviecComponent } from "./uyquyengiaoviec/uyquyengiaoviec.component";
-import { NguoigiamsatComponent } from "./nguoigiamsat/nguoigiamsat.component";
+import { PhanxuongComponent } from "./phanxuong/phanxuong.component";
 
 
 
 
 const routes: Routes = [           
-    { path: 'donvi',              component: QldonviComponent },
-    { path: 'nguonphatsinh',              component: NguonphatsinhComponent },
-    { path: 'uyquyengiaoviec',              component: UyquyengiaoviecComponent },
-    { path: 'nguoigiamsat',              component: NguoigiamsatComponent },
+    { path: 'phanxuong',              component: PhanxuongComponent },
 ];
 
 @NgModule({

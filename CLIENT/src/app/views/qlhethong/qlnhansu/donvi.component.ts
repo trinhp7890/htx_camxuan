@@ -2,16 +2,11 @@ import { Component, OnInit, Injectable, ViewChild } from '@angular/core';
 import { DonviService } from '@app/_services/danhmuc/donvi.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup } from '@angular/forms';
-import { TreeNode, TreeModel } from '@circlon/angular-tree-component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { GlobalConstants } from '@app/_models/config';
 import { Edit_nhansuComponent } from './edit_nhansu.component';
-import { Chart } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { environment } from '@environments/environment';
-import { DashboardService } from '@app/_services/dashboard/dashboard.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-donvi',
@@ -43,30 +38,26 @@ export class QldonviComponent implements OnInit {
 
   constructor(
     private donviService: DonviService,
-    private toastr: ToastrService,
     private modalService: BsModalService,
-    private confirmService: ConfirmService,
-    private dashboardService: DashboardService
   ) { }
 
   ngOnInit(): void {
     this.id_donvi = this.Ma_donvi;
-    this.getValueWithAsync().then(() =>
-      this.isDataAvailable = true);
+    this.get_all();
 
-  }
+    console.log(this.nhansus)
 
-  async getValueWithAsync() {
-    this.items = await this.get_all();
-    this.node = this.items;
   }
 
   get_all() {
+    console.log(111111111)
     return new Promise<any>((resolve) => {
-      this.donviService.get_tree("HUE000000")
+      this.donviService.get_nhansubydv(this.id_donvi)
         .subscribe(
           _data => {
-            resolve(_data);
+            this.nhansus = _data;
+            this.totalItems = _data.length;
+            this.p = 1;
           }
         );
     })
@@ -77,27 +68,6 @@ export class QldonviComponent implements OnInit {
       tree.treeModel.expandAll();
     });
   }
-
-  onEvent(node: TreeNode): void {
-    this.id_donvi = node.data.id;
-    this.countChild = node.data.children.length;
-    this.donviService.get_nhansubydv(this.id_donvi)
-      .subscribe(
-        _data => {
-          this.nhansus = _data;
-          this.totalItems = _data.length;
-          this.p = 1;
-        }
-      );
-  }
-  onSelect(value) {
-    console.log(value);
-  }
-
-  filterFn(value: string, treeModel: TreeModel) {
-    treeModel.filterNodes((node: TreeNode) => fuzzysearch(value, node.data.ten_dv));
-  }
-
   get_info(id) {
     this.donvi = [];
     this.donviService.get(id)
@@ -117,13 +87,9 @@ export class QldonviComponent implements OnInit {
       }, {
         class: 'modal-lg xlg', initialState
       }));
-
     this.modalRef.content.event
       .subscribe(arg => {
         if (arg) {
-          this.getValueWithAsync().then(() =>
-            this.isDataAvailable = true
-          );
           this.donviService.get_nhansubydv(this.id_donvi)
             .subscribe(
               _data => {
@@ -139,6 +105,7 @@ export class QldonviComponent implements OnInit {
 
   edit(nhansu) {
     const initialState = { title: GlobalConstants.DIEUCHINH + " nhân sự", data: nhansu };
+
     this.modalRef = this.modalService.show(
       Edit_nhansuComponent,
       Object.assign({}, {
@@ -146,13 +113,11 @@ export class QldonviComponent implements OnInit {
       }, {
         class: 'modal-lg xlg', initialState
       }));
-
+      console.log(342334543535436546)
+      console.log(this.modalRef)
     this.modalRef.content.event
       .subscribe(arg => {
         if (arg) {
-          this.getValueWithAsync().then(() =>
-            this.isDataAvailable = true
-          );
           this.donviService.get_nhansubydv(this.id_donvi)
             .subscribe(
               _data => {
@@ -167,10 +132,6 @@ export class QldonviComponent implements OnInit {
 
   }
 
-  giamsat(nhansu) {
-
-
-  }
 
   // delete() {
   //   var UserName = localStorage.getItem('UserName') ? localStorage.getItem('UserName') : sessionStorage.getItem('UserName') || '';

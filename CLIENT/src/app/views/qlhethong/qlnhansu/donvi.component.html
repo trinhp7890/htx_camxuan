@@ -13,25 +13,7 @@
   </div>
   <div style="float: left; width: 97%; padding-top: 20px;">
     <div class="row row-frm">
-      <div class="col-sm-4">
-        <div class="panel-body gray-bg" style="min-height: auto !important; padding-top: 0px">
-          <label class="title-form"> <i style="margin-right: 13px;" class="fa fa-university"></i>Cây cấu trúc đơn
-            vị</label>
-          <div class="panel-body" style="border:solid 1px #ccc; height: auto; max-height: 1000px; overflow: scroll;"
-            *ngIf="isDataAvailable">
-            <div class="form-group">
-              <div style="position: relative;">
-                <input id="filter" #filter (keyup)="tree.treeModel.filterNodes(filter.value)"
-                  placeholder="Nhập thông tin cần tìm" /> <i class="fa  icon-search"></i>
-              </div>
-              <tree-root #tree [focused]="true" [nodes]="node" [options]="options" (activate)="onEvent($event.node)"
-                (initialized)="onInitialized(tree)">
-              </tree-root>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-8">
+      <div class="col-sm-12">
         <div class="modal-body">
           <div class="clearfix">
             <label class="save-task btn-add-nv">
@@ -40,7 +22,7 @@
               </a>
             </label>
             <tabset>
-              <tab heading="Nhân sự" class="mt-2" (selectTab)="onSelect(1)">
+              <tab heading="Nhân sự">
                 <div id="grid-result" class="body">
                   <div
                     *ngFor="let nhansu of nhansus  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"

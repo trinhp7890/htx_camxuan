@@ -70,37 +70,63 @@ export class Edit_nhansuComponent implements OnInit {
 
   get f() { return this.form.controls; }
 
-  ngOnInit() {
-    this.form = this.formBuilder.group({
-      ten_nd: [this.data.ten_nd, Validators.required],
-      ma_nv: [this.data.ma_nv],
-      ma_nd: [this.data.ma_nd],
-      sodt: [this.data.so_dt],
-      email: [this.data.email],
-      ma_dv: [this.data.ma_dv],
-      chucdanh: [this.data.chucdanh],
-      gioitinh: [this.data.gioitinh],
-      
-      ngaysinh: [moment(
-        this.data.ngaysinh,'DD/MM/YYYY').format('YYYY-MM-DD')],
-
-      nguyenquan: [this.data.nguyenquan],
-      so_cmnd: [this.data.so_cmnd],
-
-      ngaycap_cmnd: [moment(
-        this.data.ngaycap_cmnd,'DD/MM/YYYY').format('YYYY-MM-DD')],
-
-      noicap_cmnd: [this.data.noicap_cmnd],
-      attachfile: [],
-      filepreview: [],
-      fileSource: [],
-    });
-    if (this.data.duongdan_file != "" && this.data.duongdan_file != null && this.data.ten_file != null && this.data.ten_file != "") {
-      this.imagePreviewSrc = this.serviceBase + "/" + this.data.duongdan_file + this.data.ten_file;
-      this.isImageSelected = true;
+  async ngOnInit() {
+    if(this.data){
+      this.form = this.formBuilder.group({
+        ten_nd: [this.data.ten_nd],
+        ma_nv: [this.data.ma_nv],
+        ma_nd: [this.data.ma_nd],
+        sodt: [this.data.so_dt],
+        email: [this.data.email],
+        ma_xuong: [this.data.ma_dv],
+        chucdanh: [this.data.chucdanh],
+        gioitinh: [this.data.gioitinh],
+        
+        ngaysinh: [moment(
+          this.data.ngaysinh,'DD/MM/YYYY').format('YYYY-MM-DD')],
+  
+        nguyenquan: [this.data.nguyenquan],
+        so_cmnd: [this.data.so_cmnd],
+  
+        ngaycap_cmnd: [moment(
+          this.data.ngaycap_cmnd,'DD/MM/YYYY').format('YYYY-MM-DD')],
+  
+        noicap_cmnd: [this.data.noicap_cmnd],
+        attachfile: [],
+        filepreview: [],
+        fileSource: [],
+      });
+      if (this.data.duongdan_file != "" && this.data.duongdan_file != null && this.data.ten_file != null && this.data.ten_file != "") {
+        this.imagePreviewSrc = this.serviceBase + "/" + this.data.duongdan_file + this.data.ten_file;
+        this.isImageSelected = true;
+      }
+      this.get_danhsachdonvi();
+      this.donvi_select = this.data.ma_dv;
+    }else{
+      this.get_danhsachdonvi();
+      this.form = this.formBuilder.group({
+        ten_nd: "",
+        ma_nv: "",
+        ma_nd: "",
+        sodt: "",
+        email: "",
+        chucdanh: "",
+        ngaysinh:"",
+        gioitinh: 0,
+        nguyenquan: "",
+        so_cmnd: "",
+        ma_xuong:"",
+        ngaycap_cmnd: "",
+  
+        noicap_cmnd: "",
+        attachfile: [],
+        filepreview: [],
+        fileSource: [],
+      })
     }
-    this.donvi_select = this.data.ma_dv;
-    this.get_danhsachdonvi();
+   
+    
+    
   }
 
 
@@ -257,7 +283,7 @@ export class Edit_nhansuComponent implements OnInit {
         });
       return;
     }
-    if (this.f.ma_dv.value == "" || this.f.ma_dv.value == null) {
+    if (this.f.ma_xuong.value == "" || this.f.ma_xuong.value == null) {
       this.toastr.warning("Chưa chọn đơn vị", "Cảnh báo",
         {
           timeOut: 3000,
@@ -278,11 +304,11 @@ export class Edit_nhansuComponent implements OnInit {
     this.loading = true;
     const formData = new FormData();
     formData.append('file', this.form.get('fileSource').value);
-    formData.append('prmMA_NV', this.data.ma_nv);
+    formData.append('prmMA_NV', this.f.ma_nv.value);
     formData.append('prmTEN_NV', this.f.ten_nd.value);
     formData.append('prmSODT', this.f.sodt.value);
     formData.append('prmEMAIL', this.f.email.value);
-    formData.append('prmMA_DV', this.f.ma_dv.value);
+    formData.append('prmMA_DV', this.f.ma_xuong.value);
     formData.append('prmCHUCDANH', this.f.chucdanh.value);
     formData.append('prmGHICHU', 'tạo ảnh mới');
     formData.append('prmNGUOI_CAPNHAT', this.UserName);
@@ -343,61 +369,6 @@ export class Edit_nhansuComponent implements OnInit {
       this.isImageSelected = false;
     }
   }
-  attachfile(event) {
-    if ((event.target.files.length + this.danhsachfile.length) > 5) {
-      this.toastr.error('Số file đính kèm không được quá 5 files')
-      return;
-    }
-
-    // kiem tra trung ten
-    if (this.danhsachfile.length > 0) {
-      for (let i = 0; i < event.target.files.length; i++) {
-        for (let j = 0; j < this.danhsachfile.length; j++) {
-          if (this.danhsachfile[j].name == event.target.files[i].name) {
-            this.toastr.error('File vừa chọn đã tồn tại trong danh sách file đính kèm')
-            return;
-          }
-        }
-      }
-    }
-
-    for (let i = 0; i < event.target.files.length; i++) {
-      this.fileattachs.push(event.target.files[i]);
-      this.danhsachfile.push(event.target.files[i]);
-    }
-  }
-  deletefile(datadel, indexfile) {
-    if (typeof (datadel.id_file) == 'undefined') {
-      this.fileattachs.splice(indexfile, 1);
-      this.danhsachfile.splice(indexfile, 1)
-    } else {
-      let options = {
-        prompt: 'Bạn có muốn xóa thông báo [' + datadel.ten_file + '] này không?',
-        title: "Thông báo",
-        okText: `Đồng ý`,
-        cancelText: `Hủy`,
-      };
-
-      this.confirmService.confirm(options).then((res: boolean) => {
-        if (res) {
-          this.quantriService.delete_thongbaofile(datadel.id_file, "admin").subscribe({
-            next: (_data) => {
-              this.toastr.success("Xóa thành công", 'Thông báo', {
-                timeOut: 3000,
-                closeButton: true,
-                positionClass: 'toast-bottom-right',
-              });
-              this.danhsachfile.splice(indexfile, 1)
-            },
-            error: (error) => {
-              this.toastr.error(error);
-            },
-          });
-        }
-      });
-    }
-  }
-
   closed() {
     this.event.emit(true);
     this.modalRef.hide();
@@ -449,21 +420,9 @@ export class Edit_nhansuComponent implements OnInit {
     ]
   };
 
-  get_filethongbao(matb): void {
-    this.quantriService.getfile_thongbao(matb)
-      .subscribe(
-        _data => {
-          this.danhsachfile = _data;
-        }
-      )
-  }
-
   // lấy danh sách đơn vị giao việc
   get_danhsachdonvi() {
-    //var madonvi = localStorage.getItem('Ma_donvi') ? localStorage.getItem('Ma_donvi') : sessionStorage.getItem('Ma_donvi') || '';
-    var madonvi = 'HUE000000';
-    console.log(madonvi);
-    this.donviService.get_donvilv3(madonvi)
+    this.donviService.get_donvilv3()
       .subscribe(
         _data => {
           this.datadonvi = _data;

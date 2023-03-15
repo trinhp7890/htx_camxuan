@@ -9,7 +9,6 @@ import { Options } from '@angular-slider/ngx-slider';
 import { CongviecphatsinhService } from '@app/_services/congviec/congviecphatsinh.service';
 import { environment } from '@environments/environment';
 import { ToastrService } from "ngx-toastr";
-import { RealtimeService } from '@app/_services/realtime.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
@@ -26,7 +25,6 @@ export class CvphoihopComponent {
     private modalService: BsModalService,
     private congviecPSService: CongviecphatsinhService,
     private toastr: ToastrService,
-    private realtimeService: RealtimeService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -145,7 +143,6 @@ export class CvphoihopComponent {
       this.macongviec_input = params.get('id')
     })
     this.get_danhsachcongviecphoihop();
-    this.connect_realtime();
   }
   // lấy danh sách công việc chu tri
   get_danhsachcongviecphoihop() {
@@ -195,19 +192,6 @@ export class CvphoihopComponent {
           this.data_search = _data;
         }
       );
-  }
-
-  // realtime
-  connect_realtime(): void {
-    //this.realtimeService.connect_realtime(this.UserName);   
-    try {
-      this.realtimeService._hubConnection.on('Congviec_phatsinh', (message) => {
-        this.get_danhsachcongviecphoihop();
-        //this.getConnectionId();
-      })
-    } catch (e) {
-      this.router.navigate(['/']);
-    }
   }
   onSearchChange(event) {
     if (event == '' || event == null) {

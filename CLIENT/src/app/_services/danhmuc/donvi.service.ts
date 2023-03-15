@@ -4,6 +4,7 @@ import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 
 const baseUrl = `${environment.apiURL}/api/dmdonvi`;
+const baseUrl_px = `${environment.apiURL}/api/dmphanxuong`;
 const baseUrlNS = `${environment.apiURL}/api/nguoidung`;
 
 @Injectable({
@@ -22,8 +23,8 @@ export class DonviService {
   get_donvigiaoviec(prmMA_DV: string) {
     return this.http.get<any[]>(`${baseUrl}/getdonvigiaoviec?prmMA_DV=` + prmMA_DV);
   }
-  get_donvilv3(prmMA_DV: string) {
-    return this.http.get<any[]>(`${baseUrl}/getdonviconlv3?prmMA_DV=` + prmMA_DV);
+  get_donvilv3() {
+    return this.http.get<any[]>(`${baseUrl_px}/getall`);
   }
 
   getbyma(prmMA_DV: string) {

@@ -48,13 +48,13 @@
             <div class="col-sm-3">
               <div class="float-input" title="Mã nhân viên:">
                 <label class="disabled">Mã nhân viên: <span class="required"></span></label>
-                <input type="text" readonly formControlName="ma_nv" class="form-control">
+                <input type="text" formControlName="ma_nv" class="form-control">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="float-input" title="User name:">
                 <label class="disabled">User name: <span class="required"></span></label>
-                <input type="text" readonly formControlName="ma_nd" class="form-control">
+                <input type="text" formControlName="ma_nd" class="form-control">
               </div>
             </div>
           </div>
@@ -120,11 +120,11 @@
               <div class="float-input" title="Đơn vị:">
                 <label class="disabled">Đơn vị: <span class="required"></span></label>
                 <!-- <input type="text" formControlName="donvi" class="form-control"> -->
-                <ng-select bindLabel="name" formControlName="ma_dv" placeholder="Người thực hiện" appendTo="body"
+                <ng-select bindLabel="name" formControlName="ma_xuong" placeholder="Phân xưởng" appendTo="body"
                   [searchable]="true" [clearable]="true" [(ngModel)]="donvi_select">
-                  <ng-option [value]="item.ma_dv" [disabled]="item.disabled" *ngFor="let item of datadonvi">
+                  <ng-option [value]="item.ma_xuong" [disabled]="item.disabled" *ngFor="let item of datadonvi">
                     <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
-                    {{item.ten_dv}}
+                    {{item.ten_xuong}}
                   </ng-option>
                 </ng-select>
               </div>

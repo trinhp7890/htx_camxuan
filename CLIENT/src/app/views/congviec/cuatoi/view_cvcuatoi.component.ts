@@ -10,7 +10,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { Options } from '@angular-slider/ngx-slider';
 import { CongviecphatsinhService } from '@app/_services/congviec/congviecphatsinh.service';
 import { environment } from '@environments/environment';
-import { RealtimeService } from '@app/_services/realtime.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-congvieccuatoi-view',
@@ -87,7 +86,6 @@ export class View_cvcuatoiComponent implements OnInit {
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private congviecPSService: CongviecphatsinhService,
-    private realtimeService: RealtimeService,
     private router: Router
   ) { }
 
@@ -108,7 +106,6 @@ export class View_cvcuatoiComponent implements OnInit {
     this.get_congviec_nguoiphoihop();
     this.get_congviec_donviphoihop();
     this.get_congviec_binhluan();
-    this.connect_realtime();
   }
 
   showAssignTosTask() {
@@ -377,18 +374,6 @@ export class View_cvcuatoiComponent implements OnInit {
         );
     }
   }
-  // realtime
-  connect_realtime(): void {
-    //this.realtimeService.connect_realtime(this.UserName);   
-    try {
-      this.realtimeService._hubConnection.on('Congviec_phatsinh', (message) => {        
-        this.get_congviec_binhluan();
-        this.get_chitietcongviec();
-      })
-    } catch (e) {
-      this.router.navigate(['/']);
-    }
-  }
   // Gửi data realtime cho những người liên quan
   send_data_realtime(data_in) {
     this.congviecPSService.get_congviec_nguoiphoihop(data_in.ma_congviec)
@@ -411,7 +396,6 @@ export class View_cvcuatoiComponent implements OnInit {
               Nguoigiamsat: data_in.nguoi_giamsat
               
             }
-          this.realtimeService.sendmsg_congviec(data);   
         }
       );
   }

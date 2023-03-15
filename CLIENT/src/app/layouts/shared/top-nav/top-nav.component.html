@@ -59,7 +59,7 @@
                     class="dropdown-menu dropdown-menu-right menu-task" role="menu" aria-labelledby="dd-append-to-body">
                     <!-- công việc phát sinh -->
                     <li role="menuitem" class="menuitem">
-                        <span>Quản lý công việc phát sinh</span>
+                        <span>Nghiệp vụ</span>
                         <div class="subsystem_menu_list">                            
                             <div class="subsystem_menu_list_item">
                                 <a [routerLink]="['/Congviec/Giaoviec']">
@@ -67,7 +67,7 @@
                                         <img src="../../../../assets/images/giamsat.svg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Giao việc</span>
+                                        <span class="title_menu_name">Nhập kho</span>
                                     </span>
                                 </a>
                             </div>
@@ -77,7 +77,7 @@
                                         <img src="../../../../assets/images/congviecgiao.svg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Công việc Chủ trì</span>
+                                        <span class="title_menu_name">Nhập NL Luống phân</span>
                                     </span>
                                 </a>
                             </div>
@@ -87,106 +87,23 @@
                                         <img src="../../../../assets/images/phoihop.PNG">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Công việc Phối hợp</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="subsystem_menu_list">                            
-                            <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['Congviec/Giamsat']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/teamwork-svgrepo-com.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Giám sát công việc</span>
+                                        <span class="title_menu_name">Xuất thành phẩm</span>
                                     </span>
                                 </a>
                             </div>
                         </div>
                     </li>
-                    <!-- Công việc thường xuyến -->
-                    <!-- <li role="menuitem" class="menuitem">
-                        <span>Quản lý công việc thường xuyên</span>
-                        <div class="subsystem_menu_list">                            
-                            <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Congviec/congviecdagiao']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/congviecgiao.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Đã giao</span>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Congviec/congviecduocgiao']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/giamsat.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Được giao</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </li> -->
-                    <!-- <li role="menuitem" class="menuitem">
-                        <span>Kế hoạch công tác mục tiêu</span>
-                        <div class="subsystem_menu_list">                            
-                            <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Congviec/congviecdagiao']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/congviecgiao.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Đã giao</span>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Quantrinoidung/thongbao']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/giamsat.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Được giao</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </li> -->
                     <!-- Giám sát -->
                     <li role="menuitem" class="menuitem">
                         <span>Giám sát</span>
                         <div class="subsystem_menu_list">
-                            <!-- <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Quanlydanhmuc/donvi']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/danhmuc.jpg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Danh mục</span>
-                                    </span>
-                                </a>
-                            </div> -->
-                            <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Quanlydanhmuc/donvi']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/calendar-svgrepo-com.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Công việc phát sinh</span>
-                                    </span>
-                                </a>
-                            </div>
                             <div class="subsystem_menu_list_item">
                                 <a href="javascript:void()" (click)="Change_pass()">
                                     <span class="title_menu_fa">
                                         <img src="../../../../assets/images/staff.svg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Nhân sự</span>
+                                        <span class="title_menu_name">Trạng thái luống phân</span>
                                     </span>
                                 </a>
                             </div>                           
@@ -196,22 +113,22 @@
                         <span>Quản lý danh mục</span>
                         <div class="subsystem_menu_list">                            
                             <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Quanlydanhmuc/nguonphatsinh']">
+                                <a [routerLink]="['/Quanlydanhmuc/phanxuong']">
                                     <span class="title_menu_fa">
                                         <img src="../../../../assets/images/nguonphatsinh.svg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Nguồn phát sinh</span>
+                                        <span class="title_menu_name">Phân xưởng</span>
                                     </span>
                                 </a>
                             </div> 
                             <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Quanlydanhmuc/uyquyengiaoviec']">
+                                <a [routerLink]="['/Quanlydanhmuc/nguoigiamsat']">
                                     <span class="title_menu_fa">
-                                        <img src="../../../../assets/uyquyen.png">
+                                        <img src="../../../../assets/images/staff.svg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Ủy quyền giao việc</span>
+                                        <span class="title_menu_name">Tuyến đường</span>
                                     </span>
                                 </a>
                             </div>
@@ -221,50 +138,66 @@
                                         <img src="../../../../assets/images/staff.svg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Người giám sát</span>
-                                    </span>
-                                </a>
-                            </div>                      
-                        </div>
-                    </li>
-                    <li role="menuitem" class="menuitem">
-                        <span>Quản lý nội dung</span>
-                        <div class="subsystem_menu_list">
-                            <div class="subsystem_menu_list_item">
-                                <a [routerLink]="['/Quantrinoidung/thongbao']">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/news.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Quản lý thông báo</span>
-                                    </span>
-                                </a>
-                            </div>
-                            <!--
-                            <div class="subsystem_menu_list_item">
-                                <a href="javascript:void()" (click)="Change_pass()">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/congviecgiao.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Công việc tôi giao</span>
+                                        <span class="title_menu_name">Luống phân</span>
                                     </span>
                                 </a>
                             </div>
                             <div class="subsystem_menu_list_item">
-                                <a href="javascript:void()" (click)="Change_pass()">
+                                <a [routerLink]="['/Quanlydanhmuc/uyquyengiaoviec']">
                                     <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/giamsat.svg">
+                                        <img src="../../../../assets/uyquyen.png">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Công việc theo dõi</span>
+                                        <span class="title_menu_name">Kho</span>
                                     </span>
                                 </a>
-                            </div> -->
+                            </div>         
+                        </div>
+                        <div class="subsystem_menu_list">                            
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/nguoigiamsat']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/staff.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Trại nguyên liệu</span>
+                                    </span>
+                                </a>
+                            </div> 
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/nguoigiamsat']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/staff.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Vật tư</span>
+                                    </span>
+                                </a>
+                            </div> 
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/nguoigiamsat']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/staff.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Nguyên liệu</span>
+                                    </span>
+                                </a>
+                            </div> 
+                            <div class="subsystem_menu_list_item">
+                                <a [routerLink]="['/Quanlydanhmuc/nguoigiamsat']">
+                                    <span class="title_menu_fa">
+                                        <img src="../../../../assets/images/staff.svg">
+                                    </span>
+                                    <span class="title_menu_right">
+                                        <span class="title_menu_name">Giá vật tư</span>
+                                    </span>
+                                </a>
+                            </div>      
                         </div>
                     </li>
                     <li role="menuitem" class="menuitem">
-                        <span>Báo cáo công việc</span>
+                        <span>Báo cáo số liệu</span>
                         <div class="subsystem_menu_list">
                             <div class="subsystem_menu_list_item">
                                 <a [routerLink]="['/Baocao/CVphatsinh']">
@@ -272,7 +205,7 @@
                                         <img src="../../../../assets/images/baocao1.jpg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Phát sinh</span>
+                                        <span class="title_menu_name">Tồn vật tư</span>
                                     </span>
                                 </a>
                             </div>
@@ -282,31 +215,20 @@
                                         <img src="../../../../assets/images/baocao2.jpg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Thường xuyên</span>
-                                    </span>
-                                </a>
-                            </div>
-                            <!--
-                            <div class="subsystem_menu_list_item">
-                                <a href="javascript:void()" (click)="Change_pass()">
-                                    <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/congviecgiao.svg">
-                                    </span>
-                                    <span class="title_menu_right">
-                                        <span class="title_menu_name">Công việc tôi giao</span>
+                                        <span class="title_menu_name">Tồn nguyên liệu</span>
                                     </span>
                                 </a>
                             </div>
                             <div class="subsystem_menu_list_item">
-                                <a href="javascript:void()" (click)="Change_pass()">
+                                <a [routerLink]="['/Baocao/']">
                                     <span class="title_menu_fa">
-                                        <img src="../../../../assets/images/giamsat.svg">
+                                        <img src="../../../../assets/images/baocao2.jpg">
                                     </span>
                                     <span class="title_menu_right">
-                                        <span class="title_menu_name">Công việc theo dõi</span>
+                                        <span class="title_menu_name">Thống kê thành phẩm</span>
                                     </span>
                                 </a>
-                            </div> -->
+                            </div>
                         </div>
                     </li>
                     <li role="menuitem" class="menuitem">

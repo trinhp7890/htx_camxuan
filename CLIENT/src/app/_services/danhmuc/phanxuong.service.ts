@@ -3,18 +3,18 @@ import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 
-const baseUrl = `${environment.apiURL}/api/dmnguonphatsinh`;
+const baseUrl = `${environment.apiURL}/api/dmphanxuong`;
 const baseUrlNS = `${environment.apiURL}/api/nguoidung`;
 
 @Injectable({
   providedIn: 'root'
 })
-export class NguonphatsinhService {
+export class PhanxuongService {
 
   constructor(private http: HttpClient) { }
 
   get_all() {
-      return this.http.get<any[]>(`${baseUrl}/getAll`);
+      return this.http.get<any[]>(`${baseUrl}/getall`);
   }
 
   //DK = 1 GET ALL, = 0 GET KEM DIEU KIEN MA DON VI

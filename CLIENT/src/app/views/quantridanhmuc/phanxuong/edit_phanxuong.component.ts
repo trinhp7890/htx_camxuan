@@ -8,14 +8,14 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { DonviService } from "@app/_services/danhmuc/donvi.service";
-import { NguonphatsinhService } from "@app/_services/danhmuc/nguonphatsinh.service";
+import { PhanxuongService } from "@app/_services/danhmuc/phanxuong.service";
 import { CongviecphatsinhService } from '@app/_services/congviec/congviecphatsinh.service';
 
 @Component({
-  selector: 'app-qlnguonphatsinh-Edit',
-  templateUrl: './edit_nguonphatsinh.component.html'
+  selector: 'app-qlphanxuong-Edit',
+  templateUrl: './edit_phanxuong.component.html'
 })
-export class Edit_nguonphatsinhComponent implements OnInit {
+export class Edit_phanxuongComponent implements OnInit {
   @Input() title: string;
   @Input() data: any;
 
@@ -42,7 +42,7 @@ export class Edit_nguonphatsinhComponent implements OnInit {
     private quantriService: QuantrinoidungService,
     private confirmService: ConfirmService,
     private donviService: DonviService,
-    private nguonphatsinhService: NguonphatsinhService,
+    private phanxuongService: PhanxuongService,
     private congviecPSService: CongviecphatsinhService,
   ) { }
 
@@ -184,7 +184,7 @@ export class Edit_nguonphatsinhComponent implements OnInit {
     formData.append('prmMA_DV', this.f.donvi.value);
     formData.append('prmNGUOI_CAPNHAT',this.UserName);
     if(this.data == '0'){
-    this.nguonphatsinhService.nguonphatsinh_ins_upload(formData)
+    this.phanxuongService.nguonphatsinh_ins_upload(formData)
       .subscribe({
         next: (_data) => {
           this.event.emit(true);
@@ -203,7 +203,7 @@ export class Edit_nguonphatsinhComponent implements OnInit {
     }else{
       console.log('sửa nguồn phát sinh');
       console.log(formData);
-      this.nguonphatsinhService.nguonphatsinh_up_upload(formData)
+      this.phanxuongService.nguonphatsinh_up_upload(formData)
       .subscribe({
         next: (_data) => {
           this.event.emit(true);

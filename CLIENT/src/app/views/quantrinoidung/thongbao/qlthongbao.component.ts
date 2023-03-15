@@ -14,7 +14,6 @@ import { HttpClient, HttpUrlEncodingCodec } from '@angular/common/http';
 // module realtime
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
-import { RealtimeService } from '@app/_services/realtime.service';
 @Component({
   selector: 'app-qlthongbao',
   templateUrl: './qlthongbao.component.html',
@@ -30,7 +29,6 @@ export class QlthongbaoComponent {
     private confirmService: ConfirmService,
     private toastr: ToastrService,
     private http: HttpClient,
-    private realtimeService: RealtimeService
   ) { }
   public allowDragAndDrop: Boolean = false;
 
@@ -158,7 +156,6 @@ onKanbanBDragStop(args: DragEventArgs) {
   // public swimlaneSettings: SwimlaneSettingsModel = { keyField: 'Assignee' };
   ngOnInit(): void {
     this.get_all();
-    this.connect_realtime();
   }
   get_all(): void {
     this.quantriService.get_all(1)
@@ -169,37 +166,5 @@ onKanbanBDragStop(args: DragEventArgs) {
         }
       )
   }
-
-
-  connect_realtime(): void {    
-    //this.realtimeService.connect_realtime(this.UserName);   
-    this.realtimeService._hubConnection.on('Thongbao', (message)=>{
-      console.log(message);
-      this.get_all();
-      //this.getConnectionId();
-    })
-  }
-  // private getConnectionId = () => {
-  //   this._hubConnection.invoke('getconnectionid')
-  //   .then((data) => {
-
-  //     console.log(data);
-  //     this.connectionId = data;
-  //     this.senddata();
-  //   });
-  // }
-  // senddata(){
-  //   var data={
-  //     Type: this.UserName,
-  //     Information: this.connectionId,
-  //   }
-  //   console.log(data);
-  //   this.http.post("https://localhost:44368/api/Msg", data).subscribe(
-  //     data=>{
-  //       console.log(data);
-  //     }
-  //   );
-  // }
-
  
 }

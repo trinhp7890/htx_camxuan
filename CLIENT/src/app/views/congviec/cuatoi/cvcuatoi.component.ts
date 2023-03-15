@@ -13,7 +13,6 @@ import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { RealtimeService } from '@app/_services/realtime.service';
 @Component({
   selector: 'app-congvieccuatoi',
   templateUrl: './cvcuatoi.component.html',
@@ -29,7 +28,6 @@ export class CvcuatoiComponent {
     private congviecPSService: CongviecphatsinhService,
     private toastr: ToastrService,
     private confirmService: ConfirmService,
-    private realtimeService: RealtimeService,
     private router: Router,
     private route: ActivatedRoute
   ) { }  
@@ -113,21 +111,6 @@ export class CvcuatoiComponent {
         }
       });
   }
-
-  // realtime
-  connect_realtime(): void {
-    //this.realtimeService.connect_realtime(this.UserName);   
-    try {
-      this.realtimeService._hubConnection.on('Congviec_phatsinh', (message) => {        
-        this.get_danhsachcongviecgiao();
-        //this.getConnectionId();
-      })
-    } catch (e) {
-      //console.log("Lỗi");
-      this.router.navigate(['/']);
-    }
-  }
-
   View_detail(data) {
     const initialState = { title: "Chi tiết công việc", data: data };
     this.hide_title = false;
@@ -259,8 +242,7 @@ export class CvcuatoiComponent {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.macongviec_input = params.get('id')
     })
-    this.get_danhsachcongviecgiao();
-    this.connect_realtime();    
+    this.get_danhsachcongviecgiao(); 
     
   }
 
@@ -335,8 +317,7 @@ export class CvcuatoiComponent {
               Nguoiphoihop: prmnguoiphoidhop,
               Nguoigiamsat: data_in.nguoi_giamsat
               
-            }
-          this.realtimeService.sendmsg_congviec(data);   
+            } 
         }
       );
   }

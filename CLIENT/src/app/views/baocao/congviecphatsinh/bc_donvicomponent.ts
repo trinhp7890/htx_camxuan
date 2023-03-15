@@ -12,7 +12,6 @@ import { DonviService } from "@app/_services/danhmuc/donvi.service";
 // module realtime
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
-import { RealtimeService } from '@app/_services/realtime.service';
 import * as moment from 'moment';
 import { DatePipe } from '@angular/common';
 import * as XLSX from 'xlsx';
@@ -32,7 +31,6 @@ export class Bc_donviComponent {
     private confirmService: ConfirmService,
     private toastr: ToastrService,
     private http: HttpClient,
-    private realtimeService: RealtimeService,
     private donviService: DonviService,
     private datePipe: DatePipe
   ) { }
@@ -143,10 +141,7 @@ export class Bc_donviComponent {
 
   // lấy danh sách đơn vị giao việc
   get_danhsachdonvi() {
-    //var madonvi = localStorage.getItem('Ma_donvi') ? localStorage.getItem('Ma_donvi') : sessionStorage.getItem('Ma_donvi') || '';
-    var madonvi = 'HUE000000';
-    console.log(madonvi);
-    this.donviService.get_donvilv3(madonvi)
+    this.donviService.get_donvilv3()
       .subscribe(
         _data => {
           this.datadonvi = _data;

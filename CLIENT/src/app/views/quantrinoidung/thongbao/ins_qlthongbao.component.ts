@@ -15,7 +15,6 @@ import { FileToUpload } from '@app/_models/file-to-upload';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { HttpUrlEncodingCodec } from '@angular/common/http';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
-import { RealtimeService } from '@app/_services/realtime.service';
 @Component({
   selector: 'app-qlthongbao-Ins',
   templateUrl: './ins_qlthongbao.component.html'
@@ -48,8 +47,7 @@ export class Ins_qlthongbaoComponent implements OnInit {
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private quantriService: QuantrinoidungService,
-    private http: HttpClient,
-    private realtimeService: RealtimeService
+    private http: HttpClient
   ) { }
 
   html: string;
@@ -245,9 +243,6 @@ export class Ins_qlthongbaoComponent implements OnInit {
         Information: this.f.tieude.value,
         Id: this.f.mota.value
       }
-      
-      console.log(data);
-      this.realtimeService.sendmsg(data);
   }
   onChange(event) {
     this.file = event.target.files[0];

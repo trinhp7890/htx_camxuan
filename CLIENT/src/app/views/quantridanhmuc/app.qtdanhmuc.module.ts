@@ -15,19 +15,9 @@ import { TreeModule } from '@circlon/angular-tree-component';
 import { QuillModule } from 'ngx-quill';
 import { HttpClientModule} from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { Edit_nhansuComponent } from './donvi/edit_nhansu.component';
-import { Giamsat_nhansuComponent } from './donvi/giamsat_nhansu.component';
-import { QldonviComponent } from './donvi/donvi.component';
 
-import { Edit_nguonphatsinhComponent } from './nguonphatsinh/edit_nguonphatsinh.component';
-import { Giamsat_nguonphatsinhComponent } from './nguonphatsinh/giamsat_nguonphatsinh.component';
-import { NguonphatsinhComponent } from './nguonphatsinh/nguonphatsinh.component';
-
-import { UyquyengiaoviecComponent } from './uyquyengiaoviec/uyquyengiaoviec.component';
-import { Edit_uyquyengiaoviecComponent } from './uyquyengiaoviec/edit_uyquyengiaoviec.component';
-
-import { NguoigiamsatComponent } from './nguoigiamsat/nguoigiamsat.component';
-import { Edit_nguoigiamsatComponent } from './nguoigiamsat/edit_nguoigiamsat.component';
+import { Edit_phanxuongComponent } from './phanxuong/edit_phanxuong.component';
+import { PhanxuongComponent } from './phanxuong/phanxuong.component';
 
 @NgModule({
     imports: [
@@ -49,12 +39,8 @@ import { Edit_nguoigiamsatComponent } from './nguoigiamsat/edit_nguoigiamsat.com
     QuillModule
     ], 
     declarations: [
-        // donvi
-        QldonviComponent, Edit_nhansuComponent, Giamsat_nhansuComponent,
         // nguon phat sinh
-        Edit_nguonphatsinhComponent, Giamsat_nguonphatsinhComponent, NguonphatsinhComponent, 
-        Edit_uyquyengiaoviecComponent, UyquyengiaoviecComponent,
-        Edit_nguoigiamsatComponent, NguoigiamsatComponent
+        Edit_phanxuongComponent, PhanxuongComponent, 
         ]
 })
 export class AppqtdanhmucModulue { }

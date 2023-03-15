@@ -11,10 +11,9 @@ import { HttpClient, HttpUrlEncodingCodec } from '@angular/common/http';
 import { BaocaoService } from '@app/_services/Baocao/baocao.service';
 // module realtime
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
-import { NguonphatsinhService } from "@app/_services/danhmuc/nguonphatsinh.service";
+import { PhanxuongService } from "@app/_services/danhmuc/phanxuong.service";
 import * as moment from 'moment';
 import { DatePipe } from '@angular/common';
-import { RealtimeService } from '@app/_services/realtime.service';
 @Component({
   selector: 'app-bc-nguonps',
   templateUrl: './bc_nguonphatsinh.component.html',
@@ -30,8 +29,7 @@ export class Bc_nguonphatsinhComponent implements OnInit {
     private confirmService: ConfirmService,
     private toastr: ToastrService,
     private http: HttpClient,
-    private realtimeService: RealtimeService,
-    private nguonphatsinhService: NguonphatsinhService,
+    private phanxuongService: PhanxuongService,
     private datePipe: DatePipe    
   ) { }
   public allowDragAndDrop: Boolean = false;
@@ -138,7 +136,7 @@ export class Bc_nguonphatsinhComponent implements OnInit {
 
   // lấy danh sách đơn vị giao việc
   get_nguonphatsinh() {
-    this.nguonphatsinhService.get_dieukien('1', '0')
+    this.phanxuongService.get_dieukien('1', '0')
       .subscribe(
         _data => {
           this.danhsachnguonphatsinh = _data;

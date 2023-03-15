@@ -1,26 +1,20 @@
 import { Component, OnInit, Injectable, ViewChild } from '@angular/core';
-import { NguonphatsinhService } from '@app/_services/danhmuc/nguonphatsinh.service';
+import { PhanxuongService } from '@app/_services/danhmuc/phanxuong.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormGroup } from '@angular/forms';
-import { TreeNode, TreeModel } from '@circlon/angular-tree-component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { GlobalConstants } from '@app/_models/config';
-import {Edit_nguonphatsinhComponent  } from './edit_nguonphatsinh.component';
-import {Bc_nguonphatsinhComponent  } from '../../baocao/congviecphatsinh/bc_nguonphatsinh.component';
-import { Chart } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {Edit_phanxuongComponent  } from './edit_phanxuong.component';
 import { environment } from '@environments/environment';
-import { Giamsat_nguonphatsinhComponent } from './giamsat_nguonphatsinh.component';
 
 @Component({
-  selector: 'app-nguonphatsinh',
-  templateUrl: './nguonphatsinh.component.html',
-  styleUrls: ['./nguonphatsinh.component.scss'],
+  selector: 'app-phanxuong',
+  templateUrl: './phanxuong.component.html',
+  styleUrls: ['./phanxuong.component.scss'],
   providers: [
   ]
 })
-export class NguonphatsinhComponent implements OnInit {
+export class PhanxuongComponent implements OnInit {
   donvis: any[];
   sonhansu: "10";
   totalItems = 0;
@@ -35,12 +29,12 @@ export class NguonphatsinhComponent implements OnInit {
   modalRef: BsModalRef;
   id_donvi: any;
   isDataAvailable: boolean = false;
-  nguonphatsinhs = [];
+  phanxuongs = [];
   serviceBase = `${environment.apiURL}`;
   type_view = false;  
 
   constructor(
-    private nguonphatsinhService: NguonphatsinhService,
+    private phanxuongService: PhanxuongService,
     private toastr: ToastrService,
     private modalService: BsModalService,
     private confirmService: ConfirmService,
@@ -55,17 +49,17 @@ export class NguonphatsinhComponent implements OnInit {
   async getValueWithAsync() {
     this.items = await this.get_all();    
     this.node = this.items;
-    console.log(this.node);
   }
 
   get_all() { 
     return new Promise<any>((resolve) => {
-      this.nguonphatsinhService.get_dieukien('1', '0')
+      this.phanxuongService.get_all()
         .subscribe(
           _data => {
-            this.nguonphatsinhs = _data;     
+            this.phanxuongs = _data;     
                 this.totalItems = _data.length;
-      this.p = 1;
+            this.p = 1;
+            console.log(this.phanxuongs)
           }
         );
     })
@@ -82,7 +76,7 @@ export class NguonphatsinhComponent implements OnInit {
     console.log("add");
       const initialState = { title: GlobalConstants.THEMMOI + " nguồn phát sinh", data:'0' };
       this.modalRef = this.modalService.show(
-        Edit_nguonphatsinhComponent,
+        Edit_phanxuongComponent,
         Object.assign({}, {
           animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
         }, {
@@ -103,7 +97,7 @@ export class NguonphatsinhComponent implements OnInit {
     console.log("Edit");
       const initialState = { title: GlobalConstants.DIEUCHINH + " nhân sự", data:nhansu };
       this.modalRef = this.modalService.show(
-        Edit_nguonphatsinhComponent,
+        Edit_phanxuongComponent,
         Object.assign({}, {
           animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
         }, {
@@ -121,29 +115,6 @@ export class NguonphatsinhComponent implements OnInit {
     
   }
 
-  giamsat(nhansu) {    
-  
-    console.log("Giám sát");
-    const initialState = { title: "Chi tiết công việc " + nhansu.ten_nd, data:nhansu };
-    this.modalRef = this.modalService.show(
-      Giamsat_nguonphatsinhComponent,
-      Object.assign({}, {
-        animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
-      }, {
-        class: 'modal-lg xlg', initialState
-      }));
-
-    this.modalRef.content.event
-      .subscribe(arg => {
-        if (arg) {
-          this.getValueWithAsync().then(() =>            
-              this.isDataAvailable = true
-          );         
-        }
-      });
-  
-}
-
   viewboard(){
     this.type_view = true;
     this.p = 0;
@@ -151,26 +122,6 @@ export class NguonphatsinhComponent implements OnInit {
   viewlist(){
     this.type_view = false;
     this.p = 0;
-  }
-  viewnguonps(data_item){
-    const initialState = { title: " Chi tiết công việc theo nguồn phát sinh " + data_item.ten, data:data_item };
-    this.modalRef = this.modalService.show(
-      Bc_nguonphatsinhComponent,
-      Object.assign({}, {
-        animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
-      }, {
-        class: 'modal-lg xlg', initialState
-      }));
-
-    this.modalRef.content.event
-      .subscribe(arg => {
-        this.modalRef.hide();
-        if (arg) {
-          this.getValueWithAsync().then(() =>            
-              this.isDataAvailable = true
-          );
-        }
-      });
   }
   deletenguonphatsinh(datanguonp){
     let options = {
@@ -182,7 +133,7 @@ export class NguonphatsinhComponent implements OnInit {
 
     this.confirmService.confirm(options).then((res: boolean) => {
       if (res) {
-        this.nguonphatsinhService.Del(datanguonp.ma_nguonphatsinh).subscribe({
+        this.phanxuongService.Del(datanguonp.ma_nguonphatsinh).subscribe({
           next: (_data) => {
             this.toastr.success("Xóa thành công", 'Thông báo', {
               timeOut: 3000,

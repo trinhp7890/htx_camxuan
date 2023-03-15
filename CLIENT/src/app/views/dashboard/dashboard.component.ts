@@ -11,7 +11,6 @@ import { View_cvcuatoiComponent } from '../congviec/cuatoi/view_cvcuatoi.compone
 
 // module realtime
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
-import { RealtimeService } from '@app/_services/realtime.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,8 +30,7 @@ export class DashboardComponent {
   ctx2: any;
   constructor(
     private modalService: BsModalService,
-    private dashboardService: DashboardService,
-    private realtimeService: RealtimeService
+    private dashboardService: DashboardService
   ) { }
   ds_list_moi: any = [];
   ds_list_choxl: any = [];

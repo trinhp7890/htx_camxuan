@@ -14,7 +14,6 @@ import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { DonviService } from "@app/_services/danhmuc/donvi.service";
 import * as moment from 'moment';
 import { DatePipe } from '@angular/common';
-import { RealtimeService } from '@app/_services/realtime.service';
 @Component({
   selector: 'app-bc-nhanvien',
   templateUrl: './bc_nhanvien.component.html',
@@ -31,7 +30,6 @@ export class Bc_nhanvienComponent {
     private confirmService: ConfirmService,
     private toastr: ToastrService,
     private http: HttpClient,
-    private realtimeService: RealtimeService,
     private donviService: DonviService,
     private datePipe: DatePipe
   ) { }
@@ -143,8 +141,7 @@ export class Bc_nhanvienComponent {
   // lấy danh sách đơn vị giao việc
   get_danhsachdonvi() {
     //var madonvi = localStorage.getItem('Ma_donvi') ? localStorage.getItem('Ma_donvi') : sessionStorage.getItem('Ma_donvi') || '';
-    var madonvi = 'HUE000000';
-    this.donviService.get_donvilv3(madonvi)
+    this.donviService.get_donvilv3()
       .subscribe(
         _data => {
           this.datadonvi = _data;
