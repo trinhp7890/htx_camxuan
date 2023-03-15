@@ -22,8 +22,8 @@ namespace API_TPL.Controllers.UPLOAD
     [RoutePrefix("api/upload")]
     public class UploadController : ApiController
     {
-        static string connString = System.Configuration.ConfigurationManager.ConnectionStrings["QLCV"].ToString();
-        DBHelper helper = new DBHelper(connString);
+        static String connString = ConfigurationManager.ConnectionStrings["PHANBONConnection"].ToString();
+        SQL_DBHELPERs helper = new SQL_DBHELPERs(connString);
         ApiHelpers api_helper = new ApiHelpers();
         [Route("uploadmulti"), HttpPost]
         public IHttpActionResult upload_anh(string prmMA_DOITUONG, int prmLOAI, string prmGHICHU, string prmNGUOI_CAPNHAT, string prmMULTI_FILE)
@@ -46,12 +46,12 @@ namespace API_TPL.Controllers.UPLOAD
 
             string query_str = "UPLOAD_FILE_INSERT";
             object[] aParams = new object[6];
-            aParams[1] = helper.BuildParameter("prmMA_DOITUONG", prmMA_DOITUONG, OracleDbType.Varchar2, ParameterDirection.Input);
-            aParams[2] = helper.BuildParameter("prmDUONGDAN_FILE", _typePath + "/" + prmLOAI + "/" + prmMA_DOITUONG + "/", OracleDbType.Varchar2, ParameterDirection.Input);
-            aParams[3] = helper.BuildParameter("prmGHICHU", prmGHICHU, OracleDbType.Varchar2, ParameterDirection.Input);
-            aParams[4] = helper.BuildParameter("prmLOAI", prmLOAI, OracleDbType.Int32, ParameterDirection.Input);
-            aParams[5] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, OracleDbType.Varchar2, ParameterDirection.Input);
-            aParams[6] = helper.BuildParameter("prmMULTI_FILE", prmMULTI_FILE, OracleDbType.Clob, ParameterDirection.Input);
+            aParams[1] = helper.BuildParameter("prmMA_DOITUONG", prmMA_DOITUONG, System.Data.SqlDbType.NVarChar);
+            aParams[2] = helper.BuildParameter("prmDUONGDAN_FILE", _typePath + "/" + prmLOAI + "/" + prmMA_DOITUONG + "/", System.Data.SqlDbType.NVarChar);
+            aParams[3] = helper.BuildParameter("prmGHICHU", prmGHICHU, System.Data.SqlDbType.NVarChar);
+            aParams[4] = helper.BuildParameter("prmLOAI", prmLOAI, System.Data.SqlDbType.Int);
+            aParams[5] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, System.Data.SqlDbType.NVarChar);
+            aParams[6] = helper.BuildParameter("prmMULTI_FILE", prmMULTI_FILE, System.Data.SqlDbType.NVarChar);
 
             HttpResponseMessage result = null;
             var httpRequest = HttpContext.Current.Request;
@@ -87,7 +87,7 @@ namespace API_TPL.Controllers.UPLOAD
                             img.Resize(2000, (int)height1);
                         img.Save(filePath);
 
-                        aParams[0] = helper.BuildParameter("prmTENFILE", file_name, OracleDbType.Varchar2, ParameterDirection.Input);
+                        aParams[0] = helper.BuildParameter("prmTENFILE", file_name, System.Data.SqlDbType.NVarChar);
                         try
                         {
                             kq = helper.ExecuteNonQuery(query_str, aParams) + ";";
@@ -255,15 +255,15 @@ namespace API_TPL.Controllers.UPLOAD
 
                 try
                 {
-                    aParams[0] = helper.BuildParameter("prmTIEUDE", prmTIEUDE, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[1] = helper.BuildParameter("prmNOIDUNG", prmNOIDUNG, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[2] = helper.BuildParameter("prmTENFILE", prmTENFILE, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[3] = helper.BuildParameter("prmDUONGDAN_FILE", prmDUONGDAN_FILE, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[4] = helper.BuildParameter("prmGHICHU", prmGHICHU, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[5] = helper.BuildParameter("prmLOAI", prmLOAI, OracleDbType.Int16, ParameterDirection.Input);
-                    aParams[6] = helper.BuildParameter("prmMOTA", prmMOTA, OracleDbType.Varchar2, ParameterDirection.Input);                    
-                    aParams[7] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[8] = helper.BuildParameter("prmMULTI_FILE", prmMULTI_FILE, OracleDbType.Clob, ParameterDirection.Input);
+                    aParams[0] = helper.BuildParameter("prmTIEUDE", prmTIEUDE, System.Data.SqlDbType.NVarChar);
+                    aParams[1] = helper.BuildParameter("prmNOIDUNG", prmNOIDUNG, System.Data.SqlDbType.NVarChar);
+                    aParams[2] = helper.BuildParameter("prmTENFILE", prmTENFILE, System.Data.SqlDbType.NVarChar);
+                    aParams[3] = helper.BuildParameter("prmDUONGDAN_FILE", prmDUONGDAN_FILE, System.Data.SqlDbType.NVarChar);
+                    aParams[4] = helper.BuildParameter("prmGHICHU", prmGHICHU, System.Data.SqlDbType.NVarChar);
+                    aParams[5] = helper.BuildParameter("prmLOAI", prmLOAI, System.Data.SqlDbType.Int);
+                    aParams[6] = helper.BuildParameter("prmMOTA", prmMOTA, System.Data.SqlDbType.NVarChar);                    
+                    aParams[7] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, System.Data.SqlDbType.NVarChar);
+                    aParams[8] = helper.BuildParameter("prmMULTI_FILE", prmMULTI_FILE, System.Data.SqlDbType.NVarChar);
 
                     String kq = helper.ExecuteNonQuery(query_str, aParams);
                     if (kq == "OK")
@@ -399,16 +399,16 @@ namespace API_TPL.Controllers.UPLOAD
 
                 try
                 {
-                    aParams[0] = helper.BuildParameter("prmMA_TB_IN", prmMA_TB_IN, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[1] = helper.BuildParameter("prmTIEUDE", prmTIEUDE, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[2] = helper.BuildParameter("prmNOIDUNG", prmNOIDUNG, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[3] = helper.BuildParameter("prmTENFILE", prmTENFILE, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[4] = helper.BuildParameter("prmDUONGDAN_FILE", prmDUONGDAN_FILE, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[5] = helper.BuildParameter("prmGHICHU", prmGHICHU, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[6] = helper.BuildParameter("prmLOAI", prmLOAI, OracleDbType.Int16, ParameterDirection.Input);
-                    aParams[7] = helper.BuildParameter("prmMOTA", prmMOTA, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[8] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, OracleDbType.Varchar2, ParameterDirection.Input);
-                    aParams[9] = helper.BuildParameter("prmMULTI_FILE", prmMULTI_FILE, OracleDbType.Clob, ParameterDirection.Input);
+                    aParams[0] = helper.BuildParameter("prmMA_TB_IN", prmMA_TB_IN, System.Data.SqlDbType.NVarChar);
+                    aParams[1] = helper.BuildParameter("prmTIEUDE", prmTIEUDE, System.Data.SqlDbType.NVarChar);
+                    aParams[2] = helper.BuildParameter("prmNOIDUNG", prmNOIDUNG, System.Data.SqlDbType.NVarChar);
+                    aParams[3] = helper.BuildParameter("prmTENFILE", prmTENFILE, System.Data.SqlDbType.NVarChar);
+                    aParams[4] = helper.BuildParameter("prmDUONGDAN_FILE", prmDUONGDAN_FILE, System.Data.SqlDbType.NVarChar);
+                    aParams[5] = helper.BuildParameter("prmGHICHU", prmGHICHU, System.Data.SqlDbType.NVarChar);
+                    aParams[6] = helper.BuildParameter("prmLOAI", prmLOAI, System.Data.SqlDbType.Int);
+                    aParams[7] = helper.BuildParameter("prmMOTA", prmMOTA, System.Data.SqlDbType.NVarChar);
+                    aParams[8] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, System.Data.SqlDbType.NVarChar);
+                    aParams[9] = helper.BuildParameter("prmMULTI_FILE", prmMULTI_FILE, System.Data.SqlDbType.NVarChar);
 
                     String kq = helper.ExecuteNonQuery(query_str, aParams);
                     if (kq == "OK")
@@ -452,20 +452,12 @@ namespace API_TPL.Controllers.UPLOAD
             string _uploadPath = ConfigurationManager.AppSettings["upload_path"].ToString().Trim();
             string _typePath = ConfigurationManager.AppSettings["image_folder"].ToString().Trim();
             string _typevanban = ConfigurationManager.AppSettings["upload_folder"].ToString().Trim();
-            string workingFolder = HttpContext.Current.Server.MapPath("~" + _uploadPath + _typePath + "/" + "NHANSU");
-            string workingFolderfile = HttpContext.Current.Server.MapPath("~" + _uploadPath + _typevanban + "/" + timenow);
-
-            string workingFoldersave = _uploadPath + _typePath + "/" + "NHANSU";
-            string workingFolderfilesave = _uploadPath + _typevanban + "/" + timenow;
-
-
+            string workingFolder = HttpContext.Current.Server.MapPath("~" + _uploadPath + _typePath + "/" + "NHANVIEN");
+            string workingFoldersave = _uploadPath + _typePath + "/" + "NHANVIEN";
+           
             if (!Directory.Exists(workingFolder))
             {
                 Directory.CreateDirectory(workingFolder); //Create directory if it doesn't exist
-            }
-            if (!Directory.Exists(workingFolderfile))
-            {
-                Directory.CreateDirectory(workingFolderfile); //Create directory if it doesn't exist
             }
             var httpRequest = HttpContext.Current.Request;
             var Httpfroms = httpRequest.Form;
@@ -515,25 +507,25 @@ namespace API_TPL.Controllers.UPLOAD
             object[] aParams = new object[19];
             try
             {
-                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmTEN_NV", prmTEN_NV, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[2] = helper.BuildParameter("prmSODT", prmSODT, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[3] = helper.BuildParameter("prmEMAIL", prmEMAIL, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[4] = helper.BuildParameter("prmCHUCDANH", prmCHUCDANH, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[5] = helper.BuildParameter("prmMA_DV", prmMA_DV, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[6] = helper.BuildParameter("prmTENFILE", prmTENFILE, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[7] = helper.BuildParameter("prmDUONGDAN_FILE", prmDUONGDAN_FILE, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[8] = helper.BuildParameter("prmGHICHU", prmGHICHU, OracleDbType.Varchar2, ParameterDirection.Input);                
-                aParams[9] = helper.BuildParameter("prmLOAI", prmLOAI, OracleDbType.Int16, ParameterDirection.Input);
-                aParams[10] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[11] = helper.BuildParameter("prmACTIVE ", prmACTIVE, OracleDbType.Int16, ParameterDirection.Input);
-                aParams[12] = helper.BuildParameter("prmMA_ND ", prmMA_ND, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[13] = helper.BuildParameter("prmNGAYSINH ", prmNGAYSINH, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[14] = helper.BuildParameter("prmGIOITINH ", prmGIOITINH, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[15] = helper.BuildParameter("prmQUEQUAN ", prmQUEQUAN, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[16] = helper.BuildParameter("prmSO_CMND ", prmSO_CMND, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[17] = helper.BuildParameter("prmNGAYCAP_CMND ", prmNGAYCAP_CMND, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[18] = helper.BuildParameter("prmNOICAP_CMDN ", prmNOICAP_CMDN, OracleDbType.Varchar2, ParameterDirection.Input);                
+                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV, System.Data.SqlDbType.NVarChar);
+                aParams[1] = helper.BuildParameter("prmTEN_NV", prmTEN_NV, System.Data.SqlDbType.NVarChar);
+                aParams[2] = helper.BuildParameter("prmSODT", prmSODT, System.Data.SqlDbType.NVarChar);
+                aParams[3] = helper.BuildParameter("prmEMAIL", prmEMAIL, System.Data.SqlDbType.NVarChar);
+                aParams[4] = helper.BuildParameter("prmCHUCDANH", prmCHUCDANH, System.Data.SqlDbType.NVarChar);
+                aParams[5] = helper.BuildParameter("prmMA_DV", prmMA_DV, System.Data.SqlDbType.NVarChar);
+                aParams[6] = helper.BuildParameter("prmTENFILE", prmTENFILE, System.Data.SqlDbType.NVarChar);
+                aParams[7] = helper.BuildParameter("prmDUONGDAN_FILE", prmDUONGDAN_FILE, System.Data.SqlDbType.NVarChar);
+                aParams[8] = helper.BuildParameter("prmGHICHU", prmGHICHU, System.Data.SqlDbType.NVarChar);                
+                aParams[9] = helper.BuildParameter("prmLOAI", prmLOAI, System.Data.SqlDbType.Int);
+                aParams[10] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, System.Data.SqlDbType.NVarChar);
+                aParams[11] = helper.BuildParameter("prmACTIVE ", prmACTIVE, System.Data.SqlDbType.Int);
+                aParams[12] = helper.BuildParameter("prmMA_ND ", prmMA_ND, System.Data.SqlDbType.NVarChar);
+                aParams[13] = helper.BuildParameter("prmNGAYSINH ", prmNGAYSINH, System.Data.SqlDbType.NVarChar);
+                aParams[14] = helper.BuildParameter("prmGIOITINH ", prmGIOITINH, System.Data.SqlDbType.NVarChar);
+                aParams[15] = helper.BuildParameter("prmQUEQUAN ", prmQUEQUAN, System.Data.SqlDbType.NVarChar);
+                aParams[16] = helper.BuildParameter("prmSO_CMND ", prmSO_CMND, System.Data.SqlDbType.NVarChar);
+                aParams[17] = helper.BuildParameter("prmNGAYCAP_CMND ", prmNGAYCAP_CMND, System.Data.SqlDbType.NVarChar);
+                aParams[18] = helper.BuildParameter("prmNOICAP_CMDN ", prmNOICAP_CMDN, System.Data.SqlDbType.NVarChar);                
 
 
                 String kq = helper.ExecuteNonQuery(query_str, aParams);
@@ -574,8 +566,8 @@ namespace API_TPL.Controllers.UPLOAD
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmID_FILE", ID_FILE, OracleDbType.Int32, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmNGUOI_NHAP", NGUOI_NHAP, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmID_FILE", ID_FILE, System.Data.SqlDbType.Int);
+                aParams[1] = helper.BuildParameter("prmNGUOI_NHAP", NGUOI_NHAP, System.Data.SqlDbType.NVarChar);
                 string kq = helper.ExecuteNonQuery(query_str, aParams);
                 var message1 = string.Format("Lỗi");
                 var filename = prmTenfile;

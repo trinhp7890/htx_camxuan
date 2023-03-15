@@ -236,10 +236,13 @@
     <Compile Include="Controllers\Admin\NoAuthenController.cs" />
     <Compile Include="Controllers\Admin\QuyenController.cs" />
     <Compile Include="Controllers\Admin\QuyenNDController.cs" />
-    <Compile Include="Controllers\Congviec\DashboardController.cs" />
-    <Compile Include="Controllers\Congviec\CongviecController.cs" />
-    <Compile Include="Controllers\Congviec\ThongbaoController.cs" />
-    <Compile Include="Controllers\Congviec\ThaoluanController.cs" />
+    <Compile Include="Controllers\Danhmuc\DmVattuController.cs" />
+    <Compile Include="Controllers\Hoso\DashboardController.cs" />
+    <Compile Include="Controllers\Hoso\ThongbaoController.cs" />
+    <Compile Include="Controllers\Danhmuc\DmGiaVattuController.cs" />
+    <Compile Include="Controllers\Danhmuc\DmTraiController.cs" />
+    <Compile Include="Controllers\Danhmuc\DmKhoController.cs" />
+    <Compile Include="Controllers\Danhmuc\DmDuongController.cs" />
     <Compile Include="Controllers\Danhmuc\PhanxuongController.cs" />
     <Compile Include="Controllers\Danhmuc\DonviController.cs" />
     <Compile Include="Controllers\Danhmuc\DuanController.cs" />
@@ -295,7 +298,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Uploads\Images\" />
+    <Folder Include="Uploads\Images\NHANVIEN\" />
+    <Folder Include="Views\DMDuong\" />
+    <Folder Include="Views\DM_Duong\" />
     <Folder Include="Views\DM_Phanxuong\" />
   </ItemGroup>
   <PropertyGroup>

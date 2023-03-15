@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-This file is used by the publish/package process of your Web project. You can customize the behavior of this process
-by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+https://go.microsoft.com/fwlink/?LinkID=208121. 
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\WEB\QLCV\API_PL</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\WEB\PHANBON\Pushlish</_PublishTargetUrl>
+    <History>True|2023-03-14T03:24:43.3447718Z;False|2023-03-14T10:24:26.9819761+07:00;False|2023-03-14T10:24:07.0561928+07:00;True|2023-03-13T10:21:58.3558011+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -76,7 +75,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/15/2021 16:48:59</publishTime>
     </File>
     <File Include="bin/API_TPL.dll">
-      <publishTime>08/10/2022 08:26:24</publishTime>
+      <publishTime>03/14/2023 10:24:42</publishTime>
+    </File>
+    <File Include="bin/API_TPL.pdb">
+      <publishTime>03/14/2023 10:24:42</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>07/15/2021 16:48:59</publishTime>
@@ -217,7 +219,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/15/2021 16:48:59</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/apicahue.pubxml.user">
-      <publishTime>08/09/2022 09:26:44</publishTime>
+      <publishTime>08/10/2022 08:26:26</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.js">
       <publishTime>07/15/2021 16:48:59</publishTime>
@@ -226,7 +228,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/15/2021 16:48:59</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/10/2022 08:26:24</publishTime>
+      <publishTime>03/13/2023 10:21:57</publishTime>
     </File>
   </ItemGroup>
 </Project>

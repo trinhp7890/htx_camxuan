@@ -5,14 +5,16 @@ using System.Linq;
 using System.Web;
 using API_TPL.DAL;
 using System.Data;
-using Oracle.ManagedDataAccess.Client;
 using System.Web.Http;
+using System.Configuration;
 
 namespace API_TPL.Services
 {
     public class UserService
     {
-        DBHelper helper = new DBHelper();
+        //DBHelper helper = new DBHelper();
+        static String connString = ConfigurationManager.ConnectionStrings["PHANBONConnection"].ToString();
+        SQL_DBHELPERs helper = new SQL_DBHELPERs(connString);
         public User ValidateUser(string username, string password)
         {
             
@@ -139,15 +141,10 @@ namespace API_TPL.Services
         {
             string query_str = "HETHONG_QUYEN_GETBY_ND_LOGIN";
 
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmUSERNAME", userName, OracleDbType.Varchar2, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
+                aParams[0] = helper.BuildParameter("prmUSERNAME", userName, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 if (kq.Rows.Count > 0)
@@ -165,16 +162,10 @@ namespace API_TPL.Services
         {
             string query_str = "HETHONG_QUYEN_GETBY_ND";
 
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmUSERNAME", userName, OracleDbType.Varchar2, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
-
+                aParams[0] = helper.BuildParameter("prmUSERNAME", userName, System.Data.SqlDbType.NVarChar);
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 if (kq.Rows.Count > 0)
                     return kq;
@@ -195,9 +186,9 @@ namespace API_TPL.Services
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmUSERNAME", prmUSERNAME, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmNoLoginFail", noLoginfail, OracleDbType.Int16, ParameterDirection.Input);
-                aParams[2] = helper.BuildParameter("prmSolanlock", solanlock, OracleDbType.Int16, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmUSERNAME", prmUSERNAME, System.Data.SqlDbType.NVarChar);
+                aParams[1] = helper.BuildParameter("prmNoLoginFail", noLoginfail, System.Data.SqlDbType.Int);
+                aParams[2] = helper.BuildParameter("prmSolanlock", solanlock, System.Data.SqlDbType.Int);
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 return "";
             }
@@ -211,16 +202,12 @@ namespace API_TPL.Services
         {
             string query_str = "HETHONG_NGUOIDUNG_LOGIN";
 
-            object[] aParams = new object[3];
+            object[] aParams = new object[2];
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmNSD", prmUSERNAME, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmPassword", prmPassword, OracleDbType.Varchar2, ParameterDirection.Input);
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[2] = resultParam;
+                aParams[0] = helper.BuildParameter("prmNSD", prmUSERNAME, System.Data.SqlDbType.NVarChar);
+                aParams[1] = helper.BuildParameter("prmPassword", prmPassword, System.Data.SqlDbType.NVarChar);
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 if (kq.Rows.Count > 0)
                     return kq;
@@ -237,15 +224,10 @@ namespace API_TPL.Services
         {
             string query_str = "HETHONG_NGUOIDUNG_GETBY_MAND";
 
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmUSERNAME", prmUSERNAME, OracleDbType.Varchar2, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
+                aParams[0] = helper.BuildParameter("prmUSERNAME", prmUSERNAME, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 if (kq.Rows.Count > 0)
@@ -311,7 +293,7 @@ namespace API_TPL.Services
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmNSD", prmUSERNAME, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmNSD", prmUSERNAME, System.Data.SqlDbType.NVarChar);
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 return "";
             }
@@ -330,9 +312,9 @@ namespace API_TPL.Services
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmTEN_ND", TEN_ND, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmSO_DT", SO_DT, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[2] = helper.BuildParameter("prmEmail", Email, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmTEN_ND", TEN_ND, System.Data.SqlDbType.NVarChar);
+                aParams[1] = helper.BuildParameter("prmSO_DT", SO_DT, System.Data.SqlDbType.NVarChar);
+                aParams[2] = helper.BuildParameter("prmEmail", Email, System.Data.SqlDbType.NVarChar);
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 return "1";
             }

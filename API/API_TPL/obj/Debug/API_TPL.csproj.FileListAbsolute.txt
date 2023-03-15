@@ -446,7 +446,6 @@ D:\WEB\QLCV\API\API_TPL\obj\Debug\API_TPL.pdb
 D:\WEB\QLCV\API\API_TPL\obj\Debug\API_TPL.csprojResolveAssemblyReference.cache
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\obj\Debug\API_TPL.dll
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\obj\Debug\API_TPL.pdb
-D:\WEB\PHANBON\htx_camxuan\API\API_TPL\obj\Debug\API_TPL.csprojResolveAssemblyReference.cache
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\bin\ApplicationInsights.config
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\bin\roslyn\csc.exe
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -518,3 +517,6 @@ D:\WEB\PHANBON\htx_camxuan\API\API_TPL\bin\System.Web.WebPages.xml
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\bin\System.Web.WebPages.Deployment.xml
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\bin\System.Web.WebPages.Razor.xml
 D:\WEB\PHANBON\htx_camxuan\API\API_TPL\bin\Newtonsoft.Json.xml
+D:\WEB\PHANBON\htx_camxuan\API\API_TPL\obj\Debug\API_TPL.csproj.AssemblyReference.cache
+D:\WEB\PHANBON\htx_camxuan\API\API_TPL\obj\Debug\API_TPL.csproj.CoreCompileInputs.cache
+D:\WEB\PHANBON\htx_camxuan\API\API_TPL\obj\Debug\API_TPL.csproj.CopyComplete

@@ -56,7 +56,66 @@ namespace API_TPL.DAL
 
             }
         }
+        public string ExecuteNonQuery(string query_string, object[] inParams)
+        {
 
+            try
+            {
+                DataTable data = new DataTable();
+                SqlCommand cmd;
+                string result = "OK";
+                conn.Open();
+
+                cmd = conn.CreateCommand();
+                cmd.CommandText = query_string;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (inParams != null)
+                {
+                    cmd.Parameters.AddRange(inParams);
+                }
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                throw ex;
+            }
+        }
+        public DataTable ExecuteQueryString(string query_string)
+        {
+
+            try
+            {
+                DataTable data = new DataTable();
+
+                SqlCommand cmd;
+
+                conn.Open();
+
+                cmd = conn.CreateCommand();
+                cmd.CommandText = query_string;
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                da.Fill(data);
+
+                conn.Close();
+                return data;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                throw ex;
+
+            }
+        }
         /// <summary>
         /// 
         /// </summary>

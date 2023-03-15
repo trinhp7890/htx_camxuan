@@ -26,8 +26,8 @@ namespace HUE_CDC.Controllers.Admin
     [RoutePrefix("api/nguoidung")]
     public class NguoidungController : ApiController
     {
-        static string connString = System.Configuration.ConfigurationManager.ConnectionStrings["QLCV"].ToString();
-        DBHelper helper = new DBHelper(connString);
+        static String connString = ConfigurationManager.ConnectionStrings["PHANBONConnection"].ToString();
+        SQL_DBHELPERs helper = new SQL_DBHELPERs(connString);
         ApiHelpers apixl = new ApiHelpers();
         /// <summary>
         /// Thêm mới tài khoản người dùng
@@ -45,7 +45,7 @@ namespace HUE_CDC.Controllers.Admin
             //obj.password = HashHelper.GetMd5Hash(obj.password);
             try
             {
-                aParams[0] = helper.BuildParameter("prmJsonData", obj, OracleDbType.Clob, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmJsonData", obj, System.Data.SqlDbType.NVarChar);
 
                 String kq = helper.ExecuteNonQuery(query_str, aParams);
 
@@ -73,7 +73,7 @@ namespace HUE_CDC.Controllers.Admin
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmJsonData", obj, OracleDbType.Clob, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmJsonData", obj, System.Data.SqlDbType.NVarChar);
 
                 String kq = helper.ExecuteNonQuery(query_str, aParams);
 
@@ -101,8 +101,8 @@ namespace HUE_CDC.Controllers.Admin
 
             try
             {
-                aParams[0] = helper.BuildParameter("prm_Id_nd", obj.id_nd, OracleDbType.Int32, ParameterDirection.Input);                
-                aParams[1] = helper.BuildParameter("prm_NGUOI_CN", obj.nguoi_cn, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prm_Id_nd", obj.id_nd,System.Data.SqlDbType.Int);                
+                aParams[1] = helper.BuildParameter("prm_NGUOI_CN", obj.nguoi_cn,System.Data.SqlDbType.NVarChar);
 
                 String kq = helper.ExecuteNonQuery(query_str, aParams);
 
@@ -130,8 +130,8 @@ namespace HUE_CDC.Controllers.Admin
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmID_ND", obj.id_nd, OracleDbType.Int32, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmNGUOI_CN", obj.nguoi_cn, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmID_ND", obj.id_nd, System.Data.SqlDbType.Int);
+                aParams[1] = helper.BuildParameter("prmNGUOI_CN", obj.nguoi_cn, System.Data.SqlDbType.NVarChar);
 
                 String kq = helper.ExecuteNonQuery(query_str, aParams);
 
@@ -160,7 +160,7 @@ namespace HUE_CDC.Controllers.Admin
             try
             {
 																																 
-                aParams[0] = helper.BuildParameter("prmJsonData", obj.prmJsonData, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmJsonData", obj.prmJsonData, System.Data.SqlDbType.NVarChar);
 																															  
 
                 String kq = helper.ExecuteNonQuery(query_str, aParams);
@@ -182,13 +182,9 @@ namespace HUE_CDC.Controllers.Admin
         public IHttpActionResult GetAllGroup()
         {
             string query_str = "HETHONG_NGUOIDUNG_GETALL";
-            object[] aParams = new object[1];
+            object[] aParams = new object[0];
             try
             {
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[0] = resultParam;
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, kq));
@@ -209,16 +205,10 @@ namespace HUE_CDC.Controllers.Admin
         {
 
             string query_str = "HETHONG_NGUOIDUNG_GETALL_BYDV";
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmMA_DV", prmMA_DV, OracleDbType.Varchar2, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
-
+                aParams[0] = helper.BuildParameter("prmMA_DV", prmMA_DV, System.Data.SqlDbType.NVarChar);
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, kq));
@@ -240,14 +230,9 @@ namespace HUE_CDC.Controllers.Admin
         {
 
             string query_str = "HETHONG_NGUOIDUNG_GIAMSAT";
-            object[] aParams = new object[1];
+            object[] aParams = new object[0];
             try
             {
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[0] = resultParam;
-
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, kq));
@@ -270,15 +255,10 @@ namespace HUE_CDC.Controllers.Admin
         {
 
             string query_str = "HETHONG_NGUOIDUNG_CHECKTELEGRAM";
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV, OracleDbType.Varchar2, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
+                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV , System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
@@ -314,9 +294,9 @@ namespace HUE_CDC.Controllers.Admin
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmID_USER_TELE", prmID_USER_TELE, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmUSERNAME_WEB", prmUSERNAME_WEB, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[2] = helper.BuildParameter("prmMA_NV", prmMA_NV, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmID_USER_TELE", prmID_USER_TELE, System.Data.SqlDbType.NVarChar);
+                aParams[1] = helper.BuildParameter("prmUSERNAME_WEB", prmUSERNAME_WEB, System.Data.SqlDbType.NVarChar);
+                aParams[2] = helper.BuildParameter("prmMA_NV", prmMA_NV, System.Data.SqlDbType.NVarChar);
 
                 String kq = helper.ExecuteNonQuery(query_str, aParams);
 
@@ -343,15 +323,10 @@ namespace HUE_CDC.Controllers.Admin
         {
 
             string query_str = "HETHONG_NGUOIDUNG_BYID";
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmID_ND", uid, OracleDbType.Int32, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
+                aParams[0] = helper.BuildParameter("prmID_ND", uid, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
@@ -375,16 +350,11 @@ namespace HUE_CDC.Controllers.Admin
         {
 
             string query_str = "NGUOIDUNG_CHITIET";
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmUSERNAME", prmUSERNAME, OracleDbType.Varchar2, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
-
+                aParams[0] = helper.BuildParameter("prmUSERNAME", prmUSERNAME, System.Data.SqlDbType.NVarChar);
+  
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, kq));
@@ -428,15 +398,10 @@ namespace HUE_CDC.Controllers.Admin
             }
             /*Thêm mới vào db các id chưa được gửi link*/
             string query_str = "TELEGRAM_IDUSER_INS";
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmID", idString, OracleDbType.Varchar2, ParameterDirection.Input);
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
+                aParams[0] = helper.BuildParameter("prmID", idString, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
                 var Data_length = kq.Rows.Count;
@@ -479,8 +444,8 @@ namespace HUE_CDC.Controllers.Admin
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmTRANGTHAI", prmTRANGTHAI, OracleDbType.Int32, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV, System.Data.SqlDbType.NVarChar);
+                aParams[1] = helper.BuildParameter("prmTRANGTHAI", prmTRANGTHAI, System.Data.SqlDbType.Int);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
@@ -507,8 +472,8 @@ namespace HUE_CDC.Controllers.Admin
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV, OracleDbType.Varchar2, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmMA_NV", prmMA_NV, System.Data.SqlDbType.NVarChar);
+                aParams[1] = helper.BuildParameter("prmNGUOI_CAPNHAT", prmNGUOI_CAPNHAT, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
@@ -540,8 +505,8 @@ namespace HUE_CDC.Controllers.Admin
 
             try
             {
-                aParams[0] = helper.BuildParameter("prmID_ND", obj.id_nd, OracleDbType.Int32, ParameterDirection.Input);
-                aParams[1] = helper.BuildParameter("prmNGUOI_CN", obj.nguoi_cn, OracleDbType.Varchar2, ParameterDirection.Input);
+                aParams[0] = helper.BuildParameter("prmID_ND", obj.id_nd, System.Data.SqlDbType.Int);
+                aParams[1] = helper.BuildParameter("prmNGUOI_CN", obj.nguoi_cn, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
@@ -560,16 +525,10 @@ namespace HUE_CDC.Controllers.Admin
         public IHttpActionResult NHANVIEN_BYDONVI(string prmMA_DV)
         {
             string query_str = "NHANVIEN_BYDONVI";
-            object[] aParams = new object[2];
+            object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("prmMA_DV", prmMA_DV, OracleDbType.Varchar2, ParameterDirection.Input);
-
-
-                OracleParameter resultParam = new OracleParameter("results", OracleDbType.RefCursor);
-                resultParam.Direction = ParameterDirection.Output;
-
-                aParams[1] = resultParam;
+                aParams[0] = helper.BuildParameter("prmMA_DV", prmMA_DV, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
