@@ -8,16 +8,16 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { DonviService } from "@app/_services/danhmuc/donvi.service";
-import { GiavattuService } from "@app/_services/danhmuc/giavattu.service";
 import { VattuService } from "@app/_services/danhmuc/vattu.service";
 import { CongviecphatsinhService } from '@app/_services/congviec/congviecphatsinh.service';
 import * as moment from "moment";
+import { TraicungcapService } from "@app/_services/danhmuc/a_traicungcap.service";
 
 @Component({
-  selector: 'app-qlgiavattu-Edit',
-  templateUrl: './edit_giavattu.component.html'
+  selector: 'app-qlvattu-Edit',
+  templateUrl: './edit_vattu.component.html'
 })
-export class Edit_GiavattuComponent implements OnInit {
+export class Edit_VattuComponent implements OnInit {
   @Input() title: string;
   @Input() data: any;
 
@@ -31,8 +31,9 @@ export class Edit_GiavattuComponent implements OnInit {
   fileinput = '';
   fileattachs: any = [];
   danhsachfile: any = [];
-  datagiavattu: any = [];
-  mavattu_select = '';
+  datatrai: any = [];
+  dataloaivattu = [{"loaivt_id": 1,"ten_loai":"Vật tư sản xuất"},{"loaivt_id": 2,"ten_loai":"Nguyên liệu"}]
+  matrai_select = '';
   serviceBase = `${environment.apiURL}`;
   viewtrangthai = false;
   Ma_nhanvien = localStorage.getItem('Ma_nhanvien') ? localStorage.getItem('Ma_nhanvien') : sessionStorage.getItem('Ma_nhanvien') || '';
@@ -41,12 +42,8 @@ export class Edit_GiavattuComponent implements OnInit {
     public modalRef: BsModalRef,
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
-    private quantriService: QuantrinoidungService,
-    private confirmService: ConfirmService,
-    private donviService: DonviService,
-    private giavattuService: GiavattuService,
-    private vattuService: VattuService,
-    private congviecPSService: CongviecphatsinhService,
+    private traiService: TraicungcapService,
+    private vattuService: VattuService
   ) { }
 
   html: string;
@@ -55,28 +52,25 @@ export class Edit_GiavattuComponent implements OnInit {
   get f() { return this.form.controls; }
 
   ngOnInit(): void {    
-    this.get_danhsachvatu();
+    this.get_danhsachtrai();
     if(this.data=='0'){
       this.form = this.formBuilder.group({
         ma_vattu: [''],
         ten_vattu: [''],
-        gia: [''],
-        donvi_tinh: [''],
-        ghichu: [''],
-        tungay: [''],
-        denngay: [''],
+        ma_trai: [''],
+        mota: [''],
+        loai_vattu: ['']
       });
+      this.f.loai_vattu.setValue(this.dataloaivattu[0].loaivt_id)
     }else{
       this.form = this.formBuilder.group({        
         ma_vattu: [this.data.ma_vattu, Validators.required],
         ten_vattu: [this.data.ten_vattu],
-        gia: [this.data.gia],
-        donvi_tinh: [this.data.donvi_tinh],
-        ghichu: [this.data.ghichu],
-        tungay: moment(this.data.tungay).format('YYYY-MM-DD'),
-        denngay: moment( this.data.denngay).format('YYYY-MM-DD'),
+        ma_trai: [this.data.ma_trai],
+        mota: [this.data.mota],
+        loai_vattu: [this.data.loai_vattu]
       });
-      this.mavattu_select = this.data.ma_vattu;
+      this.matrai_select = this.data.ma_trai;
     }
   }
   
@@ -127,20 +121,19 @@ export class Edit_GiavattuComponent implements OnInit {
     const obj = {}
     const formData = {}
     obj['MA_VATTU'] = this.f.ma_vattu.value;
-    obj['GIA'] = this.f.gia.value;
-    obj['DONVI_TINH'] = this.f.donvi_tinh.value;
-    obj['TUNGAY'] = this.f.tungay.value;
-    obj['DENNGAY'] = this.f.denngay.value;
-    obj['GHICHU'] = this.f.ghichu.value;
+    obj['TEN_VATTU'] = this.f.ten_vattu.value;
+    obj['LOAI_VATTU'] = this.f.loai_vattu.value;
+    obj['MA_TRAI'] = this.f.ma_trai.value;
+    obj['MOTA'] = this.f.mota.value;
     formData['data'] = JSON.stringify(obj);
     if(this.data=='0'){
       try{
-        this.giavattuService.giavattu_ins({formData})
+        this.vattuService.vattu_ins(formData)
         .subscribe({
           next: (_data) => {
             this.event.emit(true);
             this.modalRef.hide();
-            this.toastr.success("Thêm mới giá vật tư thành công", "",
+            this.toastr.success("Thêm mới vật tư thành công", "",
               {
                 timeOut: 3000,
                 closeButton: true,
@@ -153,13 +146,13 @@ export class Edit_GiavattuComponent implements OnInit {
       }
     
     }else{
-      this.giavattuService.giavattu_up(formData)
+      this.vattuService.vattu_up(formData)
       .subscribe({
         next: (_data) => {
           console.log(_data)
           this.event.emit(true);
           this.modalRef.hide();
-          this.toastr.success("Cập nhật giá vật tư thành công", "",
+          this.toastr.success("Cập nhật vật tư thành công", "",
             {
               timeOut: 3000,
               closeButton: true,
@@ -179,12 +172,12 @@ export class Edit_GiavattuComponent implements OnInit {
   }
 
 // lấy danh sách đơn vị giao việc
-    get_danhsachvatu(): void {
-      this.vattuService.get_all()
+    get_danhsachtrai(): void {
+      this.traiService.get_all()
           .subscribe(
               _data => {
-                  this.datagiavattu = _data;
-                  this.f.ma_vattu.setValue(this.datagiavattu[0].ma_vattu)
+                  this.datatrai = _data;
+                  this.f.ma_trai.setValue(this.datatrai[0].ma_trai)
               }
           );
     }

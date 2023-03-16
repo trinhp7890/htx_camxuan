@@ -5,7 +5,7 @@
         <a href="/">
           <span class="header-img">
             <img src="../../../../assets/images/logo_ktm.png">
-            Danh mục giá vật tư
+            Danh mục Vật tư
           </span>
         </a>
       </h3>
@@ -23,41 +23,37 @@
                     <tr>
                       <th class="col-sm-1">STT</th>
                       <th class="col-sm-2">Mã vật tư</th>
-                      <th class="col-sm-1">Giá</th>
-                      <th class="col-sm-1">Đơn vị tính</th>
-                      <th class="col-sm-2">Ghi chú</th>
-                      <th class="col-sm-2">Từ ngày</th>
-                      <th class="col-sm-2">Đến ngày</th>
+                      <th class="col-sm-2">Tên vật tư</th>
+                      <th class="col-sm-2">Loại vật tư</th>
+                      <th class="col-sm-2">Mô tả</th>
+                      <th class="col-sm-2">Nơi cung cấp</th>
                       <th class="col-sm-2"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let giavattu of giavattus | filter:term | paginate: { itemsPerPage: 15, currentPage: p };let i = index">
+                      *ngFor="let vattu of vattus | filter:term | paginate: { itemsPerPage: 15, currentPage: p };let i = index">
                       <td class="text-center">{{i + 1 }}</td>
                       <td>
-                        {{giavattu.ma_vattu}}
+                        {{vattu.ma_vattu}}
                       </td>
                       <td>
-                        {{giavattu.gia}}
+                        {{vattu.ten_vattu}}
                       </td>
                       <td>
-                        {{giavattu.donvi_tinh}}
+                        {{vattu.mota}}
                       </td>
                       <td>
-                        {{giavattu.ghichu}}
+                        {{vattu.mota}}
                       </td>
                       <td>
-                        {{giavattu.tungay_fm}}
-                      </td>
-                      <td>
-                        {{giavattu.denngay_fm}}
+                        {{vattu.ten_trai}}
                       </td>
                       <td class="text-center chucnang-fa">
-                        <a href="javascript:void(0);" (click)="edit(giavattu)">
+                        <a href="javascript:void(0);" (click)="edit(vattu)">
                           <i class="fa fa-edit" style="color: blue; font-size: 20px;"></i>
                         </a>
-                        <a href="javascript:void(0);" (click)="deletegiavattu(giavattu)">
+                        <a href="javascript:void(0);" (click)="deletevattu(vattu)">
                           <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
                         </a>
                       </td>
@@ -67,14 +63,14 @@
               </div>
               <div *ngIf="type_view">
                 <div
-                  *ngFor="let giavattu of giavattus  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
+                  *ngFor="let vattu of vattus  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
                   class="col-sm-12 nhansu-detail">
                   <div class="edit-card-custom">
-                    <a class="text-center tooltips c-pointer" (click)="edit(giavattu)"
+                    <a class="text-center tooltips c-pointer" (click)="edit(vattu)"
                       style="position: absolute; right: 30px; cursor:pointer;">
                       <i class="fa fa-edit" style="color: blue; font-size: 20px;"></i>
                     </a>
-                    <a class="text-center tooltips c-pointer" (click)="deletegiavattu(giavattu)"
+                    <a class="text-center tooltips c-pointer" (click)="deletevattu(vattu)"
                       style="position: absolute; right: 8px; cursor:pointer;">
                       <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
 
@@ -83,20 +79,20 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="nhansu-name">
-                        <i *ngIf="giavattu.trangthai == 0" style="margin-right: 5px; color: chartreuse;"
+                        <i *ngIf="vattu.trangthai == 0" style="margin-right: 5px; color: chartreuse;"
                           class="fa fa-circle"></i>
-                        <i *ngIf="giavattu.trangthai != 0" style="margin-right: 5px; color: red;"
+                        <i *ngIf="vattu.trangthai != 0" style="margin-right: 5px; color: red;"
                           class="fa fa-circle"></i>
-                        {{giavattu.ten}}
+                        {{vattu.ten}}
                       </p>
                     </div>
                     <div class="col-sm-6">
-                      <label> Tên đơn vị: {{giavattu.tendonvi}}</label>
+                      <label> Tên đơn vị: {{vattu.tendonvi}}</label>
                     </div>
                     <div class="col-sm-6">
                       <div class="float-input" title="Nội dung">
                         <label class="disabled">Nội dung <span class="required"></span></label>
-                        <textarea type="text" readonly style="background-color: #fff;" [(ngModel)]="giavattu.noidung"
+                        <textarea type="text" readonly style="background-color: #fff;" [(ngModel)]="vattu.noidung"
                           class="form-control trichyeuvanban"></textarea>
                       </div>                    
                     </div>
@@ -110,7 +106,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let fileat of giavattu.file; let i = index">
+                            <tr *ngFor="let fileat of vattu.file; let i = index">
                               <td>{{i + 1 }}</td>
                               <td>
                                 <a href="{{serviceBase}}/{{fileat[8]}}" target="_blank">{{ fileat[9] }}</a>

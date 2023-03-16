@@ -20,6 +20,8 @@ import { Edit_phanxuongComponent } from './phanxuong/edit_phanxuong.component';
 import { PhanxuongComponent } from './phanxuong/phanxuong.component';
 import { GiavattuComponent } from './giavattu/giavattu.component';
 import { Edit_GiavattuComponent } from './giavattu/edit_giavattu.component';
+import { VattuComponent } from './vattu/vattu.component';
+import { Edit_VattuComponent } from './vattu/edit_vattu.component';
 
 @NgModule({
     imports: [
@@ -42,7 +44,8 @@ import { Edit_GiavattuComponent } from './giavattu/edit_giavattu.component';
     ], 
     declarations: [
         // nguon phat sinh
-        Edit_phanxuongComponent, PhanxuongComponent, GiavattuComponent,Edit_GiavattuComponent
-        ]
+        Edit_phanxuongComponent, PhanxuongComponent, GiavattuComponent,Edit_GiavattuComponent,VattuComponent,
+        Edit_VattuComponent
+    ]
 })
 export class AppqtdanhmucModulue { }
