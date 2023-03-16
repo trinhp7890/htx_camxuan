@@ -19,8 +19,8 @@ using System.Web.Http;
 namespace API_TPL.Controllers.Danhmuc
 {
     //[Authorize]
-    [RoutePrefix("api/gia_vattu")]
-    public class DmGiaVattuController : ApiController
+    [RoutePrefix("api/dmluongphan")]
+    public class DmLuongphanController : ApiController
     {
         static String connString = ConfigurationManager.ConnectionStrings["PHANBONConnection"].ToString();
         SQL_DBHELPERs helper = new SQL_DBHELPERs(connString);
@@ -34,7 +34,7 @@ namespace API_TPL.Controllers.Danhmuc
         [Route("getall"), HttpGet]
         public IHttpActionResult getAll()
         {
-            string query_str = "dm_giavattu_getall";
+            string query_str = "hoso_luongphan_getall";
 
             object[] aParams = new object[0];
             try
@@ -50,9 +50,9 @@ namespace API_TPL.Controllers.Danhmuc
         }
 
         [Route("capnhat"), HttpPost]
-        public IHttpActionResult DM_GIAVATTU([FromBody] dynamic obj)
+        public IHttpActionResult HOSO_LUONGPHAN_CAPNHAT([FromBody] dynamic obj)
         {
-            string query_str = "dm_giavattu_insert";
+            string query_str = "hoso_luongphan_insert";
 
             object[] aParams = new object[1];
             try
@@ -65,19 +65,20 @@ namespace API_TPL.Controllers.Danhmuc
             }
             catch (Exception ex)
             {
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex));
-                
+                //return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message));
+                string err = ex.Message.Substring(0, ex.Message.IndexOf("\n", 0)).Substring(ex.Message.IndexOf(":") + 2).Trim();
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, err));
             }
         }
         [Route("xoa"), HttpPost]
-        public IHttpActionResult DM_GIAVATTU_XOA([FromBody] dynamic obj)
+        public IHttpActionResult HOSO_LUONGPHAN_XOA([FromBody] dynamic obj)
         {
-            string query_str = "dm_giavattu_delete";
+            string query_str = "hoso_luongphan_delete";
 
             object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("ma_vattu", obj.ma_vattu, System.Data.SqlDbType.NVarChar);
+                aParams[0] = helper.BuildParameter("ma_luong", obj.ma_luong, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
@@ -91,14 +92,35 @@ namespace API_TPL.Controllers.Danhmuc
             }
         }
         [Route("getbyma"), HttpPost]
-        public IHttpActionResult DM_GIAVATTU_BYID([FromBody] dynamic obj)
+        public IHttpActionResult HOSO_LUONGPHAN_BYID([FromBody] dynamic obj)
         {
-            string query_str = "dm_giavattu_getbyma";
+            string query_str = "hoso_luongphan_getbyma";
 
             object[] aParams = new object[1];
             try
             {
-                aParams[0] = helper.BuildParameter("ma_vattu", obj.ma_vattu, System.Data.SqlDbType.NVarChar);
+                aParams[0] = helper.BuildParameter("ma_luong", obj.ma_luong, System.Data.SqlDbType.NVarChar);
+
+                DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
+
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, kq));
+            }
+            catch (Exception ex)
+            {
+                //return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message));
+                string err = ex.Message.Substring(0, ex.Message.IndexOf("\n", 0)).Substring(ex.Message.IndexOf(":") + 2).Trim();
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, err));
+            }
+        }
+        [Route("getbyduong"), HttpPost]
+        public IHttpActionResult HOSO_LUONGPHAN_BYMADUONG([FromBody] dynamic obj)
+        {
+            string query_str = "hoso_luongphan_getbyduong";
+
+            object[] aParams = new object[1];
+            try
+            {
+                aParams[0] = helper.BuildParameter("ma_duong", obj.ma_duong, System.Data.SqlDbType.NVarChar);
 
                 DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
 
