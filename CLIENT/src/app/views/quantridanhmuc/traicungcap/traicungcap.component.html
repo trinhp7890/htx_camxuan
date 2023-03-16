@@ -11,11 +11,14 @@
       </h3>
     </div>
   </div>
-  <div class="danhsachcongviec" style="background: #fff !important;">
+  <div class="danhsach" style="background: #fff !important;">
     <div class="row row-frm">      
       <div class="col-sm-12">
         <div class="modal-body">
           <div class="clearfix">
+            <div style="text-align: right;">
+              <button type="button" class="btn btn-primary" style="margin-bottom: 10px;border-radius:3px;" (click)="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm mới</button>
+            </div>
             <div id="grid-result" class="body">
               <div *ngIf="type_view == false">
                 <table class="table table-condensed table-striped table-bordered">
@@ -128,8 +131,8 @@
                   <div class="col-sm-12">
                     <div class="row row-frm">
                       <div class="col-md-6">
-                        <span class="grid-counter gray-color fc-666 pull-left">Có <strong>{{totalItems}}</strong>
-                          nguồn phát sinh</span>
+                        <span class="grid-counter gray-color fc-666 pull-left">Số bản ghi: <strong>{{totalItems}}</strong>
+                          </span>
                       </div>
                       <div class="col-md-6">
                         <pagination-controls (pageChange)="p = $event" class="pull-right" previousLabel="" nextLabel="">
@@ -138,44 +141,11 @@
                     </div>
                   </div>
                 </div>
-                <div>
-                  <ul class="list-inline icon-note gray-color">
-                    <li>Ghi chú: </li>
-                    <li>
-                      <i style="margin-right: 5px; color: chartreuse;" class="fa fa-circle"></i>Đang dùng
-                    </li>
-                    <li>
-                      <i style="margin-right: 5px; color: red;" class="fa fa-circle"></i> Khóa
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="sidebar-right" style="background: #fff !important">
-    <ul class="sidebar-menu tree" data-widget="tree">
-      <li class="treeview-dashboard" data-toggle="tooltip" data-placement="auto" title=""
-        data-original-title="Xem công việc dạng tổng quan">
-
-        <a class="text-center tooltips c-pointer" data-value="danhsach" (click)="add()" title="Thêm nguồn phát sinh">
-          <i class="fa fa-plus-circle"></i>
-        </a>
-      </li>
-      <li class="treeview-board" data-toggle="tooltip" data-placement="auto" title=""
-        title="Xem nguồn phát sinh dạng bảng">
-        <a class="text-center tooltips c-pointer" (click)="viewboard();">
-          <i class="fa fa-columns"></i>
-        </a>
-      </li>
-      <li class="treeview-nhansu" data-toggle="tooltip" data-placement="auto" title="Xem nguồn phát sinh dạn danh sách">
-        <a class="text-center tooltips c-pointer" (click)="viewlist();">
-          <i class="fa fa-calendar"></i>
-        </a>
-      </li>
-    </ul>
   </div>
 </section>

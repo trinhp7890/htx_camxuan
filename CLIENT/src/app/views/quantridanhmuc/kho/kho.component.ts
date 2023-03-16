@@ -1,22 +1,22 @@
 import { Component, OnInit, Injectable, ViewChild } from '@angular/core';
-import { VattuService } from '@app/_services/danhmuc/vattu.service';
+import { KhoService } from '@app/_services/danhmuc/kho.service';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { GlobalConstants } from '@app/_models/config';
-import {Edit_VattuComponent  } from './edit_vattu.component';
+import {Edit_KhoComponent  } from './edit_kho.component';
 import { environment } from '@environments/environment';
 
 @Component({
-  selector: 'app-vattu',
-  templateUrl: './vattu.component.html',
-  styleUrls: ['./vattu.component.scss'],
+  selector: 'app-kho',
+  templateUrl: './kho.component.html',
+  styleUrls: ['./kho.component.scss'],
   providers: [
   ]
 })
-export class VattuComponent implements OnInit {
+export class KhoComponent implements OnInit {
   donvis: any[];
-  sovattu: "10";
+  sokho: "10";
   totalItems = 0;
   term : string = '';
   p: number = 1;
@@ -29,12 +29,12 @@ export class VattuComponent implements OnInit {
   modalRef: BsModalRef;
   id_donvi: any;
   isDataAvailable: boolean = false;
-  vattus = [];
+  khos = [];
   serviceBase = `${environment.apiURL}`;
   type_view = false;  
 
   constructor(
-    private vattuService: VattuService,
+    private khoService: KhoService,
     private toastr: ToastrService,
     private modalService: BsModalService,
     private confirmService: ConfirmService,
@@ -53,13 +53,13 @@ export class VattuComponent implements OnInit {
 
   get_all() { 
     return new Promise<any>((resolve) => {
-      this.vattuService.get_all()
+      this.khoService.get_all()
         .subscribe(
           _data => {
-            this.vattus = _data;     
+            this.khos = _data;     
                 this.totalItems = _data.length;
             this.p = 1;
-            console.log(this.vattus)
+            console.log(this.khos)
           }
         );
     })
@@ -73,10 +73,9 @@ export class VattuComponent implements OnInit {
 
 
   add() {
-    console.log("add");
-      const initialState = { title: GlobalConstants.THEMMOI + " vật tư", data: '0' };
+      const initialState = { title: GlobalConstants.THEMMOI + " kho", data: '0' };
       this.modalRef = this.modalService.show(
-        Edit_VattuComponent,
+        Edit_KhoComponent,
         Object.assign({}, {
           animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
         }, {
@@ -93,10 +92,10 @@ export class VattuComponent implements OnInit {
         });
   }
 
-  edit(vattu) {    
-      const initialState = { title: GlobalConstants.DIEUCHINH + " vật tư", data:vattu };
+  edit(kho) {    
+      const initialState = { title: GlobalConstants.DIEUCHINH + " kho", data:kho };
       this.modalRef = this.modalService.show(
-        Edit_VattuComponent,
+        Edit_KhoComponent,
         Object.assign({}, {
           animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
         }, {
@@ -122,14 +121,10 @@ export class VattuComponent implements OnInit {
     this.type_view = false;
     this.p = 0;
   }
-  timkiem(key){
-    console.log(key)
-    //this.vattus = this.vattus.filter((x) => x.nd_tra_con)
-  }
-  deletevattu(datadel){
+  deletekho(datadel){
     console.log(datadel)
     let options = {
-      prompt: 'Bạn có muốn xóa vật tư [' + datadel['ma_vattu'] + '] này không?',
+      prompt: 'Bạn có muốn xóa kho [' + datadel['ma_kho'] + '] này không?',
       title: "Thông báo",
       okText: `Đồng ý`,
       cancelText: `Hủy`,
@@ -138,9 +133,9 @@ export class VattuComponent implements OnInit {
     this.confirmService.confirm(options).then((res: boolean) => {
       if (res) {
         let input = {
-          "ma_vattu": datadel.ma_vattu
+          "ma_kho": datadel.ma_kho
         };
-        this.vattuService.Del(input).subscribe({
+        this.khoService.Del(input).subscribe({
           next: (_data) => {
             this.toastr.success("Xóa thành công", 'Thông báo', {
               timeOut: 3000,
