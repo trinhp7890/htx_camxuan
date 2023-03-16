@@ -18,6 +18,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { Edit_phanxuongComponent } from './phanxuong/edit_phanxuong.component';
 import { PhanxuongComponent } from './phanxuong/phanxuong.component';
+import { GiavattuComponent } from './giavattu/giavattu.component';
+import { Edit_GiavattuComponent } from './giavattu/edit_giavattu.component';
 
 @NgModule({
     imports: [
@@ -40,7 +42,7 @@ import { PhanxuongComponent } from './phanxuong/phanxuong.component';
     ], 
     declarations: [
         // nguon phat sinh
-        Edit_phanxuongComponent, PhanxuongComponent, 
+        Edit_phanxuongComponent, PhanxuongComponent, GiavattuComponent,Edit_GiavattuComponent
         ]
 })
 export class AppqtdanhmucModulue { }

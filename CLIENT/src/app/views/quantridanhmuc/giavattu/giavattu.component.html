@@ -22,34 +22,42 @@
                   <thead>
                     <tr>
                       <th class="col-sm-1">STT</th>
-                      <th class="col-sm-2">Mã phân xưởng</th>
-                      <th class="col-sm-3">Tên phân xưởng</th>
-                      <th class="col-sm-2">Địa chỉ</th>
-                      <th class="col-sm-2">Tên tỉnh thành</th>
+                      <th class="col-sm-2">Mã vật tư</th>
+                      <th class="col-sm-1">Giá</th>
+                      <th class="col-sm-1">Đơn vị tính</th>
+                      <th class="col-sm-2">Ghi chú</th>
+                      <th class="col-sm-2">Từ ngày</th>
+                      <th class="col-sm-2">Đến ngày</th>
                       <th class="col-sm-2"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let phanxuong of phanxuongs | filter:term | paginate: { itemsPerPage: 15, currentPage: p };let i = index">
+                      *ngFor="let giavattu of giavattus | filter:term | paginate: { itemsPerPage: 15, currentPage: p };let i = index">
                       <td class="text-center">{{i + 1 }}</td>
                       <td>
-                        {{phanxuong.ma_xuong}}
+                        {{giavattu.ma_vattu}}
                       </td>
                       <td>
-                        {{phanxuong.ten_xuong}}
+                        {{giavattu.gia}}
                       </td>
                       <td>
-                        {{phanxuong.diachi}}
+                        {{giavattu.donvi_tinh}}
                       </td>
                       <td>
-                        {{phanxuong.ten_tinh}}
+                        {{giavattu.ghichu}}
+                      </td>
+                      <td>
+                        {{giavattu.tungay_fm}}
+                      </td>
+                      <td>
+                        {{giavattu.denngay_fm}}
                       </td>
                       <td class="text-center chucnang-fa">
-                        <a href="javascript:void(0);" (click)="edit(phanxuong)">
+                        <a href="javascript:void(0);" (click)="edit(giavattu)">
                           <i class="fa fa-edit" style="color: blue; font-size: 20px;"></i>
                         </a>
-                        <a href="javascript:void(0);" (click)="deletenguonphatsinh(phanxuong)">
+                        <a href="javascript:void(0);" (click)="deletegiavattu(giavattu)">
                           <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
                         </a>
                       </td>
@@ -59,14 +67,14 @@
               </div>
               <div *ngIf="type_view">
                 <div
-                  *ngFor="let phanxuong of phanxuongs  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
+                  *ngFor="let giavattu of giavattus  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
                   class="col-sm-12 nhansu-detail">
                   <div class="edit-card-custom">
-                    <a class="text-center tooltips c-pointer" (click)="edit(phanxuong)"
+                    <a class="text-center tooltips c-pointer" (click)="edit(giavattu)"
                       style="position: absolute; right: 30px; cursor:pointer;">
                       <i class="fa fa-edit" style="color: blue; font-size: 20px;"></i>
                     </a>
-                    <a class="text-center tooltips c-pointer" (click)="deletenguonphatsinh(phanxuong)"
+                    <a class="text-center tooltips c-pointer" (click)="deletegiavattu(giavattu)"
                       style="position: absolute; right: 8px; cursor:pointer;">
                       <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
 
@@ -75,20 +83,20 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="nhansu-name">
-                        <i *ngIf="phanxuong.trangthai == 0" style="margin-right: 5px; color: chartreuse;"
+                        <i *ngIf="giavattu.trangthai == 0" style="margin-right: 5px; color: chartreuse;"
                           class="fa fa-circle"></i>
-                        <i *ngIf="phanxuong.trangthai != 0" style="margin-right: 5px; color: red;"
+                        <i *ngIf="giavattu.trangthai != 0" style="margin-right: 5px; color: red;"
                           class="fa fa-circle"></i>
-                        {{phanxuong.ten}}
+                        {{giavattu.ten}}
                       </p>
                     </div>
                     <div class="col-sm-6">
-                      <label> Tên đơn vị: {{phanxuong.tendonvi}}</label>
+                      <label> Tên đơn vị: {{giavattu.tendonvi}}</label>
                     </div>
                     <div class="col-sm-6">
                       <div class="float-input" title="Nội dung">
                         <label class="disabled">Nội dung <span class="required"></span></label>
-                        <textarea type="text" readonly style="background-color: #fff;" [(ngModel)]="phanxuong.noidung"
+                        <textarea type="text" readonly style="background-color: #fff;" [(ngModel)]="giavattu.noidung"
                           class="form-control trichyeuvanban"></textarea>
                       </div>                    
                     </div>
@@ -102,7 +110,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let fileat of phanxuong.file; let i = index">
+                            <tr *ngFor="let fileat of giavattu.file; let i = index">
                               <td>{{i + 1 }}</td>
                               <td>
                                 <a href="{{serviceBase}}/{{fileat[8]}}" target="_blank">{{ fileat[9] }}</a>
