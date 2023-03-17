@@ -15,7 +15,7 @@
             <div class="col-sm-6">
               <div class="float-input" title="Mã kho">
                 <label  class="disabled">Mã kho <span class="required"></span></label>
-                <input type="text" formControlName="ma_kho" class="form-control" />
+                <input type="text" [readonly]="disabled" formControlName="ma_kho" class="form-control" />
               </div>
             </div> 
             <div class="col-sm-6">
@@ -28,9 +28,9 @@
               <div class="float-input" title="Phân xưởng">
                 <label  class="disabled">Phân xưởng</label>
                 <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
-                <ng-select bindLabel="name" placeholder="Mã xưởng" appendTo="body"
+                <ng-select  bindLabel="name" placeholder="Mã xưởng" appendTo="body"
                   [searchable]="true" [clearable]="true" formControlName="ma_xuong">
-                  <ng-option [value]="item.ma_xuong" [disabled]="item.disabled" *ngFor="let item of dataxuong">
+                  <ng-option  [value]="item.ma_xuong" [disabled]="disabled" *ngFor="let item of dataxuong">
                     <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
                     {{item.ten_xuong}}
                   </ng-option>

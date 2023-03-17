@@ -16,8 +16,20 @@
       <div class="col-sm-12">
         <div class="modal-body">
           <div class="clearfix">
-            <div style="text-align: right;">
-              <button type="button" class="btn btn-primary" style="margin-bottom: 10px;border-radius:3px;" (click)="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm mới</button>
+            <div style="justify-content: space-between;">
+              <div class="col-sm-6">
+                <div class="input-group" style="height:35px">
+                  <input type="text" [(ngModel)]="term" class="form-control" style="height:35px"
+                    placeholder="Nhập từ khóa để tìm kiếm">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6" style="text-align: right;">
+                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;border-radius:3px;"
+                  (click)="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm mới</button>
+              </div>
             </div>
             <div id="grid-result" class="body">
               <div *ngIf="type_view == false">

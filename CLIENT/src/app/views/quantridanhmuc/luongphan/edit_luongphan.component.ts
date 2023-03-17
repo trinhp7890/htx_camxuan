@@ -8,18 +8,21 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { DonviService } from "@app/_services/danhmuc/donvi.service";
-import { VattuService } from "@app/_services/danhmuc/vattu.service";
+import { LuongphanService } from "@app/_services/danhmuc/luongphan.service";
 import { CongviecphatsinhService } from '@app/_services/congviec/congviecphatsinh.service';
 import * as moment from "moment";
 import { TraicungcapService } from "@app/_services/danhmuc/a_traicungcap.service";
+import { PhanxuongService } from "@app/_services/danhmuc/phanxuong.service";
+import { DuongService } from "@app/_services/danhmuc/a_duong.service";
 
 @Component({
-  selector: 'app-qlvattu-Edit',
-  templateUrl: './edit_vattu.component.html'
+  selector: 'app-qlluongphan-Edit',
+  templateUrl: './edit_luongphan.component.html'
 })
-export class Edit_VattuComponent implements OnInit {
+export class Edit_LuongphanComponent implements OnInit {
   @Input() title: string;
   @Input() data: any;
+  @Input() ma_duong: string;
 
 
   @Output() event = new EventEmitter<boolean>();
@@ -31,19 +34,23 @@ export class Edit_VattuComponent implements OnInit {
   fileinput = '';
   fileattachs: any = [];
   danhsachfile: any = [];
-  datatrai: any = [];
-  dataloaivattu = [{"loaivt_id": 1,"ten_loai":"Vật tư sản xuất"},{"loaivt_id": 2,"ten_loai":"Nguyên liệu"}]
-  matrai_select = '';
+  dataduong: any = [];
+  dataloailuongphan = [{"loailuongphan_id": 1,"ten_loailuongphan":"luongphan vật tư"},{"loailuongphan_id": 2,"ten_loailuongphan":"luongphan thành phẩm"},{"loailuongphan_id": 3,"ten_loailuongphan":"luongphan nguyên liệu"}]
+  maxuong_select = '';
+  disabled= false;
   serviceBase = `${environment.apiURL}`;
   viewtrangthai = false;
   Ma_nhanvien = localStorage.getItem('Ma_nhanvien') ? localStorage.getItem('Ma_nhanvien') : sessionStorage.getItem('Ma_nhanvien') || '';
   UserName = localStorage.getItem('UserName') ? localStorage.getItem('UserName') : sessionStorage.getItem('UserName') || '';
+  
   constructor(
     public modalRef: BsModalRef,
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
-    private traiService: TraicungcapService,
-    private vattuService: VattuService
+    private xuongService: PhanxuongService,
+    private luongphanService: LuongphanService,
+    private duongService: DuongService
+    
   ) { }
 
   html: string;
@@ -52,26 +59,25 @@ export class Edit_VattuComponent implements OnInit {
   get f() { return this.form.controls; }
 
   ngOnInit(): void {    
-    this.get_danhsachtrai();
+    this.get_danhsachduong();
     if(this.data=='0'){
+      this.disabled = false;
       this.form = this.formBuilder.group({
-        ma_vattu: [''],
-        ten_vattu: [''],
-        ma_trai: [''],
-        mota: [''],
-        loai_vattu: ['']
+        ma_luong: [''],
+        ten_luong: [''],
+        ma_duong: [''],
+        mota: ['']
       });
-      this.f.loai_vattu.setValue(this.dataloaivattu[0].loaivt_id)
     }else{
+      this.disabled = true;
       this.form = this.formBuilder.group({        
-        ma_vattu: [this.data.ma_vattu, Validators.required],
-        ten_vattu: [this.data.ten_vattu],
-        ma_trai: [this.data.ma_trai],
-        mota: [this.data.mota],
-        loai_vattu: [this.data.loai_vattu]
+        ma_luong: [this.data.ma_luong, Validators.required],
+        ten_luong: [this.data.ten_luong],
+        ma_duong: [this.data.ma_duong],
+        mota: [this.data.ghichu]
       });
-      this.matrai_select = this.data.ma_trai;
     }
+    this.f.ma_duong.setValue(this.ma_duong)
   }
   
 
@@ -108,8 +114,17 @@ export class Edit_VattuComponent implements OnInit {
   onSubmit(): void {
 
     this.submitted = true;
-    if (this.f.ten_vattu.value == "" || this.f.ten_vattu.value == null) {
-      this.toastr.warning("Chưa nhập tên vật tư", "Cảnh báo",
+    if (this.f.ma_luong.value == "" || this.f.ma_luong.value == null) {
+      this.toastr.warning("Chưa nhập mã luống phân", "Cảnh báo",
+        {
+          timeOut: 3000,
+          closeButton: true,
+          positionClass: 'toast-bottom-right'
+        });
+      return;
+    }
+    if (this.f.ten_luong.value == "" || this.f.ten_luong.value == null) {
+      this.toastr.warning("Chưa nhập tên luống phân", "Cảnh báo",
         {
           timeOut: 3000,
           closeButton: true,
@@ -120,21 +135,20 @@ export class Edit_VattuComponent implements OnInit {
     this.loading = true;
     const obj = {}
     const formData = {}
-    obj['MA_VATTU'] = this.f.ma_vattu.value;
-    obj['TEN_VATTU'] = this.f.ten_vattu.value;
-    obj['LOAI_VATTU'] = this.f.loai_vattu.value;
-    obj['MA_TRAI'] = this.f.ma_trai.value;
+    obj['MA_LUONG'] = this.f.ma_luong.value;
+    obj['TEN_LUONG'] = this.f.ten_luong.value;
+    obj['MA_DUONG'] = this.f.ma_duong.value;
     obj['MOTA'] = this.f.mota.value;
     obj['NGUOI_CAPNHAT'] = this.UserName;
     formData['data'] = JSON.stringify(obj);
     if(this.data=='0'){
       try{
-        this.vattuService.vattu_ins(formData)
+        this.luongphanService.luongphan_ins(formData)
         .subscribe({
           next: (_data) => {
             this.event.emit(true);
             this.modalRef.hide();
-            this.toastr.success("Thêm mới vật tư thành công", "",
+            this.toastr.success("Thêm mới luống thành công", "",
               {
                 timeOut: 3000,
                 closeButton: true,
@@ -147,13 +161,13 @@ export class Edit_VattuComponent implements OnInit {
       }
     
     }else{
-      this.vattuService.vattu_up(formData)
+      this.luongphanService.luongphan_up(formData)
       .subscribe({
         next: (_data) => {
           console.log(_data)
           this.event.emit(true);
           this.modalRef.hide();
-          this.toastr.success("Cập nhật vật tư thành công", "",
+          this.toastr.success("Cập nhật luống phân thành công", "",
             {
               timeOut: 3000,
               closeButton: true,
@@ -172,13 +186,11 @@ export class Edit_VattuComponent implements OnInit {
     this.modalRef.hide();
   }
 
-// lấy danh sách đơn vị giao việc
-    get_danhsachtrai(): void {
-      this.traiService.get_all()
+    get_danhsachduong(): void {
+      this.duongService.get_all()
           .subscribe(
               _data => {
-                  this.datatrai = _data;
-                  this.f.ma_trai.setValue(this.datatrai[0].ma_trai)
+                  this.dataduong = _data;
               }
           );
     }

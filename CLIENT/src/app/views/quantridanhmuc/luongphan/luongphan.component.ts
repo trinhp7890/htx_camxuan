@@ -1,22 +1,23 @@
 import { Component, OnInit, Injectable, ViewChild } from '@angular/core';
-import { KhoService } from '@app/_services/danhmuc/kho.service';
+import { LuongphanService } from '@app/_services/danhmuc/luongphan.service';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmService } from '@app/_modules/confirm/confirm.service';
 import { GlobalConstants } from '@app/_models/config';
-import {Edit_KhoComponent  } from './edit_kho.component';
+import {Edit_LuongphanComponent  } from './edit_luongphan.component';
 import { environment } from '@environments/environment';
 import { PhanxuongService } from "@app/_services/danhmuc/phanxuong.service";
+import { DuongService } from '@app/_services/danhmuc/a_duong.service';
 @Component({
-  selector: 'app-kho',
-  templateUrl: './kho.component.html',
-  styleUrls: ['./kho.component.scss'],
+  selector: 'app-luongphan',
+  templateUrl: './luongphan.component.html',
+  styleUrls: ['./luongphan.component.scss'],
   providers: [
   ]
 })
-export class KhoComponent implements OnInit {
+export class LuongphanComponent implements OnInit {
   donvis: any[];
-  sokho: "10";
+  soluongphan: "10";
   totalItems = 0;
   term : string = '';
   p: number = 1;
@@ -26,22 +27,25 @@ export class KhoComponent implements OnInit {
   options = {
   };
   ma_xuong_select = '';
+  ma_duong_select= '';
   ma_xuong_user = localStorage.getItem('Ma_donvi') ? localStorage.getItem('Ma_donvi') : sessionStorage.getItem('Ma_donvi') || '';
   dataxuong = [];
+  dataduong= [];
   donvi = [];
   modalRef: BsModalRef;
   id_donvi: any;
   isDataAvailable: boolean = false;
-  khos = [];
+  luongphans = [];
   serviceBase = `${environment.apiURL}`;
   type_view = false;  
   constructor(
-    private khoService: KhoService,
+    private luongphanService: LuongphanService,
     private toastr: ToastrService,
     private modalService: BsModalService,
     private confirmService: ConfirmService,
     private xuongService: PhanxuongService,
-
+    private duongService: DuongService,
+    
   ) { }
 
   ngOnInit(): void {
@@ -52,20 +56,37 @@ export class KhoComponent implements OnInit {
   }
 
   async getValueWithAsync() {
-    this.items = await this.get_byphanxuong();    
+    this.items = await this.getluongphan_byduong();    
     this.node = this.items;
   }
-  change_xuong(){
-    this.get_byphanxuong()
+  change_duong(){
+    this.getluongphan_byduong()
   }
-  get_byphanxuong() { 
+  change_xuong(){
+    this.getduong_byphanxuong()
+  }
+  getluongphan_byduong() { 
     return new Promise<any>((resolve) => {
-      this.khoService.get_byphanxuong({"ma_xuong":this.ma_xuong_select})
+      this.luongphanService.get_byduong({"ma_duong":this.ma_duong_select})
         .subscribe(
           _data => {
-            this.khos = _data;     
+            this.luongphans = _data;     
                 this.totalItems = _data.length;
             this.p = 1;
+          }
+        );
+    })
+  }
+  getduong_byphanxuong() { 
+    return new Promise<any>((resolve) => {
+      this.duongService.get_byphanxuong({"ma_xuong":this.ma_xuong_select})
+        .subscribe(
+          _data => {
+            this.dataduong = _data;     
+                this.totalItems = _data.length;
+            this.p = 1;
+            this.ma_duong_select = this.dataduong[0].ma_duong;
+            this.getluongphan_byduong()
           }
         );
     })
@@ -79,9 +100,9 @@ export class KhoComponent implements OnInit {
 
 
   add() {
-      const initialState = { title: GlobalConstants.THEMMOI + " kho", data: '0',phanxuong: this.ma_xuong_select };
+      const initialState = { title: GlobalConstants.THEMMOI + " luống phân", data: '0',ma_duong: this.ma_duong_select };
       this.modalRef = this.modalService.show(
-        Edit_KhoComponent,
+        Edit_LuongphanComponent,
         Object.assign({}, {
           animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
         }, {
@@ -98,10 +119,10 @@ export class KhoComponent implements OnInit {
         });
   }
 
-  edit(kho) {    
-      const initialState = { title: GlobalConstants.DIEUCHINH + " kho", data:kho, phanxuong: this.ma_xuong_select };
+  edit(luongphan) {    
+      const initialState = { title: GlobalConstants.DIEUCHINH + " luống phân", data:luongphan, ma_duong: this.ma_duong_select };
       this.modalRef = this.modalService.show(
-        Edit_KhoComponent,
+        Edit_LuongphanComponent,
         Object.assign({}, {
           animated: true, keyboard: false, backdrop: false, ignoreBackdropClick: true
         }, {
@@ -127,10 +148,10 @@ export class KhoComponent implements OnInit {
     this.type_view = false;
     this.p = 0;
   }
-  deletekho(datadel){
+  deleteluongphan(datadel){
     console.log(datadel)
     let options = {
-      prompt: 'Bạn có muốn xóa kho [' + datadel['ma_kho'] + '] này không?',
+      prompt: 'Bạn có muốn xóa luống phân [' + datadel['ma_luongphan'] + '] này không?',
       title: "Thông báo",
       okText: `Đồng ý`,
       cancelText: `Hủy`,
@@ -139,16 +160,16 @@ export class KhoComponent implements OnInit {
     this.confirmService.confirm(options).then((res: boolean) => {
       if (res) {
         let input = {
-          "ma_kho": datadel.ma_kho
+          "ma_luongphan": datadel.ma_luongphan
         };
-        this.khoService.Del(input).subscribe({
+        this.luongphanService.Del(input).subscribe({
           next: (_data) => {
             this.toastr.success("Xóa thành công", 'Thông báo', {
               timeOut: 3000,
               closeButton: true,
               positionClass: 'toast-bottom-right',
             });
-            this.get_byphanxuong();
+            this.getluongphan_byduong();
           },
           error: (error) => {
             this.toastr.error(error);
@@ -163,7 +184,7 @@ export class KhoComponent implements OnInit {
         .subscribe(
             _data => {
                 this.dataxuong = _data;
-
+                this.getduong_byphanxuong()
             }
         );
   }

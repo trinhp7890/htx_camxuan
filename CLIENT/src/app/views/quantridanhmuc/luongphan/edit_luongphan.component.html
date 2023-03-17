@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">      
+        <div class="col-sm-12">
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="float-input" title="Mã luống">
+                <label  class="disabled">Mã luống <span class="required"></span></label>
+                <input type="text"  [readonly]="disabled" formControlName="ma_luong" class="form-control" />
+              </div>
+            </div> 
+            <div class="col-sm-6">
+              <div class="float-input" title="Tên luống">
+                <label  class="disabled">Tên luống <span class="required"></span></label>
+                <input type="text" formControlName="ten_luong" class="form-control" />
+              </div>
+            </div> 
+            <div class="col-sm-6">
+              <div class="float-input" title="Đường">
+                <label  class="disabled">Đường</label>
+                <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                <ng-select readonly bindLabel="name" placeholder="Mã đường" appendTo="body"
+                  [searchable]="true" [clearable]="true" formControlName="ma_duong">
+                  <ng-option [value]="item.ma_duong" [disabled]="disabled" *ngFor="let item of dataduong">
+                    <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                    {{item.ten_duong}}
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-input" title="Mô tả">
+                <label  class="disabled">Mô tả <span class="required"></span></label>
+                <input type="text" formControlName="mota" class="form-control" />
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>

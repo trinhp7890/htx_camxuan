@@ -132,6 +132,7 @@ export class Edit_GiavattuComponent implements OnInit {
     obj['TUNGAY'] = this.f.tungay.value;
     obj['DENNGAY'] = this.f.denngay.value;
     obj['GHICHU'] = this.f.ghichu.value;
+    obj['NGUOI_CAPNHAT'] = this.UserName;
     formData['data'] = JSON.stringify(obj);
     if(this.data=='0'){
       try{

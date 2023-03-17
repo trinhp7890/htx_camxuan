@@ -21,6 +21,7 @@ import { PhanxuongService } from "@app/_services/danhmuc/phanxuong.service";
 export class Edit_KhoComponent implements OnInit {
   @Input() title: string;
   @Input() data: any;
+  @Input() phanxuong: string;
 
 
   @Output() event = new EventEmitter<boolean>();
@@ -35,10 +36,12 @@ export class Edit_KhoComponent implements OnInit {
   dataxuong: any = [];
   dataloaikho = [{"loaikho_id": 1,"ten_loaikho":"Kho vật tư"},{"loaikho_id": 2,"ten_loaikho":"Kho thành phẩm"},{"loaikho_id": 3,"ten_loaikho":"Kho nguyên liệu"}]
   maxuong_select = '';
+  disabled = false;
   serviceBase = `${environment.apiURL}`;
   viewtrangthai = false;
   Ma_nhanvien = localStorage.getItem('Ma_nhanvien') ? localStorage.getItem('Ma_nhanvien') : sessionStorage.getItem('Ma_nhanvien') || '';
   UserName = localStorage.getItem('UserName') ? localStorage.getItem('UserName') : sessionStorage.getItem('UserName') || '';
+  
   constructor(
     public modalRef: BsModalRef,
     private toastr: ToastrService,
@@ -55,6 +58,7 @@ export class Edit_KhoComponent implements OnInit {
   ngOnInit(): void {    
     this.get_danhsachxuong();
     if(this.data=='0'){
+      this.disabled = false;
       this.form = this.formBuilder.group({
         ma_kho: [''],
         ten_kho: [''],
@@ -64,6 +68,7 @@ export class Edit_KhoComponent implements OnInit {
       });
       this.f.loai_kho.setValue(this.dataloaikho[0].loaikho_id)
     }else{
+      this.disabled = true;
       this.form = this.formBuilder.group({        
         ma_kho: [this.data.ma_kho, Validators.required],
         ten_kho: [this.data.ten_kho],
@@ -72,6 +77,7 @@ export class Edit_KhoComponent implements OnInit {
         ghichu: [this.data.ghichu]
       });
     }
+    this.f.ma_xuong.setValue(this.phanxuong)
   }
   
 
@@ -134,6 +140,7 @@ export class Edit_KhoComponent implements OnInit {
     obj['LOAI_KHO'] = this.f.loai_kho.value;
     obj['MA_XUONG'] = this.f.ma_xuong.value;
     obj['GHICHU'] = this.f.ghichu.value;
+    obj['NGUOI_CAPNHAT'] = this.UserName;
     formData['data'] = JSON.stringify(obj);
     if(this.data=='0'){
       try{
@@ -185,8 +192,6 @@ export class Edit_KhoComponent implements OnInit {
           .subscribe(
               _data => {
                   this.dataxuong = _data;
-                  console.log(this.dataxuong)
-                  this.f.ma_xuong.setValue(this.dataxuong[0].ma_xuong)
               }
           );
     }

@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 
-const baseUrl = `${environment.apiURL}/api/dmkho`;
+const baseUrl = `${environment.apiURL}/api/dmduong`;
 
 @Injectable({
   providedIn: 'root'
 })
-export class KhoService {
+export class DuongService {
 
   constructor(private http: HttpClient) { }
 

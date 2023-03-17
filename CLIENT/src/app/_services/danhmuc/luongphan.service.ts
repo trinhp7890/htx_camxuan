@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 
-const baseUrl = `${environment.apiURL}/api/dmkho`;
+const baseUrl = `${environment.apiURL}/api/dmluongphan`;
 
 @Injectable({
   providedIn: 'root'
 })
-export class KhoService {
+export class LuongphanService {
 
   constructor(private http: HttpClient) { }
 
@@ -21,9 +21,9 @@ export class KhoService {
       formData
     );
   }
-  get_byphanxuong(formData: any): Observable<any> {
+  get_byduong(formData: any): Observable<any> {
     return this.http.post(
-      `${baseUrl}/getbyphanxuong`,
+      `${baseUrl}/getbyduong`,
       formData
     );
   }
@@ -33,14 +33,14 @@ export class KhoService {
       formData
     );
   }
-  kho_ins(formData: any): Observable<any> {
+  luongphan_ins(formData: any): Observable<any> {
     return this.http.post(
       `${baseUrl}/capnhat`,
       formData
     );
   }
 
-  kho_up(formData: any): Observable<any> {
+  luongphan_up(formData: any): Observable<any> {
     return this.http.post(
       `${baseUrl}/capnhat`,
       formData
