@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from "@angular/core";
+
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -28,6 +29,8 @@ import { KhoComponent } from './kho/kho.component';
 import { Edit_KhoComponent } from './kho/edit_kho.component';
 import { LuongphanComponent } from './luongphan/luongphan.component';
 import { Edit_LuongphanComponent } from './luongphan/edit_luongphan.component';
+import { Edit_tuyenduongComponent } from './tuyenduong/edit_tuyenduong.component';
+import { TuyenduongComponent } from './tuyenduong/tuyenduoing.component';
 
 @NgModule({
     imports: [
@@ -51,7 +54,8 @@ import { Edit_LuongphanComponent } from './luongphan/edit_luongphan.component';
     declarations: [
         // nguon phat sinh
         Edit_phanxuongComponent, PhanxuongComponent, GiavattuComponent,Edit_GiavattuComponent,VattuComponent,
-        Edit_VattuComponent,TraicungcapComponent,Edit_TraiComponent,KhoComponent,Edit_KhoComponent,LuongphanComponent,Edit_LuongphanComponent
+        Edit_VattuComponent,TraicungcapComponent,Edit_TraiComponent,KhoComponent,Edit_KhoComponent,LuongphanComponent,Edit_LuongphanComponent,
+        TuyenduongComponent, Edit_tuyenduongComponent
     ]
 })
 export class AppqtdanhmucModulue { }
