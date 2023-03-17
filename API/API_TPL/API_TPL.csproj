@@ -236,6 +236,7 @@
     <Compile Include="Controllers\Admin\NoAuthenController.cs" />
     <Compile Include="Controllers\Admin\QuyenController.cs" />
     <Compile Include="Controllers\Admin\QuyenNDController.cs" />
+    <Compile Include="Controllers\Danhmuc\DmLuongphanController.cs" />
     <Compile Include="Controllers\Danhmuc\DmVattuController.cs" />
     <Compile Include="Controllers\Hoso\DashboardController.cs" />
     <Compile Include="Controllers\Hoso\ThongbaoController.cs" />

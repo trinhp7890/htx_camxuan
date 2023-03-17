@@ -112,5 +112,26 @@ namespace API_TPL.Controllers.Danhmuc
                 return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, err));
             }
         }
+        [Route("getbyphanxuong"), HttpPost]
+        public IHttpActionResult DM_KHO_BYPHANXUONG([FromBody] dynamic obj)
+        {
+            string query_str = "dm_kho_getbyphanxuong";
+
+            object[] aParams = new object[1];
+            try
+            {
+                aParams[0] = helper.BuildParameter("ma_xuong", obj.ma_xuong, System.Data.SqlDbType.NVarChar);
+
+                DataTable kq = helper.ExecuteQueryStoreProcedure(query_str, aParams);
+
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, kq));
+            }
+            catch (Exception ex)
+            {
+                //return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message));
+                string err = ex.Message.Substring(0, ex.Message.IndexOf("\n", 0)).Substring(ex.Message.IndexOf(":") + 2).Trim();
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, err));
+            }
+        }
     }
 }
