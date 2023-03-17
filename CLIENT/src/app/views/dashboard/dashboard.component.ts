@@ -58,9 +58,9 @@ export class DashboardComponent {
   term: string = '';
   p: number = 1;
   ngOnInit(): void {
-    this.get_box();
-    this.get_chitiet();
-    this.get_bieudo();    
+    // this.get_box();
+    // this.get_chitiet();
+    // this.get_bieudo();    
   }
   get_box(): void {
     this.dashboardService.get_box(this.Ma_nhanvien)

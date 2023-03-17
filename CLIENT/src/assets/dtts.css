@@ -2596,21 +2596,34 @@ p.BgInputTextStyle.Sprite1 {
     background: #f5f5f5 !important;
 }
 .header-img img{
-    width: 35px;
+    width: 130px;
+    margin-top: -10px;
 }
 .header-img{
-    color: #0067B1;
+    color: #11A34F;
 }
 .img-icon-nhanvien{
     width: 20px;
     height: 20px;
     border-radius: 10px;
 }
+.title-danhmuc-camxuan{
+    float: right;
+            padding-top: 6px;
+            padding-left: 8px;
+}
 .title-table-attachfile{
     background-color: #fff !important;
     font-size: 13px;
     color: #5b6e82;
     font-weight: 100 !important;
+}
+.ngx-pagination .current{
+    background-color: #12A551 !important;
+}
+.fa-edit{
+    color: #11A34F;
+     font-size: 20px;
 }
 .do-uu-tien-thuong{
     float: revert;
@@ -2684,7 +2697,7 @@ p.BgInputTextStyle.Sprite1 {
     padding-left: 0px !important;
 }
 #main{
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
 }
 .question, .lb_question{
   font-family: 'Ubuntu', sans-serif;
