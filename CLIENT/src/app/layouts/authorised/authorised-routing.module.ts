@@ -12,8 +12,8 @@ const baocao = () => import('../../views/baocao/app.baocao.module').then(x => x.
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'dashboard'},
-    { path: 'dashboard', component: DashboardComponent },    
+    { path: '', redirectTo: 'home'},
+    { path: 'home', component: DashboardComponent },    
     { 
         path: 'danh-muc', 
         loadChildren: dmModule

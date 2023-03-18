@@ -1,16 +1,221 @@
+<style>
+  * {box-sizing:border-box}
+/* thiết lập style cho slideshow container */
+ .slideshow-container {
+   max-width: 1000px;
+   position: relative;
+   margin: auto;
+ }
+/* ẩn hình ảnh cho phần tử slideshow */
+ .mySlides {
+   display: none;
+ }
+ .fade:not(.show) {
+    opacity: 1;
+}
+/* thiết kế nút mũi tên*/
+ .prev, .next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   width: auto;
+   margin-top: -22px;
+   padding: 16px;
+   color: white;
+   font-weight: bold;
+   font-size: 18px;
+   transition: 0.6s ease;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+ }
+/* thiết kế nút mũi tên next nằm phía bên phải */
+ .next {
+   right: 0;
+   border-radius: 3px 0 0 3px;
+ }
+/* hiệu ứng thay đổi background khi hover vào nút mũi tên*/
+ .prev:hover, .next:hover {
+   background-color: rgba(0,0,0,0.8);
+ }
+/* Thiết lập style cho nội dung của mỗi phần tử slideshow */
+ .text {
+   color: #f2f2f2;
+   font-size: 15px;
+   padding: 8px 12px;
+   position: absolute;
+   bottom: 8px;
+   width: 100%;
+   text-align: center;
+ }
+/* Thiết lập style cho số hiển thị của phần tử */
+ .numbertext {
+   color: #f2f2f2;
+   font-size: 12px;
+   padding: 8px 12px;
+   position: absolute;
+   top: 0;
+ }
+/* thiết lập style  nút tròn điều khiển*/
+ .dot {
+   cursor: pointer;
+   height: 15px;
+   width: 15px;
+   margin: 0 2px;
+   background-color: #bbb;
+   border-radius: 50%;
+   display: inline-block;
+   transition: background-color 0.6s ease;
+ }
+.active, .dot:hover {
+   background-color: #717171;
+ }
+/* tạo hiệu ứng chuyển động fade */
+ .fade {
+   -webkit-animation-name: fade;
+   -webkit-animation-duration: 1.5s;
+   animation-name: fade;
+   animation-duration: 1.5s;
+ }
+ .main-content{
+  background-color: #fff;
+ }
+ .header-div {
+    width: 70%;
+    z-index: 1030;
+    position: fixed;
+}
+@-webkit-keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+ }
+@keyframes fade {
+   from {opacity: .4}
+   to {opacity: 1}
+ }
+
+</style>
+<script>
+  
+
+</script>
+
 <section id="dashboard" class="extend clearfix">
   <div class="header-div">
     <div class="header-text">
       <h3 style="float: left">
         <a href="/">
           <span class="header-img">
-            <img src="../../../../assets/images/logo_ktm.png">
-            Quản lý công việc
+            <img src="../../../assets/images/slider/camxuan.JPG" style="width: 150px;">           
+
           </span>
         </a>
+        <div style="padding-left: 180px;
+        color: #12A551;
+        text-align: center;
+        position: absolute;
+        top: 21%;
+        width: 125%;
+        font-size: 30px;
+    ">
+          <p>HỢP TÁC XÃ NÔNG NGHIỆP SINH THÁI CẨM XUÂN</p>         
+        </div>
       </h3>
     </div>
   </div>
+ <!--Nguồn W3School -->
+<!-- Thẻ Chứa Slideshow -->
+<div class="slideshow-container">
+  <!-- Kết hợp hình ảnh và nội dung cho mội phần tử trong slideshow-->
+   <div class="mySlides fade" style="display: block;">
+     <div class="numbertext" >1 / 16</div>
+     <img src="../../../assets/images/slider/1.jpg" style="width:100%">
+   </div>
+  <div class="mySlides fade">
+     <div class="numbertext">2 / 16</div>
+     <img src="../../../assets/images/slider/2.jpg" style="width:100%">
+   </div>
+  <div class="mySlides fade">
+     <div class="numbertext">3 / 16</div>
+     <img src="../../../assets/images/slider/3.jpg" style="width:100%">
+   </div>
+   <div class="mySlides fade">
+    <div class="numbertext">4 / 16</div>
+    <img src="../../../assets/images/slider/4.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 16</div>
+    <img src="../../../assets/images/slider/5.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">6 / 16</div>
+    <img src="../../../assets/images/slider/6.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">7 / 16</div>
+    <img src="../../../assets/images/slider/7.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">8 / 16</div>
+    <img src="../../../assets/images/slider/8.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">9 / 16</div>
+    <img src="../../../assets/images/slider/9.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">10 / 16</div>
+    <img src="../../../assets/images/slider/10.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">11 / 16</div>
+    <img src="../../../assets/images/slider/11.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">12 / 16</div>
+    <img src="../../../assets/images/slider/12.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">13 / 16</div>
+    <img src="../../../assets/images/slider/13.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">14 / 16</div>
+    <img src="../../../assets/images/slider/14.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">15 / 16</div>
+    <img src="../../../assets/images/slider/15.jpg" style="width:100%">
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">16 / 16</div>
+    <img src="../../../assets/images/slider/16.jpg" style="width:100%">
+  </div>
+  <!-- Nút điều khiển mũi tên-->
+   <a class="prev" onclick="plusSlides(-1)">❮</a>
+   <a class="next" onclick="plusSlides(1)">❯</a>
+ </div>
+ <br>
+<!-- Nút tròn điều khiển slideshow-->
+ <div style="text-align:center">
+   <span class="dot" onclick="currentSlide(1)"></span>
+   <span class="dot" onclick="currentSlide(2)"></span>
+   <span class="dot" onclick="currentSlide(3)"></span>
+   <span class="dot" onclick="currentSlide(4)"></span>
+   <span class="dot" onclick="currentSlide(5)"></span>
+   <span class="dot" onclick="currentSlide(6)"></span>
+   <span class="dot" onclick="currentSlide(7)"></span>
+   <span class="dot" onclick="currentSlide(8)"></span>
+   <span class="dot" onclick="currentSlide(9)"></span>
+   <span class="dot" onclick="currentSlide(10)"></span>
+   <span class="dot" onclick="currentSlide(11)"></span>
+   <span class="dot" onclick="currentSlide(12)"></span>
+   <span class="dot" onclick="currentSlide(13)"></span>
+   <span class="dot" onclick="currentSlide(14)"></span>
+   <span class="dot" onclick="currentSlide(15)"></span>
+   <span class="dot" onclick="currentSlide(16)"></span>
+
+ </div>
+  
   <!-- tabs -->
   <!-- <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
     <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
@@ -21,7 +226,7 @@
 
     <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
     <label for="tab3"><i class="icon-cogs"></i>Công việc mục tiêu</label> -->
-    <tabset>
+    <!-- <tabset>
       <tab heading="Công việc phát sinh" class="mt-2 tab-dashboard" (selectTab)="onSelect(1)">
 
     <ul>
@@ -303,7 +508,7 @@
         <div id="grid-result" class="body">
         </div>
       </tab>
-    </tabset>
+    </tabset> -->
   <!-- </div> -->
   <!--/ tabs -->
 

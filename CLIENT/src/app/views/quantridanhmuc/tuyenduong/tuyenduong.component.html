@@ -1,0 +1,99 @@
+<section id="main" class="extend clearfix" style="min-height: 700px;">
+  <div class="header-div">
+    <div class="header-text">
+      <h3 style="float: left">
+        <a href="/">
+          <span class="header-img">
+            <img src="../../../../assets/images/slider/camxuan2.JPG">
+            <p class="title-danhmuc-camxuan">/  Danh mục Đường
+          </span>
+        </a>
+      </h3>
+    </div>
+  </div>
+  <div class="danhsach" style="background: #fff !important;">
+    <div class="row row-frm">
+      <div class="col-sm-12">
+        <div class="modal-body">
+          <div class="clearfix">
+            <div style="justify-content: space-between;">
+              <div class="col-sm-6">
+                <div class="input-group" style="height:35px">
+                  <input type="text" [(ngModel)]="term" class="form-control" style="height:35px"
+                    placeholder="Nhập từ khóa để tìm kiếm">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6" style="text-align: right;">
+                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;border-radius:3px;"
+                  (click)="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm mới</button>
+              </div>
+            </div>
+            <div id="grid-result" class="body">
+              <div>
+                <table class="table table-condensed table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-sm-1">STT</th>
+                      <th class="col-sm-2">Mã đường</th>
+                      <th class="col-sm-2">Tên dường</th>
+                      <th class="col-sm-3">Tên xưởng</th>
+                      <th class="col-sm-3">Mo tả</th>
+                      <th class="col-sm-1"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let tuyenduong of tuyenduongs | filter:term | paginate: { itemsPerPage: 15, currentPage: p };let i = index">
+                      <td class="text-center">{{i + 1 }}</td>
+                      <td>
+                        {{tuyenduong.ma_duong}}
+                      </td>
+                      <td>
+                        {{tuyenduong.ten_duong}}
+                      </td>
+                      <td>
+                        {{tuyenduong.ten_xuong}}
+                      </td>
+                      <td>
+                        {{tuyenduong.mota}}
+                      </td>
+                      <td class="text-center chucnang-fa">
+                        <a href="javascript:void(0);" (click)="edit(tuyenduong)">
+                          <i class="fa fa-edit" ></i>
+                        </a>
+                        <a href="javascript:void(0);" (click)="delete(tuyenduong)">
+                          <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>              
+              <div class="gray-bg btn-block">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="row row-frm">
+                      <div class="col-md-6">
+                        <span class="grid-counter gray-color fc-666 pull-left">Số bản ghi:
+                          <strong>{{totalItems}}</strong>
+                        </span>
+                      </div>
+                      <div class="col-md-6">
+                        <pagination-controls (pageChange)="p = $event" class="pull-right" previousLabel="" nextLabel="">
+                        </pagination-controls>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

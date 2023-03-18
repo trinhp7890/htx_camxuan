@@ -1,0 +1,69 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header" style="display: flow-root;">
+    <button type="button" class="close" (click)="closed()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+      <i style="margin-right: 10px; color: #17b799; font-size: 20px;" class="fa fa-plus-square"></i> {{title}}
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="clearfix">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row row-frm">
+            <div class="col-sm-6">
+              <div class="col-sm-12">
+                <div class="float-input" title="Mã đường">
+                  <label class="disabled">Mã đường<span class="required"></span></label>
+                  <input  *ngIf="viewtrangthai" readonly type="text" formControlName="ma_duong" class="form-control" />
+                  <input  *ngIf="viewtrangthai == false" type="text" formControlName="ma_duong" class="form-control" />
+                 
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="float-input" title="Tên đường">
+                  <label class="disabled">Tên đường<span class="required"></span></label>
+                  <input type="text" formControlName="ten_duong" class="form-control" />
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="float-input" title="Phân xưởng:">
+                  <label class="disabled">Phân xưởng: <span class="required"></span></label>
+                  <ng-select bindLabel="name" formControlName="phanxuong" placeholder="Phân xưởng" appendTo="body"
+                    [searchable]="true" [clearable]="true" [(ngModel)]="phanxuong_select">
+                    <ng-option [value]="item.ma_xuong" [disabled]="item.disabled" *ngFor="let item of dataphanxuong">
+                      <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                      {{item.ten_xuong
+                      }}
+                    </ng-option>
+                  </ng-select>
+                </div>
+              </div>
+            </div>
+            <!-- <div *ngIf="viewtrangthai" class="col-sm-2">
+              <div class="float-input" title="Trạng thái">
+                <label class="disabled">Trạng thái<span class="required"></span></label>
+                <select formControlName="trangthai" class="form-control" style="height: 31px;">
+                  <option value="0" selected>Đang dùng</option>
+                  <option value="1" selected>Khóa</option>
+                </select>
+              </div>
+            </div>     -->
+            <div class="col-sm-6">
+              <div class="float-input" title="Mô tả">
+                <label class="disabled"> Mô tả<span class="required"></span></label>
+                <textarea type="text" formControlName="mota" class="form-control trichyeuvanban"></textarea>
+              </div>
+            </div>
+          </div>         
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Lưu</button>
+    <button type="button" class="btn btn-sm btn-default" (click)="closed()">Đóng</button>
+  </div>
+</form>
