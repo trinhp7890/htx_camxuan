@@ -20,7 +20,7 @@ namespace API_TPL.Controllers.Danhmuc
 {
     //[Authorize]
     [RoutePrefix("api/nhapkho")]
-    public class GiamsatController : ApiController
+    public class NhapkhoController : ApiController
     {
         static String connString = ConfigurationManager.ConnectionStrings["PHANBONConnection"].ToString();
         SQL_DBHELPERs helper = new SQL_DBHELPERs(connString);
