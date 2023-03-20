@@ -55,7 +55,7 @@
               <div class="col-sm-6" style="margin-bottom:15px">
                 <div title="Nhập nguyên liệu từ kho">
                   <label>
-                    <input type="radio" checked="true" name="kieunhap" value="1" formControlName="nhaptukho"
+                    <input type="radio" name="kieunhap" value="1" formControlName="nhaptukho"
                       (change)="onOptionSelected($event)">
                     Nhập nguyên liệu từ kho
                   </label>
@@ -102,7 +102,7 @@
                 <div class="col-sm-6">
                   <div class="float-input" title="Số lượng">
                     <label class="disabled">Số lượng <span class="required"></span></label>
-                    <input type="text" formControlName="soluong" class="form-control" />
+                    <input type="number" min="0" max="100" step="1" formControlName="soluong" class="form-control" />
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -123,14 +123,13 @@
             <div class="col-sm-12">
               <div *ngIf="nhaptukho == 2">
                 <div class="col-sm-12">
-                  <div class="float-input" title="Vật tư/Nguyên liệu">
-                    <label class="disabled">Vật tư/Nguyên liệu</label>
-                    <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
-                    <ng-select bindLabel="name" placeholder="Mã vật tư" appendTo="body" [searchable]="true"
-                      [clearable]="true" formControlName="ma_vattu">
-                      <ng-option [value]="item.ma_vattu" *ngFor="let item of datavattu">
+                  <div class="float-input" title="Chọn luống phân đang xử lí">
+                    <label class="disabled">Chọn luống phân</label>
+                    <ng-select bindLabel="name" placeholder="Mã luống" appendTo="body" [searchable]="true"
+                      [clearable]="true" formControlName="ma_luong">
+                      <ng-option [value]="item.ten_luong" *ngFor="let item of dataluong">
                         <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
-                        {{item.ten_vattu}}
+                        {{item.ten_luong}}
                       </ng-option>
                     </ng-select>
                   </div>
