@@ -4,13 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { TreeModule } from '@circlon/angular-tree-component';
-import { QldonviComponent } from "./qlnhansu/donvi.component";
 import { LoginComponent } from "../login/login.component";
+import { NhapkhoComponent } from "./nhapkho/nhapkho.component";
+import { NhapluongComponent } from "./nhapluong/nhapluong.component";
 
 
-const routes: Routes = [           
-    { path: 'qlnguoidung',              component: QldonviComponent },  
-    { path: 'logintelegram/:id',              component: LoginComponent }
+const routes: Routes = [            
+    { path: 'logintelegram/:id',              component: LoginComponent },  
+    { path: 'nhapkho',              component: NhapkhoComponent },
+    { path: 'nhapluong',              component: NhapluongComponent }
 ];
 
 @NgModule({

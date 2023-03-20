@@ -5,49 +5,74 @@
         <a href="/">
           <span class="header-img">
             <img src="../../../../assets/images/slider/camxuan2.JPG">
-            <p class="title-danhmuc-camxuan">/ Danh mục Vật tư
+            <p class="title-danhmuc-camxuan">/ Nhập vật tư - Nguyên liệu vào kho
           </span>
         </a>
       </h3>
     </div>
   </div>
-  <div class="danhsachcongviec" style="background: #fff !important;">
-    <div class="row row-frm">      
+  <div class="danhsach" style="background: #fff !important;">
+    <div class="row row-frm">
       <div class="col-sm-12">
         <div class="modal-body">
           <div class="clearfix">
-            <div style="justify-content: space-between;">
-              <div class="col-sm-6">
-                <div class="input-group" style="height:35px">
-                  <input type="text" [(ngModel)]="term" class="form-control" style="height:35px"
-                    placeholder="Nhập từ khóa để tìm kiếm">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+            <div id="grid-result" class="body">
+              <div style="justify-content: space-between;">
+                <div class="col-sm-4">
+                  <div class="input-group" style="height:35px">
+                    <input type="text" [(ngModel)]="term" class="form-control" style="height:35px"
+                      placeholder="Nhập từ khóa để tìm kiếm">
+                    <div class="input-group-append">
+                      <span class="input-group-text"><i class="fa fa-search"></i></span>
+                    </div>
                   </div>
                 </div>
+                <div class="col-sm-3">
+                  <div class="float-input" title="Phân xưởng">
+                    <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                    <ng-select bindLabel="name" placeholder="Mã xưởng" appendTo="body" [searchable]="true"
+                      [clearable]="true" [(ngModel)]="ma_xuong_select" (change)="change_xuong()">
+                      <ng-option [value]="item.ma_xuong" [disabled]="item.disabled" *ngFor="let item of dataxuong">
+                        <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                        {{item.ten_xuong}}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="float-input" title="Chọn kho">
+                    <!-- <input type="text" formControlName="tencongviec" class="form-control" /> -->
+                    <ng-select bindLabel="name" placeholder="Mã kho" appendTo="body" [searchable]="true"
+                      [clearable]="true" [(ngModel)]="ma_kho_select" (change)="change_kho()">
+                      <ng-option [value]="item.ma_kho" [disabled]="item.disabled" *ngFor="let item of datakho">
+                        <img src="../../../../assets/images/home.PNG" width="20px" height="20px" />
+                        {{item.ten_kho}}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-sm-2" style="text-align: right;">
+                  <button type="button" class="btn btn-primary" style="margin-bottom: 10px;border-radius:3px;"
+                    (click)="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nhập kho</button>
+                </div>
               </div>
-              <div class="col-sm-6" style="text-align: right;">
-                <button type="button" class="btn btn-primary" style="margin-bottom: 10px;border-radius:3px;"
-                  (click)="add()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm mới</button>
-              </div>
-            </div>
-            <div id="grid-result" class="body">
               <div *ngIf="type_view == false">
                 <table class="table table-condensed table-striped table-bordered">
                   <thead>
                     <tr>
                       <th class="col-sm-1">STT</th>
-                      <th class="col-sm-2">Mã vật tư</th>
-                      <th class="col-sm-2">Tên vật tư</th>
-                      <th class="col-sm-2">Loại vật tư</th>
-                      <th class="col-sm-2">Mô tả</th>
-                      <th class="col-sm-2">Nơi cung cấp</th>
+                      <th class="col-sm-1">Mã vật tư</th>
+                      <th class="col-sm-3">Tên vật tư</th>
+                      <th class="col-sm-1">Số lượng</th>
+                      <th class="col-sm-1">Đơn vị tính</th>
+                      <th class="col-sm-2">Tình trạng</th>
+                      <th class="col-sm-2">Ghi chú</th>
                       <th class="col-sm-2"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr
-                      *ngFor="let vattu of vattus | filter:term | paginate: { itemsPerPage: 15, currentPage: p };let i = index">
+                      *ngFor="let vattu of vattukhos | filter:term | paginate: { itemsPerPage: 15, currentPage: p };let i = index">
                       <td class="text-center">{{i + 1 }}</td>
                       <td>
                         {{vattu.ma_vattu}}
@@ -56,17 +81,20 @@
                         {{vattu.ten_vattu}}
                       </td>
                       <td>
-                        {{vattu.ten_loaivt}}
+                        {{vattu.soluong}}
                       </td>
                       <td>
-                        {{vattu.mota}}
+                        {{vattu.ten_dv_tinh}}
                       </td>
                       <td>
-                        {{vattu.ten_trai}}
+                        {{vattu.ten_tinhtrang}}
+                      </td>
+                      <td>
+                        {{vattu.ghichu}}
                       </td>
                       <td class="text-center chucnang-fa">
                         <a href="javascript:void(0);" (click)="edit(vattu)">
-                          <i class="fa fa-edit"></i>
+                          <i class="fa fa-edit" ></i>
                         </a>
                         <a href="javascript:void(0);" (click)="deletevattu(vattu)">
                           <i class="fa fa-times-circle" style="color: red; font-size: 20px;"></i>
@@ -78,12 +106,12 @@
               </div>
               <div *ngIf="type_view">
                 <div
-                  *ngFor="let vattu of vattus  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
+                  *ngFor="let vattu of vattukhos  | filter:term | paginate: { itemsPerPage: 8, currentPage: p }; let i = index"
                   class="col-sm-12 nhansu-detail">
                   <div class="edit-card-custom">
                     <a class="text-center tooltips c-pointer" (click)="edit(vattu)"
                       style="position: absolute; right: 30px; cursor:pointer;">
-                      <i class="fa fa-edit"></i>
+                      <i class="fa fa-edit" ></i>
                     </a>
                     <a class="text-center tooltips c-pointer" (click)="deletevattu(vattu)"
                       style="position: absolute; right: 8px; cursor:pointer;">
@@ -96,8 +124,7 @@
                       <p class="nhansu-name">
                         <i *ngIf="vattu.trangthai == 0" style="margin-right: 5px; color: chartreuse;"
                           class="fa fa-circle"></i>
-                        <i *ngIf="vattu.trangthai != 0" style="margin-right: 5px; color: red;"
-                          class="fa fa-circle"></i>
+                        <i *ngIf="vattu.trangthai != 0" style="margin-right: 5px; color: red;" class="fa fa-circle"></i>
                         {{vattu.ten}}
                       </p>
                     </div>
@@ -109,7 +136,7 @@
                         <label class="disabled">Nội dung <span class="required"></span></label>
                         <textarea type="text" readonly style="background-color: #fff;" [(ngModel)]="vattu.noidung"
                           class="form-control trichyeuvanban"></textarea>
-                      </div>                    
+                      </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="float-input" title="Văn bản đính kèm">
@@ -125,7 +152,7 @@
                               <td>{{i + 1 }}</td>
                               <td>
                                 <a href="{{serviceBase}}/{{fileat[8]}}" target="_blank">{{ fileat[9] }}</a>
-                              </td>                            
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -139,8 +166,9 @@
                   <div class="col-sm-12">
                     <div class="row row-frm">
                       <div class="col-md-6">
-                        <span class="grid-counter gray-color fc-666 pull-left">Số bản ghi: <strong>{{totalItems}}</strong>
-                          </span>
+                        <span class="grid-counter gray-color fc-666 pull-left">Số bản ghi:
+                          <strong>{{totalItems}}</strong>
+                        </span>
                       </div>
                       <div class="col-md-6">
                         <pagination-controls (pageChange)="p = $event" class="pull-right" previousLabel="" nextLabel="">

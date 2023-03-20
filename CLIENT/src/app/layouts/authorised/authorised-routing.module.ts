@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '@app/views/dashboard/dashboard.component';
 
 const qlhethong = () => import('../../views/qlhethong/app.qlhethong.module').then(x => x.AppqlhethongModulue);
+const qlnghiepvu = () => import('../../views/nghiepvu/app.nghiepvu.module').then(x => x.AppNghiepvuModulue);
 const dmModule = () => import('../../views/cat/app.dm.module').then(x => x.AppDmModulue);
 const cvModule = () => import('../../views/congviec/app.cv.module').then(x => x.AppCvModulue);
 const qtnoidungModule = () => import('../../views/quantrinoidung/app.qtnoidung.module').then(x => x.AppqtnoidungModulue);
@@ -35,6 +36,10 @@ const routes: Routes = [
     ,{ 
         path: 'Baocao', 
         loadChildren: baocao
+    },
+    { 
+        path: 'Nghiepvu', 
+        loadChildren: qlnghiepvu
     }
     
     
